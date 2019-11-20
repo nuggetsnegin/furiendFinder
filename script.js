@@ -54,7 +54,13 @@ furiendFinder.getPetsAvailable = function(petAge){
 
 /*method to display results into the html*/
 furiendFinder.displayResults = function(totalPets, petAge){
-    $('.age').append(`<li><p>${petAge}</p><img src="http://placekitten.com/g/200/300"><p>${totalPets}</p></li>`);
+    $('.age').append(`
+        <li>
+            <button class="ageButton ${petAge}">
+                <p>${petAge}</p>
+                <p>${totalPets}</p>
+            </button>
+        </li>`);
 
 }
 
