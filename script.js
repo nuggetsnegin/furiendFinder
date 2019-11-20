@@ -65,8 +65,6 @@ furiendFinder.displayResults = function(totalPets, petAge){
 }
 
 // furiendFinder.getPetsAvailable();
-
-
 $(document).ready(function(){
     furiendFinder.init();
 })
