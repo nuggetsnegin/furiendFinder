@@ -17,6 +17,7 @@ furiendFinder.init = function () {
     }
     $(`.ageButton`).on('click', furiendFinder.ageClickEvent); /*only call click event when document ready*/
     $(`.adoptablePets`).on('click', '.adoptionButton', furiendFinder.getMoreInfoCLickEvent);
+    furiendFinder.getBreedFacts();
 }
 
 /*find all the available pets for adoption*/
@@ -42,6 +43,8 @@ furiendFinder.getPetsAvailable = function (petAge, petType, petBreed, city, func
                 age: petAge,
                 type: petType,
                 status: "adoptable",
+                distance: 31,
+                /*50miles in km*/
                 location: city,
                 /*change later to a variable*/
                 breed: petBreed,
@@ -60,43 +63,62 @@ furiendFinder.getNumPets = function (data, petAge, petType, city, petBreed) {
 }
 
 /*accessing catAPI for cat breed facts*/
-furiendFinder.getBreedFacts = function () {
+furiendFinder.getBreedFacts = function (breed) {
     $.ajax({
-        url: "https://api.thecatapi.com/v1/breeds/",
+        url: "https://api.thecatapi.com/v1/breeds",
         headers: {
             "x-api-key": furiendFinder.catApiKey
         },
-    }).then((data) => {
-        for (let i = 0; i < data.length; i++) {
-            const petName = data[i].name;
-            const petLifeSpan = data[i]["life_span"];
-            const petTemperament = data[i].temperament;
-            const petOrigin = data[i].origin;
-            const petId = data[i].id;
-        }
+    }).then((dataArray) => {
+        furiendFinder.breedInfo = {};
+
+        dataArray.forEach(function (data) {
+            furiendFinder.breedInfo[data.name] = data;
+        });
     });
 }
 
-furiendFinder.ageClickEvent = function (){
+furiendFinder.ageClickEvent = function () {
     $(`.petAge`).fadeOut();
     /*rememb er to show next page*/
     const petAge = $(this).val();
     furiendFinder.getPetsAvailable(petAge, "cat", "", "Toronto, ON", furiendFinder.getAdoptablePets);
 }
 
-furiendFinder.getMoreInfoCLickEvent = function(){
+furiendFinder.getMoreInfoCLickEvent = function () {
     $(`.adoptionOptions`).fadeOut();
-    const petId = $(this).val();
-    console.log(petId);   
+    const petIndex = $(this).val();
+
+    const breedName = furiendFinder.animalsArray[petIndex].breeds.primary;
+    const breedLifeSpan = furiendFinder.breedInfo[breedName]["life_span"];
+    const breedTemperament = furiendFinder.breedInfo[breedName]["temperament"];
+    const breedOrigin = furiendFinder.breedInfo[breedName]["origin"];
+    const breedWeight = furiendFinder.breedInfo[breedName]["weight"]["metric"];
+    const breedAffection = furiendFinder.breedInfo[breedName]["affection_level"];
+    const breedAdaptability = furiendFinder.breedInfo[breedName]["adaptability"];
+    const breedChildFriendly = furiendFinder.breedInfo[breedName]["child_friendly"];
+    const breedEnergy = furiendFinder.breedInfo[breedName]["energy_level"];
+
+    const name = furiendFinder.animalsArray[petIndex].name;
+    const imgUrl = furiendFinder.animalsArray[petIndex].photos[0].medium;
+    const gender = furiendFinder.animalsArray[petIndex].gender;
+    const petBreed = furiendFinder.animalsArray[petIndex].breeds.primary;
+    const size = furiendFinder.animalsArray[petIndex].size;
+    const attributes = furiendFinder.animalsArray[petIndex].attributes;
+    const contact = furiendFinder.animalsArray[petIndex].contact;
+    const url = furiendFinder.animalsArray[petIndex].url;
+    const mixed = furiendFinder.animalsArray[petIndex].mixed;
+
+    furiendFinder.appendInformation(name, imgUrl, gender, size, petBreed, attributes, contact, url, mixed, breedLifeSpan, breedTemperament, breedOrigin, breedAffection, breedWeight, breedAdaptability, breedChildFriendly, breedEnergy);
 }
 
 /*Called after API call - create the buttons for each available adoptable pet by user age selection*/
 furiendFinder.getAdoptablePets = function (data, petAge, petType, petBreed, city) {
     console.log(data);
     const animalsArray = data.animals;
-    for(let i = 0; i < animalsArray.length; i++){
-        if(animalsArray[i].photos[0] !== undefined){
-            furiendFinder.adoptableButton(i, animalsArray[i].name, animalsArray[i].breeds.primary,animalsArray[i].photos[0].medium, "cat", animalsArray[i].breeds.mixed );
+    for (let i = 0; i < animalsArray.length; i++) {
+        if (animalsArray[i].photos[0] !== undefined) {
+            furiendFinder.adoptableButton(i, animalsArray[i].name, animalsArray[i].breeds.primary, animalsArray[i].photos[0].medium, "cat", animalsArray[i].breeds.mixed);
             console.log(animalsArray[i].name);
         }
     }
@@ -104,7 +126,7 @@ furiendFinder.getAdoptablePets = function (data, petAge, petType, petBreed, city
 }
 
 /*appending the adoptable pets to a button*/
-furiendFinder.adoptableButton = function(index, name, breed, url, petType, mixed){
+furiendFinder.adoptableButton = function (index, name, breed, url, petType, mixed) {
     $(`.adoptablePets`).append(
         `<li>
             <button value = ${index} class="adoptionButton">
@@ -121,6 +143,50 @@ furiendFinder.appendToUl = function (totalPets, petAge) {
     $(`.${petAge}`).html(`
     <p>${petAge}</p>
     <p>${totalPets}</p>`);
+}
+
+furiendFinder.appendInformation = function (name, imgUrl, gender, size, petBreed, attributes, contact, url, mixed, breedLifeSpan, breedTemperament, breedOrigin, breedAffection, breedWeight, breedAdaptability, breedChildFriendly, breedEnergy) {
+
+    $(`.petName`).html(
+        `${name}`
+    )
+
+    $(`.petImage`).html(
+        `<img src="${imgUrl}">`
+    )
+
+    $(`.petFactsUl`).html(
+        `<li>${mixed?"Mixed":""} ${petBreed}</li>
+        <li>${gender}</li>
+        <li>${size}</li>
+        <li>${attributes}</li>`
+    )
+
+    $(`.breedFacts`).html(
+        `<h3>Breed Facts:
+        <ul>
+            <li>Average Lifespan: ${breedLifeSpan}</li>
+            <li>Temperament: ${breedTemperament}</li>
+            <li>Average Weight: ${breedWeight}</li>
+            <li>Origin: ${breedOrigin}</li>
+            <li>Affection Level: ${breedAffection}</li>
+            <li>Adaptability Level: ${breedAdaptabiltiy}</li>
+            <li>Child Friendly Level: ${breedChildFriendly}</li>
+            <li>Energy Level: ${breedEnergy}</li>
+        </ul>`
+    )
+
+    $(`.petStory`).html(
+        `<p>${description}</p>`
+    )
+
+    $(`.petLocation`).html(
+        `<p>${contact}</p>`
+    )
+
+    $(`.adoptMe`).html(
+        `<a href=${url}>Adopt Me!</a>`
+    )
 }
 
 
