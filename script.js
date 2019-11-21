@@ -16,6 +16,7 @@ furiendFinder.init = function () {
         furiendFinder.getPetsAvailable(petAgeArray[i], "cat", "", "Toronto, ON", furiendFinder.getNumPets);
     }
     $(`.ageButton`).on('click', furiendFinder.ageClickEvent); /*only call click event when document ready*/
+    $(`.adoptablePets`).on('click', '.adoptionButton', furiendFinder.getMoreInfoCLickEvent);
 }
 
 /*find all the available pets for adoption*/
@@ -73,14 +74,20 @@ furiendFinder.getBreedFacts = function () {
             const petOrigin = data[i].origin;
             const petId = data[i].id;
         }
-
     });
 }
 
 furiendFinder.ageClickEvent = function (){
     $(`.petAge`).fadeOut();
+    /*rememb er to show next page*/
     const petAge = $(this).val();
     furiendFinder.getPetsAvailable(petAge, "cat", "", "Toronto, ON", furiendFinder.getAdoptablePets);
+}
+
+furiendFinder.getMoreInfoCLickEvent = function(){
+    $(`.adoptionOptions`).fadeOut();
+    const petId = $(this).val();
+    console.log(petId);   
 }
 
 /*Called after API call - create the buttons for each available adoptable pet by user age selection*/
@@ -88,20 +95,19 @@ furiendFinder.getAdoptablePets = function (data, petAge, petType, petBreed, city
     console.log(data);
     const animalsArray = data.animals;
     for(let i = 0; i < animalsArray.length; i++){
-
         if(animalsArray[i].photos[0] !== undefined){
-            furiendFinder.adoptableButton(animalsArray[i].id, animalsArray[i].name, animalsArray[i].breeds.primary,animalsArray[i].photos[0].medium, "cat", animalsArray[i].breeds.mixed );
+            furiendFinder.adoptableButton(i, animalsArray[i].name, animalsArray[i].breeds.primary,animalsArray[i].photos[0].medium, "cat", animalsArray[i].breeds.mixed );
             console.log(animalsArray[i].name);
         }
     }
-
+    furiendFinder.animalsArray = animalsArray;
 }
 
 /*appending the adoptable pets to a button*/
-furiendFinder.adoptableButton = function(id, name, breed, url, petType, mixed){
+furiendFinder.adoptableButton = function(index, name, breed, url, petType, mixed){
     $(`.adoptablePets`).append(
         `<li>
-            <button value = ${id}>
+            <button value = ${index} class="adoptionButton">
                 <p>${name}</p>
                 <p>${mixed?"mixed":""} ${breed}</p>
                 <img src="${url}" alt="photo of ${name} which is a ${mixed?"mixed":""} ${breed} ${petType}">  
