@@ -224,6 +224,8 @@ ul {
 .age button {
   padding: 0px 50px;
   text-transform: uppercase;
+  font-family: "Pangolin", cursive;
+  color: #2d2725;
 }
 
 .petAge {
