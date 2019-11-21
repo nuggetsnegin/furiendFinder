@@ -137,7 +137,7 @@ furiendFinder.adoptableButton = function (index, name, breed, url, petType, mixe
 
 /*method to display results into the html*/
 furiendFinder.appendToUl = function (totalPets, petAge) {
-    $(`.${petAge}`).html(`
+    $(`.${petAge}`).append(`
     <p>${petAge}</p>
     <p>${totalPets}</p>`);
 }

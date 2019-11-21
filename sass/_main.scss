@@ -49,7 +49,9 @@ ul{
         text-transform: uppercase;
         font-family: $heading-font;
         color: $accent-color;
-        // background-image: 
+        border-radius: 25px;
+        background-color: transparent;
+        border: none;
     }
 }
 

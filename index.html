@@ -8,8 +8,7 @@
     <title>Furiend Finder</title>
     <script src='https://code.jquery.com/jquery-3.2.1.min.js'
         integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=' crossorigin='anonymous'></script>
-    <link href="https://fonts.googleapis.com/css?family=Dosis:300,400,700|Pangolin&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dosis:300,400,700|Pangolin|Open+Sans:300,400,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 
@@ -28,10 +27,18 @@
                     <h2>There are..</h2>
                 </div>
                 <ul class="age">
-                    <li><button class="baby ageButton" value="baby"></button></li>
-                    <li><button class="young ageButton" value="young"></button></li>
-                    <li><button class="adult ageButton" value="adult"></button></li>
-                    <li><button class="senior ageButton" value="senior"></button></li>
+                    <li><button class="baby ageButton" value="baby">
+                            <img src="assets/baby.PNG" alt="drawing of a baby cat">
+                        </button></li>
+                    <li><button class="young ageButton" value="young">
+                            <img src="assets/young.PNG" alt="drawing of a young cat">
+                        </button></li>
+                    <li><button class="adult ageButton" value="adult">
+                            <img src="assets/adult.PNG" alt="drawing of an adult cat">
+                        </button></li>
+                    <li><button class="senior ageButton" value="senior">
+                            <img src="assets/senior.PNG" alt="drawing of a senior cat">
+                        </button></li>
                 </ul>
             </div>
 
@@ -40,7 +47,8 @@
             </div>
 
             <div class="petInformation">
-                <h2>You selected: <span class="petName"></span></h2> <!--append cats name -->
+                <h2>You selected: <span class="petName"></span></h2>
+                <!--append cats name -->
                 <div class="petImage"></div>
                 <div class="petFacts">
                     <h3>Pet Information</h3>

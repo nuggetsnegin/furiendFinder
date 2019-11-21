@@ -231,6 +231,9 @@ ul {
   text-transform: uppercase;
   font-family: "Pangolin", cursive;
   color: #8fd4e9;
+  border-radius: 25px;
+  background-color: transparent;
+  border: none;
 }
 
 .petAge {
