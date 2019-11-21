@@ -1,6 +1,7 @@
 /*MAIN*/
 $base-color: rgb(18, 18, 18);
-$accent-color: rgb(45, 39, 37);
+$accent-color: rgb(143, 212, 233);
+$background-color: rgb(240, 234, 226);
 $main-font: 'Dosis', sans-serif;
 $heading-font: 'Pangolin', cursive;
 
@@ -11,7 +12,7 @@ body{
 p{
     font-size: 2rem;
 }
-.wrapper{
+.container{
     margin: 0 auto;
     width: 900px;
 }
@@ -62,8 +63,18 @@ ul{
         border: 2px dashed $accent-color;
         color: $accent-color;
     }
-
-
 }
+
+/*ADOPTION PAGE*/
+
+// .adoptablePets{
+//     // display: grid;
+//     // grid-template-columns: repeat(4, max-content);
+//     // grid-template-rows: auto;
+// }
+
+// footer{
+//     background-color: $accent-color;
+// }
 
 

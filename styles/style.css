@@ -189,7 +189,7 @@ p {
   font-size: 2rem;
 }
 
-.wrapper {
+.container {
   margin: 0 auto;
   width: 900px;
 }
@@ -199,7 +199,7 @@ h1 {
   text-align: center;
   padding: 10px;
   font-size: 5rem;
-  color: #2d2725;
+  color: #8fd4e9;
 }
 
 h2 {
@@ -225,7 +225,7 @@ ul {
   padding: 0px 50px;
   text-transform: uppercase;
   font-family: "Pangolin", cursive;
-  color: #2d2725;
+  color: #8fd4e9;
 }
 
 .petAge {
@@ -240,6 +240,8 @@ ul {
 .userLocation input {
   font-size: 2rem;
   padding: 0px 10px;
-  border: 2px dashed #2d2725;
-  color: #2d2725;
+  border: 2px dashed #8fd4e9;
+  color: #8fd4e9;
 }
+
+/*ADOPTION PAGE*/
