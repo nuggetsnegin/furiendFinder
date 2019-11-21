@@ -180,16 +180,30 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 }
 
 /*MAIN*/
+body {
+  font-size: 62.5%;
+  font-family: "Dosis", sans-serif;
+}
+
+p {
+  font-size: 2rem;
+}
+
 .wrapper {
   margin: 0 auto;
   width: 900px;
 }
 
 h1 {
+  font-family: "Pangolin", cursive;
   text-align: center;
   padding: 10px;
   font-size: 5rem;
-  color: #121212;
+  color: #2d2725;
+}
+
+h2 {
+  font-size: 3rem;
 }
 
 ul {
@@ -219,4 +233,11 @@ ul {
 .userLocation p {
   display: inline;
   padding: 5px;
+}
+
+.userLocation input {
+  font-size: 2rem;
+  padding: 0px 10px;
+  border: 2px dashed #2d2725;
+  color: #2d2725;
 }
