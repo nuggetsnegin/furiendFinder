@@ -1,11 +1,17 @@
 /*create empty object of app*/
-const furiendFinder = {};
+const furiendFinder = {
+    cat: {},
+    dog: {}
+};
 /*storing petFinder api key*/
 furiendFinder.petFinderApiKey = "c8ii4sOOBPTzBQauWmNof3ZNapts6Ld0oBLTY5RZcb4VeOqtcm";
 /*needed for oauth*/
 furiendFinder.secretPetFinder = "p6b3lhtd4bGo4OxjTEJK3D0eYqllfDGRI6VIXUAF";
 /*storing cat api key*/
 furiendFinder.catApiKey = "796188a0-0bca-4abe-968b-403b12c2c82d";
+
+// storing pet type
+furiendFinder.petType = "cat";
 
 
 /*init method, on page load*/
@@ -17,9 +23,11 @@ furiendFinder.init = function () {
     }
     $('.ageButton').on('click', furiendFinder.ageClickEvent); /*only call click event when document ready*/
     $('.adoptablePets').on('click', '.adoptionButton', furiendFinder.getMoreInfoCLickEvent);
-    furiendFinder.getBreedFacts();
+    furiendFinder.getBreedFacts("cat");
     
     $('.petInformation').hide();
+
+    
 }
 
 /*find all the available pets for adoption*/
@@ -65,17 +73,17 @@ furiendFinder.getNumPets = function (data, petAge, petType, city, petBreed) {
 }
 
 /*accessing catAPI for cat breed facts*/
-furiendFinder.getBreedFacts = function (breed) {
+furiendFinder.getBreedFacts = function (petType) {
     $.ajax({
-        url: "https://api.thecatapi.com/v1/breeds",
+        url: `https://api.the${petType}api.com/v1/breeds`,
         headers: {
             "x-api-key": furiendFinder.catApiKey
         },
     }).then((dataArray) => {
-        furiendFinder.breedInfo = {};
+        furiendFinder[petType].breedInfo = {};
 
         dataArray.forEach(function (data) {
-            furiendFinder.breedInfo[data.name] = data;
+            furiendFinder[petType].breedInfo[data.name] = data;
         });
     });
 }
@@ -90,19 +98,21 @@ furiendFinder.ageClickEvent = function () {
 furiendFinder.getMoreInfoCLickEvent = function () {
     $(`.adoptionOptions`).fadeOut();
     const petIndex = $(this).val();
+    const petType = furiendFinder.petType;
+    const animalArray = furiendFinder[petType].animalsArray[petIndex];
 
-    const breedName = furiendFinder.animalsArray[petIndex].breeds.primary;
+    const breedName = animalArray.breeds.primary;
 
-    const name = furiendFinder.animalsArray[petIndex].name;
-    const imgUrl = furiendFinder.animalsArray[petIndex].photos[0].medium;
-    const gender = furiendFinder.animalsArray[petIndex].gender;
-    const petBreed = furiendFinder.animalsArray[petIndex].breeds.primary;
-    const size = furiendFinder.animalsArray[petIndex].size;
-    const attributes = furiendFinder.animalsArray[petIndex].attributes;
-    const contact = furiendFinder.animalsArray[petIndex].contact;
-    const url = furiendFinder.animalsArray[petIndex].url;
-    const mixed = furiendFinder.animalsArray[petIndex].mixed;
-    const description = furiendFinder.animalsArray[petIndex].description;
+    const name = animalArray.name;
+    const imgUrl = animalArray.photos[0].medium;
+    const gender = animalArray.gender;
+    const petBreed = animalArray.breeds.primary;
+    const size = animalArray.size;
+    const attributes = animalArray.attributes;
+    const contact = animalArray.contact;
+    const url = animalArray.url;
+    const mixed = animalArray.mixed;
+    const description = animalArray.description;
 
     furiendFinder.appendInformation(name, imgUrl, gender, size, petBreed, attributes, description, contact, url, mixed);
 
@@ -119,7 +129,8 @@ furiendFinder.getAdoptablePets = function (data, petAge, petType, petBreed, city
             console.log(animalsArray[i].name);
         }
     }
-    furiendFinder.animalsArray = animalsArray;
+
+    furiendFinder[petType].animalsArray = animalsArray;
 }
 
 /*appending the adoptable pets to a button*/
@@ -148,16 +159,20 @@ furiendFinder.appendInformation = function (name, imgUrl, gender, size, breedNam
         breedName = 'American Shorthair';
     }
 
-    if (furiendFinder.breedInfo[breedName] !== undefined) {
+    const petType = furiendFinder.petType;
 
-        const breedLifeSpan = furiendFinder.breedInfo[breedName]["life_span"];
-        const breedTemperament = furiendFinder.breedInfo[breedName]["temperament"];
-        const breedOrigin = furiendFinder.breedInfo[breedName]["origin"];
-        const breedWeight = furiendFinder.breedInfo[breedName]["weight"]["metric"];
-        const breedAffection = furiendFinder.breedInfo[breedName]["affection_level"];
-        const breedAdaptability = furiendFinder.breedInfo[breedName]["adaptability"];
-        const breedChildFriendly = furiendFinder.breedInfo[breedName]["child_friendly"];
-        const breedEnergy = furiendFinder.breedInfo[breedName]["energy_level"];
+    const breedFactsInfo = furiendFinder[petType].breedInfo[breedName];
+
+    if (breedFactsInfo !== undefined) {
+
+        const breedLifeSpan = breedFactsInfo["life_span"];
+        const breedTemperament = breedFactsInfo["temperament"];
+        const breedOrigin = breedFactsInfo["origin"];
+        const breedWeight = breedFactsInfo["weight"]["metric"];
+        const breedAffection = breedFactsInfo["affection_level"];
+        const breedAdaptability = breedFactsInfo["adaptability"];
+        const breedChildFriendly = breedFactsInfo["child_friendly"];
+        const breedEnergy = breedFactsInfo["energy_level"];
 
 
         $(`.breedFacts`).html(
@@ -218,7 +233,7 @@ furiendFinder.appendInformation = function (name, imgUrl, gender, size, breedNam
 
 
     $(`.adoptMe`).html(
-        `<a href=${url}>Adopt Me!</a>`
+        `<a href=${url + "#animal_adoption_inquiry_guest_profile_firstName"}>Adopt Me!</a>`
     )
 }
 
@@ -239,5 +254,5 @@ furiendFinder.appendInformation = function (name, imgUrl, gender, size, breedNam
 // furiendFinder.getPetsAvailable();
 $(document).ready(function () {
     furiendFinder.init();
-    furiendFinder.getBreedFacts();
+    
 })
