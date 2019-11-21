@@ -8,7 +8,7 @@
     <title>Furiend Finder</title>
     <script src='https://code.jquery.com/jquery-3.2.1.min.js'
         integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=' crossorigin='anonymous'></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./styles/style.css">
 </head>
 
 <body>
@@ -21,15 +21,16 @@
         <main>
             <div class="petAge">
                 <div class="userLocation">
-                    <label for="location"></label>
-                    <p>Your City: </p><input type="text" id="location" placeholder="Toronto, ON">
+                    <label for="location" class="visuallyHidden"></label>
+                    <p>Your City:</p>p <input type="text" id="location" placeholder="Toronto, ON">
+                    <h2>There are..</h2>
                 </div>
                 <ul class="age"></ul>
             </div>
 
 
             <div class="petBreed">
-                <p class="ageSelection">You selected..</p>
+                <p class="ageSelection">You selected..(catBreedHere)</p>
                 <h2>There are..</h2>
                 <ul class="breeds">
                 </ul>

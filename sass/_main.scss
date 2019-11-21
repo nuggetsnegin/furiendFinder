@@ -1,0 +1,44 @@
+/*MAIN*/
+$base-color: rgb(18, 18, 18);
+$accent-color: rgb(76, 27, 145);
+
+.wrapper{
+    margin: 0 auto;
+    width: 900px;
+}
+
+h1{
+    text-align: center;
+    padding: 10px;
+    font-size: 5rem;
+    color: $base-color;
+}
+
+ul{
+    list-style: none;
+}
+
+/*LANDING PAGE*/
+.age{
+    display: flex;
+    li{
+        margin: 1% auto;
+    }
+    button{
+        padding: 0px 50px;
+        text-transform: uppercase;
+        // background-image: 
+    }
+}
+
+.petAge{
+    text-align: center;
+}
+
+.userLocation{
+    p{
+        display: inline;
+        padding: 5px;
+    }
+}
+
