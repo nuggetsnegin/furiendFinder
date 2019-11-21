@@ -281,3 +281,77 @@ ul {
   position: absolute;
   padding: 30px;
 }
+
+/*PET ADOPTION PAGE*/
+.petInformation {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: (min-content)[4];
+      grid-template-rows: repeat(4, -webkit-min-content);
+      grid-template-rows: repeat(4, min-content);
+      grid-template-areas: "title title title title" "petImage petImage petStory breedFacts" "petImage petImage petFacts location" "adoptMe empty empty empty";
+}
+
+.petInformation h2 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-area: title;
+}
+
+.petImage {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: petImage;
+}
+
+.petFacts {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+  grid-area: petFacts;
+}
+
+.breedFacts {
+  -ms-grid-row: 2;
+  -ms-grid-column: 4;
+  grid-area: breedFacts;
+}
+
+.petStory {
+  -ms-grid-row: 2;
+  -ms-grid-column: 3;
+  grid-area: petStory;
+}
+
+.petLocation {
+  -ms-grid-row: 3;
+  -ms-grid-column: 4;
+  grid-area: location;
+}
+
+.adoptMe {
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  grid-area: adoptMe;
+}
+
+/*
+
+            <div class="petInformation">
+                <h2>You selected: <span class="petName"></span></h2> <!--append cats name -->
+                <div class="petImage"></div>
+                <div class="petFacts">
+                    <h3>Pet Information</h3>
+                    <ul class="petFactsUl"></ul>
+                </div>
+                <div class="breedFacts"></div>
+                <div class="petStory"></div>
+                <div class="petLocation"></div>
+
+                <div class="adoptMe"></div>
+            </div>
+*/

@@ -93,6 +93,64 @@ ul{
     }
 }
 
+
+/*PET ADOPTION PAGE*/
+.petInformation{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, min-content);
+    grid-template-areas:
+    "title title title title"
+    "petImage petImage petStory breedFacts"
+     "petImage petImage petFacts location"
+     "adoptMe empty empty empty";
+}
+
+.petInformation h2{
+    grid-area: title;
+}
+
+.petImage{
+    grid-area: petImage;
+}
+
+.petFacts{
+    grid-area: petFacts;
+}
+
+.breedFacts{
+    grid-area: breedFacts;
+}
+
+.petStory{
+    grid-area: petStory;
+}
+
+.petLocation{
+    grid-area: location;
+}
+
+.adoptMe{
+    grid-area: adoptMe;
+}
+
+/*
+
+            <div class="petInformation">
+                <h2>You selected: <span class="petName"></span></h2> <!--append cats name -->
+                <div class="petImage"></div>
+                <div class="petFacts">
+                    <h3>Pet Information</h3>
+                    <ul class="petFactsUl"></ul>
+                </div>
+                <div class="breedFacts"></div>
+                <div class="petStory"></div>
+                <div class="petLocation"></div>
+
+                <div class="adoptMe"></div>
+            </div>
+*/
+
 // footer{
 //     background-color: $accent-color;
 // }

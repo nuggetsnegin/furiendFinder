@@ -15,9 +15,11 @@ furiendFinder.init = function () {
     for (let i = 0; i < 4; i++) {
         furiendFinder.getPetsAvailable(petAgeArray[i], "cat", "", "Toronto, ON", furiendFinder.getNumPets);
     }
-    $(`.ageButton`).on('click', furiendFinder.ageClickEvent); /*only call click event when document ready*/
-    $(`.adoptablePets`).on('click', '.adoptionButton', furiendFinder.getMoreInfoCLickEvent);
+    $('.ageButton').on('click', furiendFinder.ageClickEvent); /*only call click event when document ready*/
+    $('.adoptablePets').on('click', '.adoptionButton', furiendFinder.getMoreInfoCLickEvent);
     furiendFinder.getBreedFacts();
+    
+    $('.petInformation').hide();
 }
 
 /*find all the available pets for adoption*/
@@ -90,14 +92,6 @@ furiendFinder.getMoreInfoCLickEvent = function () {
     const petIndex = $(this).val();
 
     const breedName = furiendFinder.animalsArray[petIndex].breeds.primary;
-    const breedLifeSpan = furiendFinder.breedInfo[breedName]["life_span"];
-    const breedTemperament = furiendFinder.breedInfo[breedName]["temperament"];
-    const breedOrigin = furiendFinder.breedInfo[breedName]["origin"];
-    const breedWeight = furiendFinder.breedInfo[breedName]["weight"]["metric"];
-    const breedAffection = furiendFinder.breedInfo[breedName]["affection_level"];
-    const breedAdaptability = furiendFinder.breedInfo[breedName]["adaptability"];
-    const breedChildFriendly = furiendFinder.breedInfo[breedName]["child_friendly"];
-    const breedEnergy = furiendFinder.breedInfo[breedName]["energy_level"];
 
     const name = furiendFinder.animalsArray[petIndex].name;
     const imgUrl = furiendFinder.animalsArray[petIndex].photos[0].medium;
@@ -108,8 +102,11 @@ furiendFinder.getMoreInfoCLickEvent = function () {
     const contact = furiendFinder.animalsArray[petIndex].contact;
     const url = furiendFinder.animalsArray[petIndex].url;
     const mixed = furiendFinder.animalsArray[petIndex].mixed;
+    const description = furiendFinder.animalsArray[petIndex].description;
 
-    furiendFinder.appendInformation(name, imgUrl, gender, size, petBreed, attributes, contact, url, mixed, breedLifeSpan, breedTemperament, breedOrigin, breedAffection, breedWeight, breedAdaptability, breedChildFriendly, breedEnergy);
+    furiendFinder.appendInformation(name, imgUrl, gender, size, petBreed, attributes, description, contact, url, mixed);
+
+    $('.petInformation').show();
 }
 
 /*Called after API call - create the buttons for each available adoptable pet by user age selection*/
@@ -145,7 +142,38 @@ furiendFinder.appendToUl = function (totalPets, petAge) {
     <p>${totalPets}</p>`);
 }
 
-furiendFinder.appendInformation = function (name, imgUrl, gender, size, petBreed, attributes, contact, url, mixed, breedLifeSpan, breedTemperament, breedOrigin, breedAffection, breedWeight, breedAdaptability, breedChildFriendly, breedEnergy) {
+furiendFinder.appendInformation = function (name, imgUrl, gender, size, breedName, attributes, description, contact, url, mixed) {
+
+    if(breedName.includes('Domestic')){ /*breed names are different from two APIs*/
+        breedName = 'American Shorthair';
+    }
+
+    if (furiendFinder.breedInfo[breedName] !== undefined) {
+
+        const breedLifeSpan = furiendFinder.breedInfo[breedName]["life_span"];
+        const breedTemperament = furiendFinder.breedInfo[breedName]["temperament"];
+        const breedOrigin = furiendFinder.breedInfo[breedName]["origin"];
+        const breedWeight = furiendFinder.breedInfo[breedName]["weight"]["metric"];
+        const breedAffection = furiendFinder.breedInfo[breedName]["affection_level"];
+        const breedAdaptability = furiendFinder.breedInfo[breedName]["adaptability"];
+        const breedChildFriendly = furiendFinder.breedInfo[breedName]["child_friendly"];
+        const breedEnergy = furiendFinder.breedInfo[breedName]["energy_level"];
+
+
+        $(`.breedFacts`).html(
+            `<h3>Breed Facts:
+        <ul>
+            <li>Average Lifespan: ${breedLifeSpan}</li>
+            <li>Average Weight: ${breedWeight}</li>
+            <li>Origin: ${breedOrigin}</li>
+            <li>Affection Level: ${breedAffection}</li>
+            <li>Adaptability Level: ${breedAdaptability}</li>
+            <li>Child Friendly Level: ${breedChildFriendly}</li>
+            <li>Energy Level: ${breedEnergy}</li>
+            <li>Temperament: ${breedTemperament}</li>
+        </ul>`
+        )
+    }
 
     $(`.petName`).html(
         `${name}`
@@ -156,33 +184,38 @@ furiendFinder.appendInformation = function (name, imgUrl, gender, size, petBreed
     )
 
     $(`.petFactsUl`).html(
-        `<li>${mixed?"Mixed":""} ${petBreed}</li>
-        <li>${gender}</li>
-        <li>${size}</li>
-        <li>${attributes}</li>`
+        `<li>Breed: ${mixed?"Mixed":""} ${breedName}</li>
+        <li>Gender: ${gender}</li>
+        <li>Size: ${size}</li>`
     )
 
-    $(`.breedFacts`).html(
-        `<h3>Breed Facts:
-        <ul>
-            <li>Average Lifespan: ${breedLifeSpan}</li>
-            <li>Temperament: ${breedTemperament}</li>
-            <li>Average Weight: ${breedWeight}</li>
-            <li>Origin: ${breedOrigin}</li>
-            <li>Affection Level: ${breedAffection}</li>
-            <li>Adaptability Level: ${breedAdaptabiltiy}</li>
-            <li>Child Friendly Level: ${breedChildFriendly}</li>
-            <li>Energy Level: ${breedEnergy}</li>
-        </ul>`
-    )
+    for (attribute in attributes) {
+        $(`.petFactsUl`).append(
+            `<li>${attribute.replace('_',' ')}: ${attributes[attribute]?"yes":"no"}</li>`
+        )
+    }
 
     $(`.petStory`).html(
         `<p>${description}</p>`
     )
 
     $(`.petLocation`).html(
-        `<p>${contact}</p>`
+        /*using conditionals for error handling API information*/
+        `<p>Organization Email: ${contact.email?contact.email:"No email available"}</p>
+        <p>Organization Phone Number: ${contact.phone?contact.phone:"No phone number available"}</p>`
     )
+
+    for (contacts in contact.address) {
+        /*not showing null if no address available*/
+        if (contact.address[contacts] !== null) {
+            $(`.petLocation`).append(
+                `<li>${contacts}: ${contact.address[contacts]}<li>`
+            )
+        }
+
+    }
+
+
 
     $(`.adoptMe`).html(
         `<a href=${url}>Adopt Me!</a>`
