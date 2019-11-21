@@ -88,8 +88,11 @@ furiendFinder.getAdoptablePets = function (data, petAge, petType, petBreed, city
     console.log(data);
     const animalsArray = data.animals;
     for(let i = 0; i < animalsArray.length; i++){
-        furiendFinder.adoptableButton(animalsArray[i].id, animalsArray[i].name, animalsArray[i].breeds.primary,animalsArray[i].photos[0].small, "cat", animalsArray[i].breeds.mixed );
-        console.log(animalsArray[i].name);
+
+        if(animalsArray[i].photos[0] !== undefined){
+            furiendFinder.adoptableButton(animalsArray[i].id, animalsArray[i].name, animalsArray[i].breeds.primary,animalsArray[i].photos[0].medium, "cat", animalsArray[i].breeds.mixed );
+            console.log(animalsArray[i].name);
+        }
     }
 
 }
