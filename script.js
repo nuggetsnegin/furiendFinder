@@ -39,11 +39,11 @@ furiendFinder.getGeoLocation = () => {
             const province = data.results[0].locations[0]["adminArea3"];
             furiendFinder.city = `${city}, ${province}`;
             $(`#location`).val(furiendFinder.city);
-            furiendFinder.getPetsNumberByAge(furiendFinder.petType, furiendFinder.city);
+            $(`.typeButton`).removeAttr("disabled");
         }).fail(() => {
             furiendFinder.city = "Toronto, ON";
             $(`#location`).val(furiendFinder.city);
-            furiendFinder.getPetsNumberByAge(furiendFinder.petType, furiendFinder.city);
+            $(`.typeButton`).removeAttr("disabled");
         })
 
         
@@ -53,7 +53,7 @@ furiendFinder.getGeoLocation = () => {
         console.log(`Unable to retrieve your location due to ${error.code}: ${error.message}`);
         furiendFinder.city = "Toronto, ON";
         $(`#location`).val(furiendFinder.city);
-        furiendFinder.getPetsNumberByAge(furiendFinder.petType, furiendFinder.city);
+        $(`.typeButton`).removeAttr("disabled");
     }
 
     const geoOptions = {
@@ -68,28 +68,48 @@ furiendFinder.getGeoLocation = () => {
         console.log("Geolocation services are not supported by your web browser.");
         furiendFinder.city = "Toronto, ON";
         $(`#location`).val(furiendFinder.city);
+        $(`.typeButton`).removeAttr("disabled");
         
     };
  
 }
 
 
-
-
 /*init method, on page load*/
 furiendFinder.init = function () {
     
-    // furiendFinder.getPetsNumberByAge(furiendFinder.petType,furiendFinder.city);
-    $('.ageButton').on('click', furiendFinder.ageClickEvent); /*only call click event when document ready*/
+    
+    $('.ageButton').on('click', furiendFinder.ageClickEvent); /*only call click events atached to buttons when document ready*/
     $('.adoptablePets').on('click', '.adoptionButton', furiendFinder.getMoreInfoCLickEvent);
-    // furiendFinder.getBreedFacts("cat");
+
+    $(`.typeButton`).on(`click`, furiendFinder.selectPetTypeClickEvent);
+
+    $(`.backButtonToType`).on("click", function () {
+        $(`.petAge`).fadeOut();
+        $(`.petType`).fadeIn();
+    });
+    $(`.backButtonToAge`).on("click", function () {
+        $(`.adoptionOptions`).fadeOut();
+        $(`.petAge`).fadeIn();
+    });
+    $(`.backButtonToOptions`).on("click", function () {
+        $(`.petInformation`).fadeOut();
+        $(`.adoptionOptions`).fadeIn();
+    })
+
+    // Attaching the event to get the user input for the location
+    $(`#location`).val(furiendFinder.city).on("blur", furiendFinder.getLocation);
+    
     furiendFinder.getGeoLocation();
     
-    $(`.typeButton`).on(`click`, furiendFinder.selectPetTypeClickEvent);
+    // We make sure the other divs of the App are not displayed
     $('.petInformation').hide();
     $(`.petAge`).hide();
     $(`.adoptionOptions`).hide();
-    $(`#location`).val(furiendFinder.city).on("blur", furiendFinder.getLocation);
+
+    // We disabled the type buttons until the user has entered the location
+    $(`.typeButton`).attr("disabled","true");
+    
 
     
 }
@@ -98,6 +118,7 @@ furiendFinder.init = function () {
 furiendFinder.selectPetTypeClickEvent = function () {
     $(`.petType`).fadeOut();
     $(`.petAge`).fadeIn();
+    $(`.adoptablePets`).empty();
     furiendFinder.petType = $(this).val();
     furiendFinder.getBreedFacts(furiendFinder.petType);
     furiendFinder.getPetsNumberByAge(furiendFinder.petType, furiendFinder.city);
@@ -230,7 +251,7 @@ furiendFinder.adoptableButton = function (index, name, breed, url, petType, mixe
         `<li>
             <button value = ${index} class="adoptionButton">
                 <p>${name}</p>
-                <p>${mixed?"mixed":""} ${breed}</p>
+                <p>${mixed?"Mixed":""} ${breed}</p>
                 <img src="${url}" alt="photo of ${name} which is a ${mixed?"mixed":""} ${breed} ${petType}">  
             </button>
         </li>`
@@ -271,14 +292,14 @@ furiendFinder.appendInformation = function (name, imgUrl, gender, size, breedNam
         $(`.breedFacts`).html(
             `<h3>Breed Facts:
         <ul>
-            ${breedLifeSpan?`<li>Average Lifespan: ${breedLifeSpan}</li>`:""}
-            ${breedWeight?`<li>Average Weight: ${breedWeight}</li>`:""}
+            ${breedTemperament ? `<li>Temperament: ${breedTemperament}</li>` : ""}
+            ${breedLifeSpan?`<li>Average Lifespan: ${breedLifeSpan} years</li>`:""}
+            ${breedWeight?`<li>Average Weight: ${breedWeight} kg</li>`:""}
             ${breedOrigin?`<li>Origin: ${breedOrigin}</li>`:""}
             ${breedAffection?`<li>Affection Level: ${breedAffection}</li>`:""}
             ${breedAdaptability?`<li>Adaptability Level: ${breedAdaptability}</li>`:""}
             ${breedChildFriendly?`<li>Child Friendly Level: ${breedChildFriendly}</li>`:""}
             ${breedEnergy?`<li>Energy Level: ${breedEnergy}</li>`:""}
-            ${breedTemperament?`<li>Temperament: ${breedTemperament}</li>`:""}
         </ul>`
         )
     }
