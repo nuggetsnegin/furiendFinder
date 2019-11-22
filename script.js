@@ -291,7 +291,7 @@ furiendFinder.appendInformation = function (name, imgUrl, gender, size, breedNam
     }
 
     $(`.petStory`).html(
-        `<p>${description}</p>`
+        `<p>${description} <a href="${url}">read more</a></p>`
     )
 
     $(`.petLocation`).html(
