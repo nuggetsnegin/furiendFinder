@@ -1,4 +1,6 @@
 /*MAIN*/
+
+/*VARIABLES*/
 $base-color: #284B52;
 $accent-color: #80B4BB;
 $background-color: #E2EAEE;
@@ -24,6 +26,7 @@ header {
 
 main {
     min-height: 75vh;
+    position: relative;
 }
 
 p {
@@ -132,16 +135,19 @@ ul {
 }
 
 .userLocation {
+    font-family: $heading-font;
     p {
         display: inline;
-        padding: 5px;
+        background-color: $accent-color;
+        padding: 0px 10px;
+        border: 2px dashed $light-color;
     }
 
     input {
         font-size: 2rem;
         padding: 0px 10px;
-        border: 2px dashed $accent-color;
         color: $accent-color;
+        border: 2px dashed $light-color;
     }
 
 }
@@ -372,6 +378,22 @@ ul {
     }
 }
 
+/*LOADING SCREEN*/
+.loadingScreen{
+    background-color: rgba(236, 249, 255, .7);
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+
+    img{
+        width: 20%;
+        margin: 0 auto;
+    }
+}
 
 footer {
     min-height: 5vh;

@@ -180,6 +180,7 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 }
 
 /*MAIN*/
+/*VARIABLES*/
 body {
   font-size: 62.5%;
   font-family: "Open Sans", sans-serif;
@@ -193,6 +194,7 @@ header {
 
 main {
   min-height: 75vh;
+  position: relative;
 }
 
 p {
@@ -305,16 +307,22 @@ ul {
   text-align: center;
 }
 
+.userLocation {
+  font-family: "Pangolin", cursive;
+}
+
 .userLocation p {
   display: inline;
-  padding: 5px;
+  background-color: #80B4BB;
+  padding: 0px 10px;
+  border: 2px dashed #E2EAEE;
 }
 
 .userLocation input {
   font-size: 2rem;
   padding: 0px 10px;
-  border: 2px dashed #80B4BB;
   color: #80B4BB;
+  border: 2px dashed #E2EAEE;
 }
 
 /*LIST OF ADOPTABLE PETS BY AGE*/
@@ -571,6 +579,23 @@ ul {
 .alert p {
   margin: 0;
   padding: 50px;
+}
+
+/*LOADING SCREEN*/
+.loadingScreen {
+  background-color: rgba(236, 249, 255, 0.7);
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+}
+
+.loadingScreen img {
+  width: 20%;
+  margin: 0 auto;
 }
 
 footer {

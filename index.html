@@ -14,13 +14,18 @@
 </head>
 
 <body>
-
-    <div class="container">
         <header>
             <h1>Furiend Finder</h1>
         </header>
 
         <main>
+  
+            <div class="loadingScreen">
+                <img src="assets/walking.gif" alt="loading gif">
+                <p>Loading Results..</p>
+            </div>
+
+        <div class="container">
             <div class="petType">
                 <div class="userLocation">
                     <label for="location" class="visuallyHidden"></label>
@@ -72,8 +77,8 @@
             </div>
 
             <div class="petInformation">
-                <h2>You selected: <span class="petName"></span></h2>
                 <button class="backButtonToOptions backButton"><i class="fas fa-angle-double-left"></i></button>
+                <h2>You selected: <span class="petName"></span></h2>
                 <div class="petImage"></div>
                 <div class="petFacts">
                     <h3>Pet Information</h3>
