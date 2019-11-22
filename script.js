@@ -88,6 +88,10 @@ furiendFinder.init = function () {
 
     $(`.typeButton`).on(`click`, furiendFinder.selectPetTypeClickEvent);
 
+    $(`.acceptAlert`).on("click", function () {
+        $(`.alert`).fadeOut();
+    })
+
     $(`.backButtonToType`).on("click", function () {
         $(`.petAge`).fadeOut();
         $(`.petType`).fadeIn();
@@ -108,6 +112,7 @@ furiendFinder.init = function () {
     $('.petInformation').hide();
     $(`.petAge`).hide();
     $(`.adoptionOptions`).hide();
+    $(`.alert`).hide();
 
     // We disabled the type buttons until the user has entered the location
     $(`.typeButton`).attr("disabled","true");
@@ -170,7 +175,7 @@ furiendFinder.getPetsAvailable = function (petAge, petType,city, functionCall, d
             $(`.${disappearingDivClass}`).fadeOut();
             $(`.${appearingDivClass}`).fadeIn();
         }).fail((error) => {
-            alert("You have enter an invalid location");
+            $(`.alert`).fadeIn();
             
         });
     })
@@ -199,7 +204,7 @@ furiendFinder.getBreedFacts = function (petType) {
 }
 
 furiendFinder.ageClickEvent = function () {
-    
+    $(`.adoptablePets`).empty();
     const petAge = $(this).val();
     furiendFinder.getPetsAvailable(petAge, furiendFinder.petType, furiendFinder.city, furiendFinder.getAdoptablePets,"petAge","adoptionOptions");
 }
@@ -244,6 +249,7 @@ furiendFinder.getAdoptablePets = function (data, petAge, petType, petBreed, city
 
 /*appending the adoptable pets to a button*/
 furiendFinder.adoptableButton = function (index, name, breed, url, petType, mixed) {
+
     $(`.adoptablePets`).append(
         `<li>
             <button value = ${index} class="adoptionButton">
@@ -291,7 +297,7 @@ furiendFinder.appendInformation = function (name, imgUrl, gender, size, breedNam
             `<h3>Breed Facts:</h3>
         <ul>
             ${breedTemperament ? `<li>Temperament: ${breedTemperament}</li>` : ""}
-            ${breedLifeSpan?`<li>Average Lifespan: ${breedLifeSpan} years</li>`:""}
+            ${breedLifeSpan?`<li>Average Lifespan: ${breedLifeSpan}</li>`:""}
             ${breedWeight?`<li>Average Weight: ${breedWeight} kg</li>`:""}
             ${breedOrigin?`<li>Origin: ${breedOrigin}</li>`:""}
             ${breedAffection?`<li>Affection Level: ${breedAffection}</li>`:""}
