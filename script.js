@@ -4,9 +4,9 @@ const furiendFinder = {
     dog: {}
 };
 /*storing petFinder api key*/
-furiendFinder.petFinderApiKey = "c8ii4sOOBPTzBQauWmNof3ZNapts6Ld0oBLTY5RZcb4VeOqtcm";
+furiendFinder.petFinderApiKey = "bMlZfEidmf7kNocIPx9z0lC62XwFTmFu94bYQFRRzc8sxD9x6I";
 /*needed for oauth*/
-furiendFinder.secretPetFinder = "p6b3lhtd4bGo4OxjTEJK3D0eYqllfDGRI6VIXUAF";
+furiendFinder.secretPetFinder = "Lwa5bb5fyzQ51KMtEbbJb8QWgItW49OsEuYqgElG";
 /*storing cat api key*/
 furiendFinder.catApiKey = "796188a0-0bca-4abe-968b-403b12c2c82d";
 
