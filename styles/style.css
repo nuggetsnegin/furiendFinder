@@ -182,7 +182,7 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 /*MAIN*/
 body {
   font-size: 62.5%;
-  font-family: "Dosis", sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 p {
@@ -191,7 +191,7 @@ p {
 
 .container {
   margin: 0 auto;
-  width: 900px;
+  width: 1100px;
 }
 
 img {
@@ -209,13 +209,54 @@ h1 {
 
 h2 {
   font-size: 3rem;
+  font-family: "Dosis", sans-serif;
 }
 
 ul {
   list-style: none;
 }
 
+.goBack {
+  background-color: #8fd4e9;
+  color: white;
+  font-family: "Pangolin", cursive;
+  padding: 20px 50px;
+  border: none;
+  font-size: 1rem;
+  text-transform: uppercase;
+  border-radius: 25px;
+  margin-top: 1%;
+}
+
+.goBack:hover {
+  color: white;
+  background-color: #301c77;
+  /*placeholder*/
+}
+
 /*LANDING PAGE*/
+.petType {
+  text-align: center;
+}
+
+.type {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.type button {
+  background: transparent;
+  border: none;
+}
+
+.type h2 {
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+
+/*AGE PAGE*/
 .age {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -289,72 +330,142 @@ ul {
 .petInformation {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[4];
-      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
   -ms-grid-rows: (min-content)[4];
       grid-template-rows: repeat(4, -webkit-min-content);
       grid-template-rows: repeat(4, min-content);
-      grid-template-areas: "title title title title" "petImage petImage petStory breedFacts" "petImage petImage petFacts location" "adoptMe empty empty empty";
+      grid-template-areas: "title title title" "petImage petStory breedFacts" "petImage petFacts location" "adoptMe adoptMe adoptMe";
 }
 
 .petInformation h2 {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
-  -ms-grid-column-span: 4;
+  -ms-grid-column-span: 3;
   grid-area: title;
+  margin: 0;
+  padding: 5px 0px;
+}
+
+.petInformation h3 {
+  font-size: 2rem;
+  color: #8fd4e9;
+  font-family: "Pangolin", cursive;
+  margin: 0;
+}
+
+.petInformation .petName {
+  text-decoration: underline;
+  -webkit-text-decoration-color: #8fd4e9;
+          text-decoration-color: #8fd4e9;
+}
+
+.petInformation li {
+  font-size: 1rem;
+  color: black;
+  /*to change*/
+}
+
+.petInformation ul {
+  margin: 0;
+  padding-left: 0;
 }
 
 .petImage {
   -ms-grid-row: 2;
   -ms-grid-row-span: 2;
   -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
   grid-area: petImage;
+  padding: 0 25px;
+}
+
+.petImage img {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 50%;
 }
 
 .petFacts {
   -ms-grid-row: 3;
-  -ms-grid-column: 3;
+  -ms-grid-column: 2;
   grid-area: petFacts;
 }
 
 .breedFacts {
   -ms-grid-row: 2;
-  -ms-grid-column: 4;
+  -ms-grid-column: 3;
   grid-area: breedFacts;
+}
+
+.breedFacts p {
+  font-size: 1rem;
+  font-weight: 300;
 }
 
 .petStory {
   -ms-grid-row: 2;
-  -ms-grid-column: 3;
+  -ms-grid-column: 2;
   grid-area: petStory;
+  padding: 5px;
+}
+
+.petStory p {
+  font-size: 1rem;
+  margin: 0;
 }
 
 .petLocation {
   -ms-grid-row: 3;
-  -ms-grid-column: 4;
+  -ms-grid-column: 3;
   grid-area: location;
+  padding: 5px;
+}
+
+.petLocation p {
+  font-size: 1rem;
+  margin: 0;
 }
 
 .adoptMe {
   -ms-grid-row: 4;
   -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
   grid-area: adoptMe;
+  font-size: 2rem;
+  text-transform: uppercase;
+  background-color: #8fd4e9;
+  text-align: center;
+  color: white;
+  /*to change*/
+  border-radius: 25px;
+  margin: 1% 0;
 }
 
-/*
+.adoptMe a {
+  text-decoration: none;
+  color: white;
+}
 
-            <div class="petInformation">
-                <h2>You selected: <span class="petName"></span></h2> <!--append cats name -->
-                <div class="petImage"></div>
-                <div class="petFacts">
-                    <h3>Pet Information</h3>
-                    <ul class="petFactsUl"></ul>
-                </div>
-                <div class="breedFacts"></div>
-                <div class="petStory"></div>
-                <div class="petLocation"></div>
+.adoptMe a:hover {
+  color: red;
+  /*placeholders*/
+}
 
-                <div class="adoptMe"></div>
-            </div>
-*/
+.adoptMe a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+footer {
+  text-align: center;
+  text-transform: uppercase;
+  background-color: #8fd4e9;
+  color: white;
+}
+
+footer p {
+  margin: 0;
+  padding: 5px;
+  font-size: 1rem;
+}

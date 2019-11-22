@@ -290,7 +290,7 @@ furiendFinder.appendInformation = function (name, imgUrl, gender, size, breedNam
 
 
         $(`.breedFacts`).html(
-            `<h3>Breed Facts:
+            `<h3>Breed Facts:</h3>
         <ul>
             ${breedTemperament ? `<li>Temperament: ${breedTemperament}</li>` : ""}
             ${breedLifeSpan?`<li>Average Lifespan: ${breedLifeSpan} years</li>`:""}
@@ -325,13 +325,14 @@ furiendFinder.appendInformation = function (name, imgUrl, gender, size, breedNam
     }
 
     $(`.petStory`).html(
-        `<p>${description} <a href="${url}">read more</a></p>`
+        `<h3>My Story: </h3><p>${description} <a href="${url}">read more</a></p>`
     )
 
     $(`.petLocation`).html(
         /*using conditionals for error handling API information*/
-        `<p>Organization Email: ${contact.email?contact.email:"No email available"}</p>
-        <p>Organization Phone Number: ${contact.phone ? contact.phone : "No phone number available"}</p>
+        `<h3>Organization: </h3>
+        <p>Email: ${contact.email?contact.email:"No email available"}</p>
+        <p>Phone Number: ${contact.phone ? contact.phone : "No phone number available"}</p>
         <ul></ul>`
     )
     
