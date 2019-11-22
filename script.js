@@ -76,7 +76,7 @@ furiendFinder.getGeoLocation = () => {
 
 /*init method, on page load*/
 furiendFinder.init = function () {
-    
+
     
     $('.ageButton').on('click', furiendFinder.ageClickEvent); /*only call click events atached to buttons when document ready*/
     $('.adoptablePets').on('click', '.adoptionButton', furiendFinder.getMoreInfoCLickEvent);
@@ -214,12 +214,20 @@ furiendFinder.getMoreInfoCLickEvent = function () {
     const petType = furiendFinder.petType;
     const animalArray = furiendFinder[petType].animalsArray[petIndex];
 
+    const breedName = animalArray.breeds.primary;
+
+    const name = animalArray.name;
     const imgUrl = animalArray.photos[0].medium;
+    const gender = animalArray.gender;
+    const petBreed = animalArray.breeds.primary;
+    const size = animalArray.size;
+    const attributes = animalArray.attributes;
+    const contact = animalArray.contact;
+    const url = animalArray.url;
+    const mixed = animalArray.mixed;
+    const description = animalArray.description;
 
-    // Using Destructuring
-    const { name,gender,breeds,size,attributes,contact,url,mixed,description } = animalArray;
-
-    furiendFinder.appendInformation(name, imgUrl, gender, size, breeds.primary, attributes, description, contact, url, mixed);
+    furiendFinder.appendInformation(name, imgUrl, gender, size, petBreed, attributes, description, contact, url, mixed);
 
     $('.petInformation').show();
 }
@@ -274,21 +282,27 @@ furiendFinder.appendInformation = function (name, imgUrl, gender, size, breedNam
 
     if (breedFactsInfo !== undefined) {
 
-        // Using Destructuring 
-        const { child_friendly,energy_level,adaptability,origin,temperament,life_span, affection_level, weight } = breedFactsInfo;
+        const breedLifeSpan = breedFactsInfo["life_span"];
+        const breedTemperament = breedFactsInfo["temperament"];
+        const breedOrigin = breedFactsInfo["origin"];
+        const breedWeight = breedFactsInfo["weight"]["metric"];
+        const breedAffection = breedFactsInfo["affection_level"];
+        const breedAdaptability = breedFactsInfo["adaptability"];
+        const breedChildFriendly = breedFactsInfo["child_friendly"];
+        const breedEnergy = breedFactsInfo["energy_level"];
 
 
         $(`.breedFacts`).html(
             `<h3>Breed Facts:</h3>
         <ul>
-            ${temperament ? `<li>Temperament: ${temperament}</li>` : ""}
-            ${life_span?`<li>Average Lifespan: ${life_span}</li>`:""}
-            ${weight.metric?`<li>Average Weight: ${weight.metric} kg</li>`:""}
-            ${origin?`<li>Origin: ${origin}</li>`:""}
-            ${affection_level?`<li>Affection Level: ${affection_level}</li>`:""}
-            ${adaptability?`<li>Adaptability Level: ${adaptability}</li>`:""}
-            ${child_friendly?`<li>Child Friendly Level: ${child_friendly}</li>`:""}
-            ${energy_level?`<li>Energy Level: ${energy_level}</li>`:""}
+            ${breedTemperament ? `<li>Temperament: ${breedTemperament}</li>` : ""}
+            ${breedLifeSpan?`<li>Average Lifespan: ${breedLifeSpan}</li>`:""}
+            ${breedWeight?`<li>Average Weight: ${breedWeight} kg</li>`:""}
+            ${breedOrigin?`<li>Origin: ${breedOrigin}</li>`:""}
+            ${breedAffection?`<li>Affection Level: ${breedAffection}</li>`:""}
+            ${breedAdaptability?`<li>Adaptability Level: ${breedAdaptability}</li>`:""}
+            ${breedChildFriendly?`<li>Child Friendly Level: ${breedChildFriendly}</li>`:""}
+            ${breedEnergy?`<li>Energy Level: ${breedEnergy}</li>`:""}
         </ul>`
         )
     }
