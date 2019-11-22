@@ -15,7 +15,7 @@ p{
 }
 .container{
     margin: 0 auto;
-    width: 1000px;
+    width: 1100px;
 }
 
 img{
@@ -153,6 +153,7 @@ ul{
      h3{
          font-size: 2rem;
          color: $accent-color;
+         font-family: $heading-font;
          margin: 0;
      }
      .petName{

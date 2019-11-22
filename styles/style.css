@@ -191,7 +191,7 @@ p {
 
 .container {
   margin: 0 auto;
-  width: 1000px;
+  width: 1100px;
 }
 
 img {
@@ -350,6 +350,7 @@ ul {
 .petInformation h3 {
   font-size: 2rem;
   color: #8fd4e9;
+  font-family: "Pangolin", cursive;
   margin: 0;
 }
 
@@ -395,6 +396,11 @@ ul {
   -ms-grid-row: 2;
   -ms-grid-column: 3;
   grid-area: breedFacts;
+}
+
+.breedFacts p {
+  font-size: 1rem;
+  font-weight: 300;
 }
 
 .petStory {
