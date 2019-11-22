@@ -6,15 +6,19 @@ $accent-font: 'Dosis', sans-serif;
 $main-font: 'Open Sans', sans-serif;
 $heading-font: 'Pangolin', cursive;
 
-html{
-    height: 100%;
-    width: 100%;
-}
-
 body{
     font-size: 62.5%;
     font-family: $main-font;
 }
+
+header{
+    min-height: 20vh;
+}
+
+main{
+    min-height: 75vh;
+}
+
 p{
     font-size: 2rem;
 }
@@ -115,12 +119,10 @@ ul{
 }
 
 /*LIST OF ADOPTABLE PETS BY AGE*/
-
 .adoptablePets{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto;
-    gap: 1%;
+    gap: 10px;
     margin-bottom: 1%;
     padding: 20px;
     p{
@@ -286,6 +288,7 @@ ul{
 
 
 footer{
+    min-height: 5vh;
     text-align: center;
     text-transform: uppercase;
     background-color: $accent-color;

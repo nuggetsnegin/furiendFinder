@@ -180,14 +180,17 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 }
 
 /*MAIN*/
-html {
-  height: 100%;
-  width: 100%;
-}
-
 body {
   font-size: 62.5%;
   font-family: "Open Sans", sans-serif;
+}
+
+header {
+  min-height: 20vh;
+}
+
+main {
+  min-height: 75vh;
 }
 
 p {
@@ -304,9 +307,7 @@ ul {
   display: grid;
   -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr);
-  -ms-grid-rows: auto;
-      grid-template-rows: auto;
-  gap: 1%;
+  gap: 10px;
   margin-bottom: 1%;
   padding: 20px;
 }
@@ -512,6 +513,7 @@ ul {
 }
 
 footer {
+  min-height: 5vh;
   text-align: center;
   text-transform: uppercase;
   background-color: #8fd4e9;
