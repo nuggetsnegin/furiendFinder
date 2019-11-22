@@ -191,7 +191,7 @@ p {
 
 .container {
   margin: 0 auto;
-  width: 900px;
+  width: 1000px;
 }
 
 img {
@@ -375,6 +375,7 @@ ul {
   -ms-grid-row-span: 2;
   -ms-grid-column: 1;
   grid-area: petImage;
+  padding: 0 25px;
 }
 
 .petImage img {
