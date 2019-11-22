@@ -183,6 +183,8 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 body {
   font-size: 62.5%;
   font-family: "Open Sans", sans-serif;
+  background-color: #E2EAEE;
+  color: #284B52;
 }
 
 header {
@@ -212,34 +214,50 @@ h1 {
   text-align: center;
   padding: 10px;
   font-size: 5rem;
-  color: #8fd4e9;
+  color: #80B4BB;
+  margin: 0;
 }
 
 h2 {
   font-size: 3rem;
   font-family: "Dosis", sans-serif;
+  margin: 0;
 }
 
 ul {
   list-style: none;
 }
 
-.goBack {
-  background-color: #8fd4e9;
-  color: white;
+.backButtonToOptions,
+.backButtonToType {
+  background-color: #80B4BB;
+  color: #E2EAEE;
   font-family: "Pangolin", cursive;
   padding: 20px 50px;
   border: none;
   font-size: 1rem;
   text-transform: uppercase;
   border-radius: 25px;
-  margin-top: 1%;
+  margin: 1% 0;
 }
 
-.goBack:hover {
-  color: white;
-  background-color: #301c77;
-  /*placeholder*/
+.backButtonToOptions:hover,
+.backButtonToType:hover {
+  color: #E2EAEE;
+  background-color: #284B52;
+}
+
+.findPets {
+  font-size: 2rem;
+  padding: 0px 10px;
+  background-color: #284B52;
+  border: 2px dashed #80B4BB;
+  color: #80B4BB;
+}
+
+.findPets:hover {
+  color: #E2EAEE;
+  background-color: #284B52;
 }
 
 /*LANDING PAGE*/
@@ -279,7 +297,7 @@ ul {
   padding: 0px 50px;
   text-transform: uppercase;
   font-family: "Pangolin", cursive;
-  color: #8fd4e9;
+  color: #80B4BB;
   border-radius: 25px;
   background-color: transparent;
   border: none;
@@ -297,8 +315,8 @@ ul {
 .userLocation input {
   font-size: 2rem;
   padding: 0px 10px;
-  border: 2px dashed #8fd4e9;
-  color: #8fd4e9;
+  border: 2px dashed #80B4BB;
+  color: #80B4BB;
 }
 
 /*LIST OF ADOPTABLE PETS BY AGE*/
@@ -318,7 +336,7 @@ ul {
   top: 190px;
   left: 0;
   width: 100%;
-  color: black;
+  color: #284B52;
   z-index: 1;
   font-size: 1rem;
   padding: 0 5px;
@@ -342,6 +360,7 @@ ul {
   position: relative;
   overflow: hidden;
   background: transparent;
+  padding: 10px;
   border: none;
 }
 
@@ -353,6 +372,8 @@ ul {
   /*stop image stretching*/
   border-radius: 50%;
   position: relative;
+  -webkit-box-shadow: 5px 5px #80B4BB;
+          box-shadow: 5px 5px #80B4BB;
 }
 
 /*PET ADOPTION PAGE*/
@@ -361,10 +382,11 @@ ul {
   display: grid;
   -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
   -ms-grid-rows: (min-content)[4];
       grid-template-rows: repeat(4, -webkit-min-content);
       grid-template-rows: repeat(4, min-content);
-      grid-template-areas: "title title title" "petImage petStory breedFacts" "petImage petFacts location" "adoptMe adoptMe adoptMe";
+      grid-template-areas: "title title title" "button empty empty" "petImage petStory breedFacts" "petImage petFacts location" "adoptMe adoptMe adoptMe";
 }
 
 .petInformation h2 {
@@ -378,20 +400,20 @@ ul {
 
 .petInformation h3 {
   font-size: 2rem;
-  color: #8fd4e9;
+  color: #80B4BB;
   font-family: "Pangolin", cursive;
   margin: 0;
 }
 
 .petInformation .petName {
   text-decoration: underline;
-  -webkit-text-decoration-color: #8fd4e9;
-          text-decoration-color: #8fd4e9;
+  -webkit-text-decoration-color: #80B4BB;
+          text-decoration-color: #80B4BB;
 }
 
 .petInformation li {
   font-size: 1rem;
-  color: black;
+  color: #284B52;
   /*to change*/
 }
 
@@ -400,12 +422,39 @@ ul {
   padding-left: 0;
 }
 
-.petImage {
+.petInformation a {
+  color: #80B4BB;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.petInformation a:hover {
+  color: red;
+  /*placeholder*/
+}
+
+.petInformation a:visited {
+  color: red;
+  /*placeholder*/
+}
+
+.petInformation p,
+.petInformation ul {
+  padding: 5px;
+}
+
+.petInformation .backButtonToOptions {
   -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: button;
+}
+
+.petImage {
+  -ms-grid-row: 3;
   -ms-grid-row-span: 2;
   -ms-grid-column: 1;
   grid-area: petImage;
-  padding: 0 25px;
+  padding: 50px;
 }
 
 .petImage img {
@@ -416,24 +465,35 @@ ul {
   height: 300px;
   width: 300px;
   border-radius: 50%;
+  -webkit-box-shadow: 10px 10px #80B4BB;
+          box-shadow: 10px 10px #80B4BB;
 }
 
 .petFacts {
-  -ms-grid-row: 3;
+  -ms-grid-row: 4;
   -ms-grid-column: 2;
   grid-area: petFacts;
+  -webkit-box-shadow: 5px 5px #80B4BB;
+          box-shadow: 5px 5px #80B4BB;
+  border: 1px solid #80B4BB;
 }
 
 .breedFacts {
-  -ms-grid-row: 2;
+  -ms-grid-row: 3;
   -ms-grid-column: 3;
   grid-area: breedFacts;
+  -webkit-box-shadow: 5px 5px #80B4BB;
+          box-shadow: 5px 5px #80B4BB;
+  border: 1px solid #80B4BB;
 }
 
 .petStory {
-  -ms-grid-row: 2;
+  -ms-grid-row: 3;
   -ms-grid-column: 2;
   grid-area: petStory;
+  -webkit-box-shadow: 5px 5px #80B4BB;
+          box-shadow: 5px 5px #80B4BB;
+  border: 1px solid #80B4BB;
   padding: 5px;
 }
 
@@ -443,9 +503,12 @@ ul {
 }
 
 .petLocation {
-  -ms-grid-row: 3;
+  -ms-grid-row: 4;
   -ms-grid-column: 3;
   grid-area: location;
+  -webkit-box-shadow: 5px 5px #80B4BB;
+          box-shadow: 5px 5px #80B4BB;
+  border: 1px solid #80B4BB;
   padding: 5px;
 }
 
@@ -455,18 +518,20 @@ ul {
 }
 
 .adoptMe {
-  -ms-grid-row: 4;
+  -ms-grid-row: 5;
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: adoptMe;
   font-size: 2rem;
   text-transform: uppercase;
-  background-color: #8fd4e9;
+  font-family: "Pangolin", cursive;
+  padding: 10px 0;
+  background-color: #80B4BB;
+  width: 50%;
+  margin: 10px auto;
   text-align: center;
   color: white;
-  /*to change*/
   border-radius: 25px;
-  margin: 1% 0;
 }
 
 .adoptMe a {
@@ -486,7 +551,7 @@ ul {
 
 /*ALERT SECTION*/
 .alert {
-  background-color: #8fd4e9;
+  background-color: #80B4BB;
   opacity: 90%;
   color: white;
   border-radius: 25px;
@@ -515,8 +580,8 @@ footer {
   min-height: 5vh;
   text-align: center;
   text-transform: uppercase;
-  background-color: #8fd4e9;
-  color: white;
+  background-color: #80B4BB;
+  color: #E2EAEE;
 }
 
 footer p {
