@@ -209,9 +209,9 @@ ul {
     grid-template-areas:
         "title title title"
         "button empty empty"
-        "petImage petStory breedFacts"
+        "petImage petStory petStory"
         "petImage petFacts location"
-        "adoptMe adoptMe adoptMe";
+        "adoptMe breedFacts breedFacts";
 
     h2 {
         grid-area: title;

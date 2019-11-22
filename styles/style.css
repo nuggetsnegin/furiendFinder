@@ -391,7 +391,7 @@ ul {
   -ms-grid-rows: (min-content)[4];
       grid-template-rows: repeat(4, -webkit-min-content);
       grid-template-rows: repeat(4, min-content);
-      grid-template-areas: "title title title" "button empty empty" "petImage petStory breedFacts" "petImage petFacts location" "adoptMe adoptMe adoptMe";
+      grid-template-areas: "title title title" "button empty empty" "petImage petStory petStory" "petImage petFacts location" "adoptMe breedFacts breedFacts";
 }
 
 .petInformation h2 {
@@ -484,8 +484,9 @@ ul {
 }
 
 .breedFacts {
-  -ms-grid-row: 3;
-  -ms-grid-column: 3;
+  -ms-grid-row: 5;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
   grid-area: breedFacts;
   -webkit-box-shadow: 5px 5px #80B4BB;
           box-shadow: 5px 5px #80B4BB;
@@ -495,6 +496,7 @@ ul {
 .petStory {
   -ms-grid-row: 3;
   -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
   grid-area: petStory;
   -webkit-box-shadow: 5px 5px #80B4BB;
           box-shadow: 5px 5px #80B4BB;
@@ -525,7 +527,6 @@ ul {
 .adoptMe {
   -ms-grid-row: 5;
   -ms-grid-column: 1;
-  -ms-grid-column-span: 3;
   grid-area: adoptMe;
   font-size: 2rem;
   text-transform: uppercase;
