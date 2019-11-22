@@ -112,6 +112,7 @@ furiendFinder.init = function () {
     $(`.petAge`).hide();
     $(`.adoptionOptions`).hide();
     $(`.alert`).hide();
+    $(`.loadingScreen`).hide();
 
     // We disabled the type buttons until the user has entered the location
     $(`.typeButton`).attr("disabled","true");
@@ -276,6 +277,8 @@ furiendFinder.appendInformation = function (name, imgUrl, gender, size, breedNam
         breedName = 'American Shorthair';
     }
 
+    $(".breedFacts").remove();
+
     const petType = furiendFinder.petType;
 
     const breedFactsInfo = furiendFinder[petType].breedInfo[breedName];
@@ -292,20 +295,22 @@ furiendFinder.appendInformation = function (name, imgUrl, gender, size, breedNam
         const breedEnergy = breedFactsInfo["energy_level"];
 
 
-        $(`.breedFacts`).html(
-            `<h3>Breed Facts:</h3>
-        <ul>
-            ${breedTemperament ? `<li>Temperament: ${breedTemperament}</li>` : ""}
-            ${breedLifeSpan?`<li>Average Lifespan: ${breedLifeSpan}</li>`:""}
-            ${breedWeight?`<li>Average Weight: ${breedWeight} kg</li>`:""}
-            ${breedOrigin?`<li>Origin: ${breedOrigin}</li>`:""}
-            ${breedAffection?`<li>Affection Level: ${breedAffection}</li>`:""}
-            ${breedAdaptability?`<li>Adaptability Level: ${breedAdaptability}</li>`:""}
-            ${breedChildFriendly?`<li>Child Friendly Level: ${breedChildFriendly}</li>`:""}
-            ${breedEnergy?`<li>Energy Level: ${breedEnergy}</li>`:""}
-        </ul>`
+        $(`.petFacts`).after(
+            `<div class="breedFacts">
+            <h3>Breed Facts:</h3>
+            <ul>
+                ${breedTemperament ? `<li>Temperament: ${breedTemperament}</li>` : ""}
+                ${breedLifeSpan?`<li>Average Lifespan: ${breedLifeSpan}</li>`:""}
+                ${breedWeight?`<li>Average Weight: ${breedWeight} kg</li>`:""}
+                ${breedOrigin?`<li>Origin: ${breedOrigin}</li>`:""}
+                ${breedAffection?`<li>Affection Level: ${breedAffection}</li>`:""}
+                ${breedAdaptability?`<li>Adaptability Level: ${breedAdaptability}</li>`:""}
+                ${breedChildFriendly?`<li>Child Friendly Level: ${breedChildFriendly}</li>`:""}
+                ${breedEnergy?`<li>Energy Level: ${breedEnergy}</li>`:""}
+            </ul>
+            </div>`
         )
-    }
+    };
 
     $(`.petName`).html(
         `${name}`
