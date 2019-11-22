@@ -118,9 +118,22 @@ ul{
     gap: 1%;
     margin-bottom: 1%;
     padding: 20px;
-
     p{
+        text-transform: uppercase;
+        font-family: $heading-font;
         margin: 0;
+        top: 190px;
+        left: 0;
+        width: 100%;
+        color: black;
+        z-index: 1;
+        font-size: 1rem;
+        padding: 0 5px;
+        position: absolute;
+        background-color: rgba(255, 255, 255, .9);
+    }
+    p:first-child{
+        top: 10px;
         font-size: 1rem;
     }
 
@@ -138,6 +151,7 @@ ul{
         height: 250px;
         object-fit: cover; /*stop image stretching*/
         border-radius: 50%;
+        position: relative;
     }
 }
 

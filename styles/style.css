@@ -192,6 +192,7 @@ p {
 .container {
   margin: 0 auto;
   width: 1100px;
+  min-height: 800px;
 }
 
 img {
@@ -307,7 +308,22 @@ ul {
 }
 
 .adoptablePets p {
+  text-transform: uppercase;
+  font-family: "Pangolin", cursive;
   margin: 0;
+  top: 190px;
+  left: 0;
+  width: 100%;
+  color: black;
+  z-index: 1;
+  font-size: 1rem;
+  padding: 0 5px;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.adoptablePets p:first-child {
+  top: 10px;
   font-size: 1rem;
 }
 
@@ -332,6 +348,7 @@ ul {
      object-fit: cover;
   /*stop image stretching*/
   border-radius: 50%;
+  position: relative;
 }
 
 /*PET ADOPTION PAGE*/
