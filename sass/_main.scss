@@ -6,6 +6,11 @@ $accent-font: 'Dosis', sans-serif;
 $main-font: 'Open Sans', sans-serif;
 $heading-font: 'Pangolin', cursive;
 
+html{
+    height: 100%;
+    width: 100%;
+}
+
 body{
     font-size: 62.5%;
     font-family: $main-font;
@@ -263,6 +268,7 @@ ul{
     border-radius: 25px;
     text-align: center;
     position: absolute;
+    z-index: 1;
     top: 50%;
     left: 50%;
     transform: translate(-50%);
