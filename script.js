@@ -82,6 +82,10 @@ furiendFinder.init = function () {
     $('.ageButton').on('click', furiendFinder.ageClickEvent); /*only call click events atached to buttons when document ready*/
     $('.adoptablePets').on('click', '.adoptionButton', furiendFinder.getMoreInfoCLickEvent);
 
+    // Getting breeds facts on initialization
+    furiendFinder.getBreedFacts("cat");
+    furiendFinder.getBreedFacts("dog");
+
     $(`.typeButton`).on(`click`, furiendFinder.selectPetTypeClickEvent);
 
     $(`.backButtonToType`).on("click", function () {
@@ -97,9 +101,7 @@ furiendFinder.init = function () {
         $(`.adoptionOptions`).fadeIn();
     })
 
-    // Attaching the event to get the user input for the location
-    $(`#location`).val(furiendFinder.city).on("blur", furiendFinder.getLocation);
-    
+    //Calling the functiion to ask the user for the location 
     furiendFinder.getGeoLocation();
     
     // We make sure the other divs of the App are not displayed
@@ -116,8 +118,7 @@ furiendFinder.init = function () {
 
 // Click event for the buttons to select the pet type(cat or dog)
 furiendFinder.selectPetTypeClickEvent = function () {
-    $(`.petType`).fadeOut();
-    $(`.petAge`).fadeIn();
+    furiendFinder.city = $(`#location`).val();
     $(`.adoptablePets`).empty();
     furiendFinder.petType = $(this).val();
     furiendFinder.getBreedFacts(furiendFinder.petType);
@@ -129,12 +130,12 @@ furiendFinder.getPetsNumberByAge = function (petType,city) {
     const petAgeArray = ["baby", "young", "adult", "senior"];
     /*run a for loop 4 times (0-3) and using the getPetsAvailable method to grab the pet's age and using the petFinder api query to get those words into the function*/
     for (let i = 0; i < 4; i++) {
-        furiendFinder.getPetsAvailable(petAgeArray[i], petType, city, furiendFinder.getNumPets);
+        furiendFinder.getPetsAvailable(petAgeArray[i], petType, city, furiendFinder.getNumPets,"petType","petAge");
     }
 }
 
 /*find all the available pets for adoption*/
-furiendFinder.getPetsAvailable = function (petAge, petType,city, functionCall) {
+furiendFinder.getPetsAvailable = function (petAge, petType,city, functionCall, disappearingDivClass, appearingDivClass) {
     $.ajax({
         url: "https://api.petfinder.com/v2/oauth2/token",
         method: "POST",
@@ -166,21 +167,19 @@ furiendFinder.getPetsAvailable = function (petAge, petType,city, functionCall) {
         }).then((data) => {
             furiendFinder.city = city;
             functionCall(data, petAge, petType, city);
-        })
-    }).fail((error)=>{
-        alert("You have enter an invalid location");
-    });
+            $(`.${disappearingDivClass}`).fadeOut();
+            $(`.${appearingDivClass}`).fadeIn();
+        }).fail((error) => {
+            alert("You have enter an invalid location");
+            
+        });
+    })
 }
 
-furiendFinder.getLocation = function () {
-    const city = $(`#location`).val();
-    console.log(city);
-    furiendFinder.getPetsNumberByAge(furiendFinder.petType, city);
-}
 
 furiendFinder.getNumPets = function (data, petAge, petType, city, petBreed) {
     const totalPets = data.pagination["total_count"];
-    furiendFinder.appendToUl(totalPets, petAge, "age");
+    furiendFinder.appendToUl(totalPets, petAge, petType);
 }
 
 /*accessing catAPI for cat breed facts*/
@@ -200,11 +199,9 @@ furiendFinder.getBreedFacts = function (petType) {
 }
 
 furiendFinder.ageClickEvent = function () {
-    $(`.petAge`).fadeOut();
-    $(`.adoptionOptions`).fadeIn();
-    /*remember to show next page*/
+    
     const petAge = $(this).val();
-    furiendFinder.getPetsAvailable(petAge, furiendFinder.petType, furiendFinder.city, furiendFinder.getAdoptablePets);
+    furiendFinder.getPetsAvailable(petAge, furiendFinder.petType, furiendFinder.city, furiendFinder.getAdoptablePets,"petAge","adoptionOptions");
 }
 
 furiendFinder.getMoreInfoCLickEvent = function () {
@@ -259,10 +256,11 @@ furiendFinder.adoptableButton = function (index, name, breed, url, petType, mixe
 }
 
 /*method to display results into the html*/
-furiendFinder.appendToUl = function (totalPets, petAge) {
+furiendFinder.appendToUl = function (totalPets, petAge, petType) {
 
     $(`.${petAge}`).empty().append(`
         <p>${petAge}</p>
+        <img src="./assets/${petAge}.PNG">
         <p>${totalPets}</p>`
     );
 }
@@ -325,7 +323,7 @@ furiendFinder.appendInformation = function (name, imgUrl, gender, size, breedNam
     }
 
     $(`.petStory`).html(
-        `<h3>My Story: </h3><p>${description} <a href="${url}">read more</a></p>`
+        `<h3>My Story: </h3><p>${description?description:"I'm a little shy, contact me to learn more about me!"} <a href="${url}">read more</a></p>`
     )
 
     $(`.petLocation`).html(
