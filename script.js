@@ -68,7 +68,7 @@ furiendFinder.getGeoLocation = () => {
         console.log("Geolocation services are not supported by your web browser.");
         furiendFinder.city = "Toronto, ON";
         $(`#location`).val(furiendFinder.city);
-        furiendFinder.getPetsNumberByAge(furiendFinder.petType, furiendFinder.city);
+        
     };
  
 }
@@ -82,13 +82,25 @@ furiendFinder.init = function () {
     // furiendFinder.getPetsNumberByAge(furiendFinder.petType,furiendFinder.city);
     $('.ageButton').on('click', furiendFinder.ageClickEvent); /*only call click event when document ready*/
     $('.adoptablePets').on('click', '.adoptionButton', furiendFinder.getMoreInfoCLickEvent);
-    furiendFinder.getBreedFacts("cat");
+    // furiendFinder.getBreedFacts("cat");
     furiendFinder.getGeoLocation();
     
+    $(`.typeButton`).on(`click`, furiendFinder.selectPetTypeClickEvent);
     $('.petInformation').hide();
+    $(`.petAge`).hide();
+    $(`.adoptionOptions`).hide();
     $(`#location`).val(furiendFinder.city).on("blur", furiendFinder.getLocation);
 
     
+}
+
+// Click event for the buttons to select the pet type(cat or dog)
+furiendFinder.selectPetTypeClickEvent = function () {
+    $(`.petType`).fadeOut();
+    $(`.petAge`).fadeIn();
+    furiendFinder.petType = $(this).val();
+    furiendFinder.getBreedFacts(furiendFinder.petType);
+    furiendFinder.getPetsNumberByAge(furiendFinder.petType, furiendFinder.city);
 }
 
 // Method to get all the available pets by every age
@@ -168,6 +180,7 @@ furiendFinder.getBreedFacts = function (petType) {
 
 furiendFinder.ageClickEvent = function () {
     $(`.petAge`).fadeOut();
+    $(`.adoptionOptions`).fadeIn();
     /*remember to show next page*/
     const petAge = $(this).val();
     furiendFinder.getPetsAvailable(petAge, furiendFinder.petType, furiendFinder.city, furiendFinder.getAdoptablePets);
@@ -258,14 +271,14 @@ furiendFinder.appendInformation = function (name, imgUrl, gender, size, breedNam
         $(`.breedFacts`).html(
             `<h3>Breed Facts:
         <ul>
-            <li>Average Lifespan: ${breedLifeSpan}</li>
-            <li>Average Weight: ${breedWeight}</li>
-            <li>Origin: ${breedOrigin}</li>
-            <li>Affection Level: ${breedAffection}</li>
-            <li>Adaptability Level: ${breedAdaptability}</li>
-            <li>Child Friendly Level: ${breedChildFriendly}</li>
-            <li>Energy Level: ${breedEnergy}</li>
-            <li>Temperament: ${breedTemperament}</li>
+            ${breedLifeSpan?`<li>Average Lifespan: ${breedLifeSpan}</li>`:""}
+            ${breedWeight?`<li>Average Weight: ${breedWeight}</li>`:""}
+            ${breedOrigin?`<li>Origin: ${breedOrigin}</li>`:""}
+            ${breedAffection?`<li>Affection Level: ${breedAffection}</li>`:""}
+            ${breedAdaptability?`<li>Adaptability Level: ${breedAdaptability}</li>`:""}
+            ${breedChildFriendly?`<li>Child Friendly Level: ${breedChildFriendly}</li>`:""}
+            ${breedEnergy?`<li>Energy Level: ${breedEnergy}</li>`:""}
+            ${breedTemperament?`<li>Temperament: ${breedTemperament}</li>`:""}
         </ul>`
         )
     }

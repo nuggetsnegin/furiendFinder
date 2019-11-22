@@ -20,30 +20,51 @@
         </header>
 
         <main>
-            <div class="petAge">
+            <div class="petType">
                 <div class="userLocation">
                     <label for="location" class="visuallyHidden"></label>
-                    <p>Your City:</p> <input type="text" id="location" placeholder="Toronto, ON">
-                    <h2>There are..</h2>
+                    <p>Find furiends in:</p> <input type="text" id="location" placeholder="Toronto, ON">
                 </div>
+                <ul class="type">
+                    <li>
+                        <button class="typeButton"  value="dog">
+                            <img src="" alt="Dog">
+                        </button>
+                    </li>
+                    <li>
+                        <button class="typeButton"  value="cat">
+                            <img src="" alt="Cat">
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <div class="petAge">
+                <h2>There are..</h2>
                 <ul class="age">
                     <li><button class="baby ageButton" value="baby">
                             <img src="assets/baby.PNG" alt="drawing of a baby cat">
-                        </button></li>
+                        </button>
+                    </li>
                     <li><button class="young ageButton" value="young">
                             <img src="assets/young.PNG" alt="drawing of a young cat">
-                        </button></li>
+                        </button>
+                    </li>
                     <li><button class="adult ageButton" value="adult">
                             <img src="assets/adult.PNG" alt="drawing of an adult cat">
-                        </button></li>
+                        </button>
+                    </li>
                     <li><button class="senior ageButton" value="senior">
                             <img src="assets/senior.PNG" alt="drawing of a senior cat">
-                        </button></li>
+                        </button>
+                    </li>
                 </ul>
+                <button>Go back</button>
             </div>
 
             <div class="adoptionOptions">
+                <button>Go back</button>
                 <ul class="adoptablePets"></ul>
+                <button>Go back</button>
             </div>
 
             <div class="petInformation">
@@ -59,6 +80,7 @@
                 <div class="petLocation"></div>
 
                 <div class="adoptMe"></div>
+                <button>Go back</button>
             </div>
         </main>
 
