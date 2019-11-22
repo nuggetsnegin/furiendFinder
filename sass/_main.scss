@@ -58,14 +58,13 @@ ul {
     list-style: none;
 }
 
-.backButtonToOptions,
-.backButtonToType {
+.backButton {
     background-color: $accent-color;
     color: $background-color;
     font-family: $heading-font;
     padding: 20px 50px;
     border: none;
-    font-size: 1rem;
+    font-size: 2rem;
     text-transform: uppercase;
     border-radius: 25px;
     margin: 1% 0;

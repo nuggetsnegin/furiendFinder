@@ -228,21 +228,19 @@ ul {
   list-style: none;
 }
 
-.backButtonToOptions,
-.backButtonToType {
+.backButton {
   background-color: #80B4BB;
   color: #E2EAEE;
   font-family: "Pangolin", cursive;
   padding: 20px 50px;
   border: none;
-  font-size: 1rem;
+  font-size: 2rem;
   text-transform: uppercase;
   border-radius: 25px;
   margin: 1% 0;
 }
 
-.backButtonToOptions:hover,
-.backButtonToType:hover {
+.backButton:hover {
   color: #E2EAEE;
   background-color: #284B52;
 }
