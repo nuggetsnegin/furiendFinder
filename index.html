@@ -8,7 +8,7 @@
     <title>Furiend Finder</title>
     <script src='https://code.jquery.com/jquery-3.2.1.min.js'
         integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=' crossorigin='anonymous'></script>
-    <link href="https://fonts.googleapis.com/css?family=Dosis:300,400,700|Pangolin|Open+Sans:300,400,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dosis:300,400,700|Pangolin|Open+Sans:300,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 
@@ -23,18 +23,21 @@
             <div class="petType">
                 <div class="userLocation">
                     <label for="location" class="visuallyHidden"></label>
-                    <p>Find furiends in:</p> <input type="text" id="location" placeholder="Toronto, ON">
+                    <p>Find furiends in: </p> <input type="text" id="location" placeholder="Toronto, ON">
                 </div>
                 <ul class="type">
                     <li>
                         <button class="typeButton"  value="dog">
-                            <img src="" alt="Dog">
+                            <img src="./assets/dogMain.png" alt="illustration of a dog">
                         </button>
+                        <h2>Dog</h2>
                     </li>
+                    
                     <li>
                         <button class="typeButton"  value="cat">
-                            <img src="" alt="Cat">
+                            <img src="./assets/catMain.png" alt="illustration of a Cat">
                         </button>
+                        <h2>Cat</h2>
                     </li>
                 </ul>
             </div>
@@ -58,13 +61,13 @@
                         </button>
                     </li>
                 </ul>
-                <button>Go back</button>
+                <button class="goBack">Go back</button>
             </div>
 
             <div class="adoptionOptions">
-                <button>Go back</button>
+                <button class="goBack">Go back</button>
                 <ul class="adoptablePets"></ul>
-                <button>Go back</button>
+                <button class="goBack">Go back</button>
             </div>
 
             <div class="petInformation">
@@ -80,7 +83,7 @@
                 <div class="petLocation"></div>
 
                 <div class="adoptMe"></div>
-                <button>Go back</button>
+                <button class="goBack">Go back</button>
             </div>
         </main>
 
@@ -88,7 +91,7 @@
     </div>
 
     <footer>
-        <p>Copyright &copy; Juan & Negin</p>
+        <p>Made by 🦴 Juan & Negin 🦴 Copyright &copy; 2019</p>
     </footer>
 
 </body>

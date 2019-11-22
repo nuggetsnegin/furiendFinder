@@ -90,14 +90,16 @@ furiendFinder.init = function () {
     $(`.petAge`).hide();
     $(`.adoptionOptions`).hide();
     $(`#location`).val(furiendFinder.city).on("blur", furiendFinder.getLocation);
+    $('footer').show();
 
     
 }
 
 // Click event for the buttons to select the pet type(cat or dog)
 furiendFinder.selectPetTypeClickEvent = function () {
-    $(`.petType`).fadeOut();
-    $(`.petAge`).fadeIn();
+    $('.petType').fadeOut();
+    $('.petAge').fadeIn();
+    $('footer').fadeOut();
     furiendFinder.petType = $(this).val();
     furiendFinder.getBreedFacts(furiendFinder.petType);
     furiendFinder.getPetsNumberByAge(furiendFinder.petType, furiendFinder.city);
@@ -304,12 +306,13 @@ furiendFinder.appendInformation = function (name, imgUrl, gender, size, breedNam
     }
 
     $(`.petStory`).html(
-        `<p>${description} <a href="${url}">read more</a></p>`
+        `<h3>My Story: </h3><p>${description} <a href="${url}">read more</a></p>`
     )
 
     $(`.petLocation`).html(
         /*using conditionals for error handling API information*/
-        `<p>Organization Email: ${contact.email?contact.email:"No email available"}</p>
+        `<h3>Organization Information: </h3>
+        <p>Organization Email: ${contact.email?contact.email:"No email available"}</p>
         <p>Organization Phone Number: ${contact.phone ? contact.phone : "No phone number available"}</p>
         <ul></ul>`
     )

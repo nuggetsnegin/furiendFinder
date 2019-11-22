@@ -2,7 +2,8 @@
 $base-color: rgb(18, 18, 18);
 $accent-color: rgb(143, 212, 233);
 $background-color: rgb(240, 234, 226);
-$main-font: 'Dosis', sans-serif;
+$accent-font: 'Dosis', sans-serif;
+$main-font: 'Open Sans', sans-serif;
 $heading-font: 'Pangolin', cursive;
 
 body{
@@ -32,13 +33,49 @@ h1{
 
 h2{
     font-size: 3rem;
+    font-family: $accent-font;
 }
 
 ul{
     list-style: none;
 }
 
+.goBack{
+    background-color: $accent-color;
+    color: white;
+    font-family: $heading-font;
+    padding: 20px 50px;
+    border: none;
+    font-size: 1rem;
+    text-transform: uppercase;
+    border-radius: 25px;
+    margin-top: 1%;
+    &:hover{
+        color: white;
+        background-color: rgb(48, 28, 119); /*placeholder*/
+    }
+}
+
 /*LANDING PAGE*/
+.petType{
+    text-align: center;
+}
+
+.type{
+    display: flex;
+
+    button{
+        background: transparent;
+        border: none;
+    }
+    h2{
+        margin: 0;
+        text-transform: uppercase;
+        font-size: 2rem;
+    }
+}
+
+/*AGE PAGE*/
 .age{
     display: flex;
     li{
@@ -99,21 +136,48 @@ ul{
 /*PET ADOPTION PAGE*/
 .petInformation{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, min-content);
     grid-template-areas:
-    "title title title title"
-    "petImage petImage petStory breedFacts"
-     "petImage petImage petFacts location"
-     "adoptMe empty empty empty";
-}
+    "title title title"
+    "petImage petStory breedFacts"
+     "petImage petFacts location"
+     "adoptMe adoptMe adoptMe";
 
-.petInformation h2{
-    grid-area: title;
+     h2{
+         grid-area: title;
+         margin: 0;
+         padding: 5px 0px;
+     }
+
+     h3{
+         font-size: 2rem;
+         color: $accent-color;
+         margin: 0;
+     }
+     .petName{
+        text-decoration:underline;
+        text-decoration-color: $accent-color;
+     }
+
+     li{
+         font-size: 1rem;
+         color: black; /*to change*/
+     }
+     ul{
+        margin: 0;
+        padding-left: 0;
+    }
 }
 
 .petImage{
     grid-area: petImage;
+    img{
+        width: 300px;
+        height: 300px;
+        overflow: hidden;
+        border-radius: 50%;
+    }
 }
 
 .petFacts{
@@ -126,35 +190,56 @@ ul{
 
 .petStory{
     grid-area: petStory;
+    p{
+        font-size: 1rem;
+        margin: 0;
+    }
+    padding: 5px;
 }
 
 .petLocation{
     grid-area: location;
+    p{
+        font-size: 1rem;
+        margin: 0;
+    }
+    padding: 5px;
 }
 
 .adoptMe{
     grid-area: adoptMe;
+    font-size: 2rem;
+    text-transform: uppercase;
+    background-color: $accent-color;
+    text-align: center;
+    color: white; /*to change*/
+    border-radius: 25px;
+    margin: 1% 0;
+    a{
+        text-decoration: none;
+        color: white;
+    }
+    a:hover{
+        color: red; /*placeholders*/
+
+    }
+    a:visited{
+        color: white;
+        text-decoration: none;
+    }
 }
 
-/*
 
-            <div class="petInformation">
-                <h2>You selected: <span class="petName"></span></h2> <!--append cats name -->
-                <div class="petImage"></div>
-                <div class="petFacts">
-                    <h3>Pet Information</h3>
-                    <ul class="petFactsUl"></ul>
-                </div>
-                <div class="breedFacts"></div>
-                <div class="petStory"></div>
-                <div class="petLocation"></div>
-
-                <div class="adoptMe"></div>
-            </div>
-*/
-
-// footer{
-//     background-color: $accent-color;
-// }
+footer{
+    text-align: center;
+    text-transform: uppercase;
+    background-color: $accent-color;
+    color: white;
+    p{
+        margin: 0;
+        padding: 5px;
+        font-size: 1rem;
+    }
+}
 
 
