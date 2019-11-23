@@ -205,10 +205,10 @@ ul {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    grid-template-rows: repeat(4, min-content);
+    margin: 0 auto;
+    grid-template-rows: repeat(3, min-content);
     grid-template-areas:
-        "title title title"
-        "button empty empty"
+        "title title ."
         "petImage petStory petStory"
         "petImage petFacts location"
         "adoptMe breedFacts breedFacts";
@@ -234,8 +234,6 @@ ul {
     li {
         font-size: 1rem;
         color: $dark-color;
-        /*to change*/
-
     }
 
     ul {
@@ -305,8 +303,6 @@ ul {
         font-size: 1rem;
         margin: 0;
     }
-
-    padding: 5px;
 }
 
 .petLocation {
@@ -328,7 +324,6 @@ ul {
     text-transform: uppercase;
     font-family: $heading-font;
     padding: 10px 0;
-    background-color: $accent-color;
     width: 50%;
     margin: 10px auto;
     text-align: center;
@@ -337,6 +332,7 @@ ul {
 
     a {
         text-decoration: none;
+        background-color: $accent-color;
         color: white;
     }
 

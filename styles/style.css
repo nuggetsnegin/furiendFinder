@@ -388,16 +388,17 @@ ul {
   -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  -ms-grid-rows: (min-content)[4];
-      grid-template-rows: repeat(4, -webkit-min-content);
-      grid-template-rows: repeat(4, min-content);
-      grid-template-areas: "title title title" "button empty empty" "petImage petStory petStory" "petImage petFacts location" "adoptMe breedFacts breedFacts";
+  margin: 0 auto;
+  -ms-grid-rows: (min-content)[3];
+      grid-template-rows: repeat(3, -webkit-min-content);
+      grid-template-rows: repeat(3, min-content);
+      grid-template-areas: "title title ." "petImage petStory petStory" "petImage petFacts location" "adoptMe breedFacts breedFacts";
 }
 
 .petInformation h2 {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
-  -ms-grid-column-span: 3;
+  -ms-grid-column-span: 2;
   grid-area: title;
   margin: 0;
   padding: 5px 0px;
@@ -419,7 +420,6 @@ ul {
 .petInformation li {
   font-size: 1rem;
   color: #284B52;
-  /*to change*/
 }
 
 .petInformation ul {
@@ -449,13 +449,11 @@ ul {
 }
 
 .petInformation .backButtonToOptions {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
   grid-area: button;
 }
 
 .petImage {
-  -ms-grid-row: 3;
+  -ms-grid-row: 2;
   -ms-grid-row-span: 2;
   -ms-grid-column: 1;
   grid-area: petImage;
@@ -475,7 +473,7 @@ ul {
 }
 
 .petFacts {
-  -ms-grid-row: 4;
+  -ms-grid-row: 3;
   -ms-grid-column: 2;
   grid-area: petFacts;
   -webkit-box-shadow: 5px 5px #80B4BB;
@@ -484,7 +482,7 @@ ul {
 }
 
 .breedFacts {
-  -ms-grid-row: 5;
+  -ms-grid-row: 4;
   -ms-grid-column: 2;
   -ms-grid-column-span: 2;
   grid-area: breedFacts;
@@ -494,14 +492,13 @@ ul {
 }
 
 .petStory {
-  -ms-grid-row: 3;
+  -ms-grid-row: 2;
   -ms-grid-column: 2;
   -ms-grid-column-span: 2;
   grid-area: petStory;
   -webkit-box-shadow: 5px 5px #80B4BB;
           box-shadow: 5px 5px #80B4BB;
   border: 1px solid #80B4BB;
-  padding: 5px;
 }
 
 .petStory p {
@@ -510,7 +507,7 @@ ul {
 }
 
 .petLocation {
-  -ms-grid-row: 4;
+  -ms-grid-row: 3;
   -ms-grid-column: 3;
   grid-area: location;
   -webkit-box-shadow: 5px 5px #80B4BB;
@@ -525,14 +522,13 @@ ul {
 }
 
 .adoptMe {
-  -ms-grid-row: 5;
+  -ms-grid-row: 4;
   -ms-grid-column: 1;
   grid-area: adoptMe;
   font-size: 2rem;
   text-transform: uppercase;
   font-family: "Pangolin", cursive;
   padding: 10px 0;
-  background-color: #80B4BB;
   width: 50%;
   margin: 10px auto;
   text-align: center;
@@ -542,6 +538,7 @@ ul {
 
 .adoptMe a {
   text-decoration: none;
+  background-color: #80B4BB;
   color: white;
 }
 

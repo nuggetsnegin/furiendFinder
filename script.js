@@ -1,3 +1,8 @@
+// Unescape any special characters from responses, such as %20 or &#39;s
+function unescape(string){
+    return new DOMParser().parseFromString(string, 'text/html').querySelector('html').textContent;
+}
+
 /*create empty object of app*/
 const furiendFinder = {
     cat: {},
@@ -117,8 +122,6 @@ furiendFinder.init = function () {
     // We disabled the type buttons until the user has entered the location
     $(`.typeButton`).attr("disabled","true");
     
-
-    
 }
 
 // Click event for the buttons to select the pet type(cat or dog)
@@ -226,7 +229,7 @@ furiendFinder.getMoreInfoCLickEvent = function () {
     const contact = animalArray.contact;
     const url = animalArray.url;
     const mixed = animalArray.mixed;
-    const description = animalArray.description;
+    const description = unescape(animalArray.description); /*fixing escaping characters on description api call*/
 
     furiendFinder.appendInformation(name, imgUrl, gender, size, petBreed, attributes, description, contact, url, mixed);
 
@@ -355,9 +358,6 @@ furiendFinder.appendInformation = function (name, imgUrl, gender, size, breedNam
         }
 
     }
-
-
-
     $(`.adoptMe`).html(
         `<a href=${url + "#animal_adoption_inquiry_guest_profile_firstName"}>Adopt Me!</a>`
     )
