@@ -101,14 +101,14 @@ furiendFinder.init = function () {
         $(".backButton").hide();
     });
     $(`header`).on("click", `.backButtonToAge`, function () {
-        $(`.adoptionOptions`).hide();
-        $(`.petAge`).show();
+        $(`.adoptionOptions`).fadeOut();
+        $(`.petAge`).fadeIn();
         $(".backButtonToType").show();
         $(".backButtonToAge").hide();
     });
     $(`header`).on("click", `.backButtonToOptions`, function () {
-        $(`.petInformation`).hide();
-        $(`.adoptionOptions`).show();
+        $(`.petInformation`).fadeOut();
+        $(`.adoptionOptions`).fadeIn();
         $(".backButtonToAge").show();
         $(".backButtonToOptions").hide();
     })

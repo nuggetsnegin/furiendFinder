@@ -427,7 +427,7 @@ ul {
   -ms-grid-rows: (min-content)[3];
       grid-template-rows: repeat(3, -webkit-min-content);
       grid-template-rows: repeat(3, min-content);
-      grid-template-areas: "title title title" "petImage petStory petStory" "petImage petFacts location" "breedFacts breedFacts breedFacts" ". adoptMe .";
+      grid-template-areas: "title title title" "petImage petStory petStory" "petImage petFacts location" "breedFacts breedFacts breedFacts" "adoptMe adoptMe adoptMe";
 }
 
 .petInformation h2 {
@@ -558,7 +558,8 @@ ul {
 
 .adoptMe {
   -ms-grid-row: 5;
-  -ms-grid-column: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
   grid-area: adoptMe;
   font-size: 2rem;
   text-transform: uppercase;
