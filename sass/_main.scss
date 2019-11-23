@@ -18,7 +18,7 @@ cursive;
 body {
     font-size: 62.5%;
     font-family: $main-font;
-    // background-image: url(../assets/bgPattern.jpg);
+    background-image: url(../assets/bgPattern.jpg);
     background-color: khaki; /*fallback*/
     background-size: contain;
     color: $dark-color;
@@ -27,7 +27,7 @@ body {
 
 header {
     min-height: 15vh;
-    background-color: $accent-color;
+    background-color: rgba(228, 66, 136, 0.6);
     
     .headerMain {
         display: flex;
@@ -175,17 +175,22 @@ ul {
 .userLocation {
     font-family: $heading-font;
     p {
+        margin-right: 1%;
         display: inline;
         background-color: $base-color;
-        padding: 0px 10px;
-        border: 2px dashed $light-color;
+        padding: 0px 15px;
+        border: none;
+        border-radius: 25px;
+        // border: 2px dashed $light-color;
     }
 
     input {
         font-size: 2rem;
-        padding: 0px 10px;
+        padding: 0px 15px;
         color: $accent-color;
-        border: 2px dashed $light-color;
+        border: none;
+        border-radius: 25px;
+        // border: 2px dashed $light-color;
     }
 
 }
@@ -465,6 +470,39 @@ ul {
     }
 }
 
+/*SPEECH BUBBLE*/
+.speechBubble {
+	position: relative;
+    background: #fcf8fb;
+    width: 50%;
+    height: 100px;
+    margin: 0 auto;
+    border-radius: 20px;
+    
+    p{
+        font-size: 1.3rem;
+        padding: 25px;
+        font-family: $heading-font;
+    }
+}
+
+.speechBubble:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 50px solid transparent;
+	border-top-color: #fcf8fb;
+	border-bottom: 0;
+	border-left: 0;
+	margin-left: -21.5px; /*arrow*/
+	margin-bottom: -43px;
+}
+
+
+/*FOOTER*/
 footer {
     min-height: 5vh;
     text-align: center;

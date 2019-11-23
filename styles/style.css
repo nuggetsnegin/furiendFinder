@@ -184,6 +184,7 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 body {
   font-size: 62.5%;
   font-family: "Open Sans", sans-serif;
+  background-image: url(../assets/bgPattern.jpg);
   background-color: khaki;
   /*fallback*/
   background-size: contain;
@@ -193,7 +194,7 @@ body {
 
 header {
   min-height: 15vh;
-  background-color: #fc5185;
+  background-color: rgba(228, 66, 136, 0.6);
 }
 
 header .headerMain {
@@ -341,17 +342,20 @@ ul {
 }
 
 .userLocation p {
+  margin-right: 1%;
   display: inline;
   background-color: #3fc1c9;
-  padding: 0px 10px;
-  border: 2px dashed #f5f5f5;
+  padding: 0px 15px;
+  border: none;
+  border-radius: 25px;
 }
 
 .userLocation input {
   font-size: 2rem;
-  padding: 0px 10px;
+  padding: 0px 15px;
   color: #fc5185;
-  border: 2px dashed #f5f5f5;
+  border: none;
+  border-radius: 25px;
 }
 
 /*LIST OF ADOPTABLE PETS BY AGE*/
@@ -447,7 +451,7 @@ ul {
   -ms-grid-rows: (min-content)[3];
       grid-template-rows: repeat(3, -webkit-min-content);
       grid-template-rows: repeat(3, min-content);
-      grid-template-areas: "title title title" "petImage petStory petStory" "petImage petFacts location" "breedFacts breedFacts breedFacts" "adoptMe adoptMe adoptMe";
+      grid-template-areas: "title title title" "petImage petStory petStory" "petImage petFacts location" "breedFacts breedFacts breedFacts" "adoptMe adoptMe adoptMe";
 }
 
 .petInformation h2 {
@@ -670,6 +674,39 @@ ul {
   width: 20%;
 }
 
+/*SPEECH BUBBLE*/
+.speechBubble {
+  position: relative;
+  background: #fcf8fb;
+  width: 50%;
+  height: 100px;
+  margin: 0 auto;
+  border-radius: 20px;
+}
+
+.speechBubble p {
+  font-size: 1.3rem;
+  padding: 25px;
+  font-family: "Pangolin", cursive;
+}
+
+.speechBubble:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border: 50px solid transparent;
+  border-top-color: #fcf8fb;
+  border-bottom: 0;
+  border-left: 0;
+  margin-left: -21.5px;
+  /*arrow*/
+  margin-bottom: -43px;
+}
+
+/*FOOTER*/
 footer {
   min-height: 5vh;
   text-align: center;
