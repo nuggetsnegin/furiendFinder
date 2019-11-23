@@ -235,20 +235,11 @@ furiendFinder.getMoreInfoCLickEvent = function () {
     const petType = furiendFinder.petType;
     const animalArray = furiendFinder[petType].animalsArray[petIndex];
 
-    const breedName = animalArray.breeds.primary;
+    const { name, photos, gender, breeds, size, attributes, contact, url, mixed } = animalArray;
 
-    const name = animalArray.name;
-    const imgUrl = animalArray.photos[0].medium;
-    const gender = animalArray.gender;
-    const petBreed = animalArray.breeds.primary;
-    const size = animalArray.size;
-    const attributes = animalArray.attributes;
-    const contact = animalArray.contact;
-    const url = animalArray.url;
-    const mixed = animalArray.mixed;
     const description = unescape(animalArray.description); /*fixing escaping characters on description api call*/
 
-    furiendFinder.appendInformation(name, imgUrl, gender, size, petBreed, attributes, description, contact, url, mixed);
+    furiendFinder.appendInformation(name, photos, gender, size, breeds.primary, attributes, description, contact, url, mixed);
 
     $('.petInformation').show();
 }
@@ -291,7 +282,7 @@ furiendFinder.appendToUl = function (totalPets, petAge, petType) {
     );
 }
 
-furiendFinder.appendInformation = function (name, imgUrl, gender, size, breedName, attributes, description, contact, url, mixed) {
+furiendFinder.appendInformation = function (name, photos, gender, size, breedName, attributes, description, contact, url, mixed) {
 
     if(breedName.includes('Domestic')){ /*breed names are different from two APIs*/
         breedName = 'American Shorthair';
@@ -305,28 +296,22 @@ furiendFinder.appendInformation = function (name, imgUrl, gender, size, breedNam
 
     if (breedFactsInfo !== undefined) {
 
-        const breedLifeSpan = breedFactsInfo["life_span"];
-        const breedTemperament = breedFactsInfo["temperament"];
-        const breedOrigin = breedFactsInfo["origin"];
-        const breedWeight = breedFactsInfo["weight"]["metric"];
-        const breedAffection = breedFactsInfo["affection_level"];
-        const breedAdaptability = breedFactsInfo["adaptability"];
-        const breedChildFriendly = breedFactsInfo["child_friendly"];
-        const breedEnergy = breedFactsInfo["energy_level"];
+
+        const { life_span,temperament,origin,weight,affection_level,adaptability,child_friendly,energy_level} = breedFactsInfo
 
 
         $(`.petFacts`).after(
             `<div class="breedFacts">
             <h3>Breed Facts:</h3>
             <ul>
-                ${breedTemperament ? `<li>Temperament: ${breedTemperament}</li>` : ""}
-                ${breedLifeSpan?`<li>Average Lifespan: ${breedLifeSpan}</li>`:""}
-                ${breedWeight?`<li>Average Weight: ${breedWeight} kg</li>`:""}
-                ${breedOrigin?`<li>Origin: ${breedOrigin}</li>`:""}
-                ${breedAffection?`<li>Affection Level: ${breedAffection}</li>`:""}
-                ${breedAdaptability?`<li>Adaptability Level: ${breedAdaptability}</li>`:""}
-                ${breedChildFriendly?`<li>Child Friendly Level: ${breedChildFriendly}</li>`:""}
-                ${breedEnergy?`<li>Energy Level: ${breedEnergy}</li>`:""}
+                ${temperament ? `<li>Temperament: ${temperament}</li>` : ""}
+                ${life_span?`<li>Average Lifespan: ${life_span}</li>`:""}
+                ${weight.metric?`<li>Average Weight: ${weight.metric} kg</li>`:""}
+                ${origin?`<li>Origin: ${origin}</li>`:""}
+                ${affection_level?`<li>Affection Level: ${affection_level}</li>`:""}
+                ${adaptability?`<li>Adaptability Level: ${adaptability}</li>`:""}
+                ${child_friendly?`<li>Child Friendly Level: ${child_friendly}</li>`:""}
+                ${energy_level?`<li>Energy Level: ${energy_level}</li>`:""}
             </ul>
             </div>`
         )
@@ -337,9 +322,9 @@ furiendFinder.appendInformation = function (name, imgUrl, gender, size, breedNam
     )
 
     $(`.petImage`).html(
-        `<img src="${imgUrl}">`
+        `<img src="${photos[0].medium}">`
     )
-
+    
     $(`.petFactsUl`).html(
         `<li>Breed: ${mixed?"Mixed":""} ${breedName}</li>
         <li>Gender: ${gender}</li>
@@ -400,7 +385,7 @@ AOS.init({
     duration: 400, // values from 0 to 3000, with step 50ms
     easing: 'ease', // default easing for AOS animations
     once: false, // whether animation should happen only once - while scrolling down
-    mirror: false, // whether elements should animate out while scrolling past them
+    mirror: true, // whether elements should animate out while scrolling past them
     anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
 
 });
