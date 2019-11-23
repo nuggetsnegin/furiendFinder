@@ -186,15 +186,33 @@ body {
   font-family: "Open Sans", sans-serif;
   background-color: #E2EAEE;
   color: #284B52;
+  position: relative;
 }
 
 header {
   min-height: 20vh;
 }
 
+header .headerMain {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+header .backButton {
+  position: absolute;
+  left: 0px;
+}
+
 main {
   min-height: 75vh;
-  position: relative;
 }
 
 p {
@@ -203,7 +221,8 @@ p {
 
 .container {
   margin: 0 auto;
-  width: 1100px;
+  max-width: 1400px;
+  width: 80%;
 }
 
 img {
@@ -228,6 +247,8 @@ h2 {
 
 ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .backButton {
@@ -269,6 +290,9 @@ ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .type button {
@@ -282,25 +306,35 @@ ul {
   font-size: 2rem;
 }
 
+.type img {
+  max-width: 400px;
+}
+
 /*AGE PAGE*/
 .age {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .age li {
-  margin: 1% auto;
+  width: 20%;
 }
 
 .age button {
-  padding: 0px 50px;
   text-transform: uppercase;
   font-family: "Pangolin", cursive;
   color: #80B4BB;
   border-radius: 25px;
   background-color: transparent;
   border: none;
+}
+
+.age li:last-child {
+  padding: 0;
 }
 
 .petAge {
@@ -389,19 +423,21 @@ ul {
       grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   margin: 0 auto;
+  padding-bottom: 50px;
   -ms-grid-rows: (min-content)[3];
       grid-template-rows: repeat(3, -webkit-min-content);
       grid-template-rows: repeat(3, min-content);
-      grid-template-areas: "title title ." "petImage petStory petStory" "petImage petFacts location" "adoptMe breedFacts breedFacts";
+      grid-template-areas: "title title title" "petImage petStory petStory" "petImage petFacts location" "breedFacts breedFacts breedFacts" ". adoptMe .";
 }
 
 .petInformation h2 {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
+  -ms-grid-column-span: 3;
   grid-area: title;
   margin: 0;
   padding: 5px 0px;
+  text-align: center;
 }
 
 .petInformation h3 {
@@ -448,10 +484,6 @@ ul {
   padding: 5px;
 }
 
-.petInformation .backButtonToOptions {
-  grid-area: button;
-}
-
 .petImage {
   -ms-grid-row: 2;
   -ms-grid-row-span: 2;
@@ -472,6 +504,10 @@ ul {
           box-shadow: 10px 10px #80B4BB;
 }
 
+.petFacts, .petStory, .petLocation, .breedFacts {
+  padding: 20px;
+}
+
 .petFacts {
   -ms-grid-row: 3;
   -ms-grid-column: 2;
@@ -483,8 +519,8 @@ ul {
 
 .breedFacts {
   -ms-grid-row: 4;
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
   grid-area: breedFacts;
   -webkit-box-shadow: 5px 5px #80B4BB;
           box-shadow: 5px 5px #80B4BB;
@@ -513,7 +549,6 @@ ul {
   -webkit-box-shadow: 5px 5px #80B4BB;
           box-shadow: 5px 5px #80B4BB;
   border: 1px solid #80B4BB;
-  padding: 5px;
 }
 
 .petLocation p {
@@ -522,8 +557,8 @@ ul {
 }
 
 .adoptMe {
-  -ms-grid-row: 4;
-  -ms-grid-column: 1;
+  -ms-grid-row: 5;
+  -ms-grid-column: 2;
   grid-area: adoptMe;
   font-size: 2rem;
   text-transform: uppercase;
@@ -540,6 +575,8 @@ ul {
   text-decoration: none;
   background-color: #80B4BB;
   color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
 }
 
 .adoptMe a:hover {
@@ -581,19 +618,30 @@ ul {
 
 /*LOADING SCREEN*/
 .loadingScreen {
-  background-color: rgba(236, 249, 255, 0.7);
+  background-color: #ecf9ff;
   z-index: 2;
   position: absolute;
   top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  text-align: center;
+  left: 1vw;
+  width: 98vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .loadingScreen img {
   width: 20%;
-  margin: 0 auto;
 }
 
 footer {

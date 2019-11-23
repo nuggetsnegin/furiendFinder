@@ -97,19 +97,19 @@ furiendFinder.init = function () {
     })
 
     $(`header`).on("click", ".backButtonToType",function () {
-        $(`.petAge`).fadeOut();
-        $(`.petType`).fadeIn();
-        $(".backButton").fadeOut();
+        $(`.petAge`).hide();
+        $(`.petType`).show();
+        $(".backButton").hide();
     });
     $(`header`).on("click", `.backButtonToAge`, function () {
-        $(`.adoptionOptions`).fadeOut();
-        $(`.petAge`).fadeIn();
+        $(`.adoptionOptions`).hide();
+        $(`.petAge`).show();
         $(".backButtonToType").show();
         $(".backButtonToAge").hide();
     });
     $(`header`).on("click", `.backButtonToOptions`, function () {
-        $(`.petInformation`).fadeOut();
-        $(`.adoptionOptions`).fadeIn();
+        $(`.petInformation`).hide();
+        $(`.adoptionOptions`).show();
         $(".backButtonToAge").show();
         $(".backButtonToOptions").hide();
     })
@@ -180,12 +180,15 @@ furiendFinder.getPetsAvailable = function (petAge, petType,city, functionCall, d
             },
         }).then((data) => {
             furiendFinder.city = city;
-            $(`.loadingScreen`).fadeOut();
+            setTimeout(() => {
+                $(`.loadingScreen`).fadeOut();
+            }, 1000);
+            
             functionCall(data, petAge, petType, city);
-            $(`.${disappearingDivClass}`).fadeOut();
-            $(`.${appearingDivClass}`).fadeIn();
+            $(`.${disappearingDivClass}`).hide();
+            $(`.${appearingDivClass}`).show();
             if (appearingDivClass === "petAge") {
-                $(`.backButtonToType`).fadeIn();
+                $(`.backButtonToType`).show();
             } else {
                 $(".backButtonToAge").show();
                 $(".backButtonToType").hide();
@@ -228,7 +231,7 @@ furiendFinder.ageClickEvent = function () {
 }
 
 furiendFinder.getMoreInfoCLickEvent = function () {
-    $(`.adoptionOptions`).fadeOut();
+    $(`.adoptionOptions`).hide();
     $(".backButtonToAge").hide();
     $(".backButtonToOptions").show();
     const petIndex = $(this).val();
