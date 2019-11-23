@@ -184,14 +184,16 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 body {
   font-size: 62.5%;
   font-family: "Open Sans", sans-serif;
-  background-image: url(../assets/bgPattern.jpg);
+  background-color: khaki;
+  /*fallback*/
   background-size: contain;
-  color: #284B52;
+  color: #023055;
   position: relative;
 }
 
 header {
-  min-height: 20vh;
+  min-height: 15vh;
+  background-color: #fc5185;
 }
 
 header .headerMain {
@@ -213,7 +215,8 @@ header .backButton {
 }
 
 main {
-  min-height: 75vh;
+  min-height: 80vh;
+  padding: 20px 0;
 }
 
 p {
@@ -236,16 +239,16 @@ h1 {
   text-align: center;
   padding: 10px;
   font-size: 5rem;
-  color: #80B4BB;
   margin: 0;
-  text-shadow: 5px 5px #284B52;
+  color: #3fc1c9;
+  text-shadow: 5px 5px #023055;
 }
 
 h2 {
   font-size: 3rem;
   font-family: "Dosis", sans-serif;
   margin: 0;
-  color: #284B52;
+  color: #023055;
 }
 
 ul {
@@ -255,7 +258,7 @@ ul {
 }
 
 .backButton {
-  background-color: #80B4BB;
+  background-color: #3fc1c9;
   color: #E2EAEE;
   font-family: "Pangolin", cursive;
   padding: 10px 30px;
@@ -267,26 +270,14 @@ ul {
 }
 
 .backButton:hover {
-  color: #E2EAEE;
-  background-color: #284B52;
-}
-
-.findPets {
-  font-size: 2rem;
-  padding: 0px 10px;
-  background-color: #284B52;
-  border: 2px dashed #80B4BB;
-  color: #80B4BB;
-}
-
-.findPets:hover {
-  color: #E2EAEE;
-  background-color: #284B52;
+  color: #3fc1c9;
+  background-color: #fc5185;
 }
 
 /*LANDING PAGE*/
 .petType {
   text-align: center;
+  padding: 20px 0;
 }
 
 .type {
@@ -301,6 +292,7 @@ ul {
 .type button {
   background: transparent;
   border: none;
+  padding: 0;
 }
 
 .type h2 {
@@ -330,7 +322,7 @@ ul {
 .age button {
   text-transform: uppercase;
   font-family: "Pangolin", cursive;
-  color: #80B4BB;
+  color: #fc5185;
   border-radius: 25px;
   background-color: transparent;
   border: none;
@@ -350,16 +342,16 @@ ul {
 
 .userLocation p {
   display: inline;
-  background-color: #80B4BB;
+  background-color: #3fc1c9;
   padding: 0px 10px;
-  border: 2px dashed #E2EAEE;
+  border: 2px dashed #f5f5f5;
 }
 
 .userLocation input {
   font-size: 2rem;
   padding: 0px 10px;
-  color: #80B4BB;
-  border: 2px dashed #E2EAEE;
+  color: #fc5185;
+  border: 2px dashed #f5f5f5;
 }
 
 /*LIST OF ADOPTABLE PETS BY AGE*/
@@ -388,18 +380,28 @@ ul {
   padding: 20px;
 }
 
+.adoptablePets .adoptionButton {
+  border: solid #023055 5px;
+  border-radius: 30px;
+  background-color: #f5f5f5;
+}
+
+.adoptablePets .adoptionButton .info {
+  border-radius: 20px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
 .adoptablePets p {
   text-transform: uppercase;
   font-family: "Pangolin", cursive;
   margin: 0;
-  top: 190px;
-  left: 0;
   width: 100%;
-  color: #E2EAEE;
+  color: #023055;
+  text-shadow: 1px 1px 1px #f5f5f5;
   z-index: 1;
   font-size: 1rem;
   padding: 0 5px;
-  position: absolute;
 }
 
 .adoptablePets p:first-child {
@@ -430,8 +432,7 @@ ul {
   /*stop image stretching*/
   border-radius: 50%;
   position: relative;
-  -webkit-box-shadow: 5px 5px #80B4BB;
-          box-shadow: 5px 5px #80B4BB;
+  border: solid 5px #3fc1c9;
 }
 
 /*PET ADOPTION PAGE*/
@@ -460,21 +461,21 @@ ul {
 }
 
 .petInformation h3 {
-  font-size: 2rem;
-  color: #80B4BB;
+  font-size: 2.5rem;
+  color: #3fc1c9;
+  text-shadow: 3px 2px #023055;
   font-family: "Pangolin", cursive;
   margin: 0;
 }
 
 .petInformation .petName {
   text-decoration: underline;
-  -webkit-text-decoration-color: #80B4BB;
-          text-decoration-color: #80B4BB;
+  -webkit-text-decoration-color: #fc5185;
+          text-decoration-color: #fc5185;
 }
 
 .petInformation li {
   font-size: 1rem;
-  color: #284B52;
 }
 
 .petInformation ul {
@@ -483,7 +484,7 @@ ul {
 }
 
 .petInformation a {
-  color: #80B4BB;
+  color: #fc5185;
   text-decoration: none;
   text-transform: uppercase;
 }
@@ -519,22 +520,28 @@ ul {
   height: 20vw;
   width: 20vw;
   border-radius: 50%;
-  -webkit-box-shadow: 10px 10px #80B4BB;
-          box-shadow: 10px 10px #80B4BB;
+  -webkit-box-shadow: 10px 10px #fc5185;
+          box-shadow: 10px 10px #fc5185;
+  border: solid 5px #023055;
 }
 
 .petFacts, .petStory, .petLocation, .breedFacts {
   padding: 20px;
-  background-color: #E2EAEE;
+  -webkit-box-shadow: 10px 10px #fc5185;
+          box-shadow: 10px 10px #fc5185;
+  background-color: #f5f5f5;
+  border: solid 5px #023055;
+}
+
+.petFacts p, .petStory p, .petLocation p, .breedFacts p {
+  font-size: 1rem;
+  margin: 0;
 }
 
 .petFacts {
   -ms-grid-row: 3;
   -ms-grid-column: 2;
   grid-area: petFacts;
-  -webkit-box-shadow: 5px 5px #80B4BB;
-          box-shadow: 5px 5px #80B4BB;
-  border: 1px solid #80B4BB;
 }
 
 .breedFacts {
@@ -542,9 +549,6 @@ ul {
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: breedFacts;
-  -webkit-box-shadow: 5px 5px #80B4BB;
-          box-shadow: 5px 5px #80B4BB;
-  border: 1px solid #80B4BB;
 }
 
 .petStory {
@@ -552,28 +556,12 @@ ul {
   -ms-grid-column: 2;
   -ms-grid-column-span: 2;
   grid-area: petStory;
-  -webkit-box-shadow: 5px 5px #80B4BB;
-          box-shadow: 5px 5px #80B4BB;
-  border: 1px solid #80B4BB;
-}
-
-.petStory p {
-  font-size: 1rem;
-  margin: 0;
 }
 
 .petLocation {
   -ms-grid-row: 3;
   -ms-grid-column: 3;
   grid-area: location;
-  -webkit-box-shadow: 5px 5px #80B4BB;
-          box-shadow: 5px 5px #80B4BB;
-  border: 1px solid #80B4BB;
-}
-
-.petLocation p {
-  font-size: 1rem;
-  margin: 0;
 }
 
 .adoptMe {
@@ -594,7 +582,7 @@ ul {
 
 .adoptMe a {
   text-decoration: none;
-  background-color: #80B4BB;
+  background-color: #fc5185;
   color: white;
   padding: 10px 20px;
   border-radius: 20px;
@@ -612,7 +600,7 @@ ul {
 
 /*ALERT SECTION*/
 .alert {
-  background-color: #80B4BB;
+  background-color: #fc5185;
   opacity: 90%;
   color: white;
   border-radius: 25px;
@@ -639,13 +627,14 @@ ul {
 
 /*LOADING SCREEN*/
 .loadingScreen {
-  background-color: #ecf9ff;
+  background-color: #3fc1c9;
   z-index: 2;
   position: absolute;
   top: 0;
-  left: 1vw;
-  width: 98vw;
+  left: 0;
+  width: 99vw;
   height: 100vh;
+  color: #fc5185;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -659,6 +648,10 @@ ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.loadingScreen p {
+  font-size: 3rem;
 }
 
 .loadingScreen span {
@@ -681,8 +674,8 @@ footer {
   min-height: 5vh;
   text-align: center;
   text-transform: uppercase;
-  background-color: #80B4BB;
-  color: #E2EAEE;
+  font-family: "Pangolin", cursive;
+  background-color: #3fc1c9;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }

@@ -264,9 +264,11 @@ furiendFinder.adoptableButton = function (index, name, breed, url, petType, mixe
     $(`.adoptablePets`).append(
         `<li data-aos="fade-up">
             <button value = ${index} class="adoptionButton">
+                <img src="${url}" alt="photo of ${name} which is a ${mixed ? "mixed" : ""} ${breed} ${petType}">
+                <div class="info">
                 <p>${name}</p>
-                <p>${mixed?"Mixed":""} ${breed}</p>
-                <img src="${url}" alt="photo of ${name} which is a ${mixed?"mixed":""} ${breed} ${petType}">  
+                <p>${mixed ? "Mixed" : ""} ${breed}</p>  
+                </div>
             </button>
         </li>`
     )
