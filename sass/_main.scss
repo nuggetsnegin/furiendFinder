@@ -433,6 +433,18 @@ ul {
     justify-content: center;
     align-items: center;
 
+    & span {
+        animation: appear infinite alternate-reverse 1s;
+    }
+
+    & span:nth-of-type(2) {
+        animation: appear infinite alternate-reverse 1s 0.33s;
+    }
+
+    & span:nth-of-type(3) {
+        animation: appear infinite alternate-reverse 1s 0.66s;
+    }
+
     img{
         width: 20%;
     }
@@ -450,5 +462,17 @@ footer {
         margin: 0;
         padding: 5px;
         font-size: 1rem;
+    }
+}
+
+// KEYFRAMES
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
     }
 }

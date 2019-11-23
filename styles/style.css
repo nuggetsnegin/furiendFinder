@@ -445,7 +445,7 @@ ul {
   -ms-grid-rows: (min-content)[3];
       grid-template-rows: repeat(3, -webkit-min-content);
       grid-template-rows: repeat(3, min-content);
-      grid-template-areas: "title title title" "petImage petStory petStory" "petImage petFacts location" "breedFacts breedFacts breedFacts" "adoptMe adoptMe adoptMe";
+      grid-template-areas: "title title title" "petImage petStory petStory" "petImage petFacts location" "breedFacts breedFacts breedFacts" "adoptMe adoptMe adoptMe";
 }
 
 .petInformation h2 {
@@ -659,6 +659,18 @@ ul {
           align-items: center;
 }
 
+.loadingScreen span {
+  animation: appear infinite alternate-reverse 1s;
+}
+
+.loadingScreen span:nth-of-type(2) {
+  animation: appear infinite alternate-reverse 1s 0.33s;
+}
+
+.loadingScreen span:nth-of-type(3) {
+  animation: appear infinite alternate-reverse 1s 0.66s;
+}
+
 .loadingScreen img {
   width: 20%;
 }
@@ -677,4 +689,22 @@ footer p {
   margin: 0;
   padding: 5px;
   font-size: 1rem;
+}
+
+@-webkit-keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
