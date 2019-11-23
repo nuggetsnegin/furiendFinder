@@ -86,7 +86,7 @@ ul {
     background-color: $base-color;
     color: $background-color;
     font-family: $heading-font;
-    padding: 20px 50px;
+    padding: 10px 30px;
     border: none;
     font-size: 2rem;
     text-transform: uppercase;
@@ -185,6 +185,13 @@ ul {
 }
 
 /*LIST OF ADOPTABLE PETS BY AGE*/
+
+.adoptionOptions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .adoptablePets {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -414,6 +421,18 @@ ul {
     justify-content: center;
     align-items: center;
 
+    & span {
+        animation: appear infinite alternate-reverse 1s;
+    }
+
+    & span:nth-of-type(2) {
+        animation: appear infinite alternate-reverse 1s 0.33s;
+    }
+
+    & span:nth-of-type(3) {
+        animation: appear infinite alternate-reverse 1s 0.66s;
+    }
+
     img{
         width: 20%;
     }
@@ -426,9 +445,23 @@ footer {
     font-family: $heading-font;
     background-color: $lightbase-color;
     color: $base-color;
+    transition: all 0.5s;
+
     p {
         margin: 0;
         padding: 5px;
         font-size: 1rem;
+    }
+}
+
+// KEYFRAMES
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
     }
 }

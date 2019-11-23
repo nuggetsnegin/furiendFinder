@@ -258,7 +258,7 @@ ul {
   background-color: #284B52;
   color: #E2EAEE;
   font-family: "Pangolin", cursive;
-  padding: 20px 50px;
+  padding: 10px 30px;
   border: none;
   font-size: 2rem;
   text-transform: uppercase;
@@ -350,6 +350,22 @@ ul {
 }
 
 /*LIST OF ADOPTABLE PETS BY AGE*/
+.adoptionOptions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .adoptablePets {
   display: -ms-grid;
   display: grid;
@@ -617,6 +633,18 @@ ul {
           align-items: center;
 }
 
+.loadingScreen span {
+  animation: appear infinite alternate-reverse 1s;
+}
+
+.loadingScreen span:nth-of-type(2) {
+  animation: appear infinite alternate-reverse 1s 0.33s;
+}
+
+.loadingScreen span:nth-of-type(3) {
+  animation: appear infinite alternate-reverse 1s 0.66s;
+}
+
 .loadingScreen img {
   width: 20%;
 }
@@ -628,10 +656,30 @@ footer {
   font-family: "Pangolin", cursive;
   background-color: #56b1b1;
   color: #284B52;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 footer p {
   margin: 0;
   padding: 5px;
   font-size: 1rem;
+}
+
+@-webkit-keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
