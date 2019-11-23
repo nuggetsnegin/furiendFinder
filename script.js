@@ -126,6 +126,7 @@ furiendFinder.init = function () {
 
 // Click event for the buttons to select the pet type(cat or dog)
 furiendFinder.selectPetTypeClickEvent = function () {
+    $(`.loadingScreen`).fadeIn();
     furiendFinder.city = $(`#location`).val();
     $(`.adoptablePets`).empty();
     furiendFinder.petType = $(this).val();
@@ -174,10 +175,12 @@ furiendFinder.getPetsAvailable = function (petAge, petType,city, functionCall, d
             },
         }).then((data) => {
             furiendFinder.city = city;
+            $(`.loadingScreen`).fadeOut();
             functionCall(data, petAge, petType, city);
             $(`.${disappearingDivClass}`).fadeOut();
             $(`.${appearingDivClass}`).fadeIn();
         }).fail((error) => {
+            $(`.loadingScreen`).fadeOut();
             $(`.alert`).fadeIn();
             
         });
@@ -208,6 +211,7 @@ furiendFinder.getBreedFacts = function (petType) {
 
 furiendFinder.ageClickEvent = function () {
     $(`.adoptablePets`).empty();
+    $(`.loadingScreen`).fadeIn();
     const petAge = $(this).val();
     furiendFinder.getPetsAvailable(petAge, furiendFinder.petType, furiendFinder.city, furiendFinder.getAdoptablePets,"petAge","adoptionOptions");
 }
