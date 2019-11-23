@@ -243,7 +243,7 @@ furiendFinder.getMoreInfoCLickEvent = function () {
 
     furiendFinder.appendInformation(name, photos, gender, size, breeds.primary, attributes, description, contact, url, mixed);
 
-    $('.petInformation').show();
+    $('.petInformation').fadeIn();
 }
 
 /*Called after API call - create the buttons for each available adoptable pet by user age selection*/
