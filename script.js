@@ -39,7 +39,6 @@ furiendFinder.getGeoLocation = () => {
                 location: `${latitude},${longitude}`
             }
         }).then((data) => {
-            console.log(data);
             const city = data.results[0].locations[0]["adminArea5"];
             const province = data.results[0].locations[0]["adminArea3"];
             furiendFinder.city = `${city}, ${province}`;
@@ -118,7 +117,7 @@ furiendFinder.init = function () {
     furiendFinder.getGeoLocation();
     
     // We make sure the other divs of the App are not displayed
-    $('.petInformation').hide();
+    $(`.petInformation`).hide();
     $(`.petAge`).hide();
     $(`.adoptionOptions`).hide();
     $(`.alert`).hide();
@@ -249,12 +248,10 @@ furiendFinder.getMoreInfoCLickEvent = function () {
 
 /*Called after API call - create the buttons for each available adoptable pet by user age selection*/
 furiendFinder.getAdoptablePets = function (data, petAge, petType, petBreed, city) {
-    console.log(data);
     const animalsArray = data.animals;
     for (let i = 0; i < animalsArray.length; i++) {
         if (animalsArray[i].photos[0] !== undefined) {
             furiendFinder.adoptableButton(i, animalsArray[i].name, animalsArray[i].breeds.primary, animalsArray[i].photos[0].medium, "cat", animalsArray[i].breeds.mixed);
-            console.log(animalsArray[i].name);
         }
     }
 
@@ -299,9 +296,7 @@ furiendFinder.appendInformation = function (name, photos, gender, size, breedNam
 
     if (breedFactsInfo !== undefined) {
 
-
         const { life_span,temperament,origin,weight,affection_level,adaptability,child_friendly,energy_level} = breedFactsInfo
-
 
         $(`.petFacts`).after(
             `<div class="breedFacts">
@@ -352,10 +347,8 @@ furiendFinder.appendInformation = function (name, photos, gender, size, breedNam
         <ul></ul>`
     )
     
-    console.log(contact.address);
     for (contacts in contact.address) {
-    /*not showing null if no address available*/
-        
+    /*not showing null if no address available*/     
         if (contact.address[contacts] !== null && contact.address[contacts] !== "") {
             $(`.petLocation ul`).append(
                 `<li>${contacts}: ${contact.address[contacts]}<li>`
