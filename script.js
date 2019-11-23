@@ -96,17 +96,22 @@ furiendFinder.init = function () {
         $(`.alert`).fadeOut();
     })
 
-    $(`.backButtonToType`).on("click", function () {
+    $(`header`).on("click", ".backButtonToType",function () {
         $(`.petAge`).fadeOut();
         $(`.petType`).fadeIn();
+        $(".backButton").fadeOut();
     });
-    $(`.backButtonToAge`).on("click", function () {
+    $(`header`).on("click", `.backButtonToAge`, function () {
         $(`.adoptionOptions`).fadeOut();
         $(`.petAge`).fadeIn();
+        $(".backButtonToType").show();
+        $(".backButtonToAge").hide();
     });
-    $(`.backButtonToOptions`).on("click", function () {
+    $(`header`).on("click", `.backButtonToOptions`, function () {
         $(`.petInformation`).fadeOut();
         $(`.adoptionOptions`).fadeIn();
+        $(".backButtonToAge").show();
+        $(".backButtonToOptions").hide();
     })
 
     //Calling the functiion to ask the user for the location 
@@ -118,6 +123,7 @@ furiendFinder.init = function () {
     $(`.adoptionOptions`).hide();
     $(`.alert`).hide();
     $(`.loadingScreen`).hide();
+    $(`.backButton`).hide();
 
     // We disabled the type buttons until the user has entered the location
     $(`.typeButton`).attr("disabled","true");
@@ -130,7 +136,6 @@ furiendFinder.selectPetTypeClickEvent = function () {
     furiendFinder.city = $(`#location`).val();
     $(`.adoptablePets`).empty();
     furiendFinder.petType = $(this).val();
-    furiendFinder.getBreedFacts(furiendFinder.petType);
     furiendFinder.getPetsNumberByAge(furiendFinder.petType, furiendFinder.city);
 }
 
@@ -179,6 +184,12 @@ furiendFinder.getPetsAvailable = function (petAge, petType,city, functionCall, d
             functionCall(data, petAge, petType, city);
             $(`.${disappearingDivClass}`).fadeOut();
             $(`.${appearingDivClass}`).fadeIn();
+            if (appearingDivClass === "petAge") {
+                $(`.backButtonToType`).fadeIn();
+            } else {
+                $(".backButtonToAge").show();
+                $(".backButtonToType").hide();
+            }
         }).fail((error) => {
             $(`.loadingScreen`).fadeOut();
             $(`.alert`).fadeIn();
@@ -218,6 +229,8 @@ furiendFinder.ageClickEvent = function () {
 
 furiendFinder.getMoreInfoCLickEvent = function () {
     $(`.adoptionOptions`).fadeOut();
+    $(".backButtonToAge").hide();
+    $(".backButtonToOptions").show();
     const petIndex = $(this).val();
     const petType = furiendFinder.petType;
     const animalArray = furiendFinder[petType].animalsArray[petIndex];
@@ -258,7 +271,7 @@ furiendFinder.getAdoptablePets = function (data, petAge, petType, petBreed, city
 furiendFinder.adoptableButton = function (index, name, breed, url, petType, mixed) {
 
     $(`.adoptablePets`).append(
-        `<li>
+        `<li data-aos="fade-up">
             <button value = ${index} class="adoptionButton">
                 <p>${name}</p>
                 <p>${mixed?"Mixed":""} ${breed}</p>
@@ -367,7 +380,34 @@ furiendFinder.appendInformation = function (name, imgUrl, gender, size, breedNam
     )
 }
 
+
+// Default settings for the Animation On Scroll Library
+AOS.init({
+    // Global settings:
+    disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+    startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+    initClassName: 'aos-init', // class applied after initialization
+    animatedClassName: 'aos-animate', // class applied on animation
+    useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+    disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+    debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+    throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+
+    // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+    offset: -500, // offset (in px) from the original trigger point
+    delay: 0, // values from 0 to 3000, with step 50ms
+    duration: 400, // values from 0 to 3000, with step 50ms
+    easing: 'ease', // default easing for AOS animations
+    once: false, // whether animation should happen only once - while scrolling down
+    mirror: false, // whether elements should animate out while scrolling past them
+    anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+
+});
+
 $(document).ready(function () {
     furiendFinder.init();
+    // Initializing AOS
+    AOS.init();
     
 })
