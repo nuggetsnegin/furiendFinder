@@ -16,7 +16,8 @@ cursive;
 body {
     font-size: 62.5%;
     font-family: $main-font;
-    background-color: $background-color;
+    background-image: url(../assets/bgPattern.jpg);
+    background-size: contain;
     color: $base-color;
     position: relative;
 }
@@ -64,6 +65,7 @@ h1 {
     font-size: 5rem;
     color: $accent-color;
     margin: 0;
+    text-shadow: 5px 5px $dark-color;
 }
 
 h2 {

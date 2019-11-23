@@ -184,7 +184,8 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 body {
   font-size: 62.5%;
   font-family: "Open Sans", sans-serif;
-  background-color: #E2EAEE;
+  background-image: url(../assets/bgPattern.jpg);
+  background-size: contain;
   color: #284B52;
   position: relative;
 }
@@ -237,6 +238,7 @@ h1 {
   font-size: 5rem;
   color: #80B4BB;
   margin: 0;
+  text-shadow: 5px 5px #284B52;
 }
 
 h2 {
@@ -427,7 +429,7 @@ ul {
   -ms-grid-rows: (min-content)[3];
       grid-template-rows: repeat(3, -webkit-min-content);
       grid-template-rows: repeat(3, min-content);
-      grid-template-areas: "title title title" "petImage petStory petStory" "petImage petFacts location" "breedFacts breedFacts breedFacts" "adoptMe adoptMe adoptMe";
+      grid-template-areas: "title title title" "petImage petStory petStory" "petImage petFacts location" "breedFacts breedFacts breedFacts" "adoptMe adoptMe adoptMe";
 }
 
 .petInformation h2 {
