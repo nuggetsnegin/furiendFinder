@@ -2,10 +2,11 @@
 
 /*VARIABLES*/
 $base-color: #284B52;
-$accent-color: #80B4BB;
+$lightbase-color: rgb(86, 177, 177);
+$accent-color: #FCCFED;
+$light-color: #FEF9A8;
+$light-color-opacity: rgba(255, 254, 234, 0.8);
 $background-color: #E2EAEE;
-$light-color: #E2EAEE;
-$dark-color: #284B52;
 $accent-font: 'Dosis',
 sans-serif;
 $main-font: 'Open Sans',
@@ -17,6 +18,7 @@ body {
     font-size: 62.5%;
     font-family: $main-font;
     background-image: url(../assets/bgPattern.jpg);
+    $background-color: #E2EAEE; /*fallback*/
     background-size: contain;
     color: $base-color;
     position: relative;
@@ -63,9 +65,9 @@ h1 {
     text-align: center;
     padding: 10px;
     font-size: 5rem;
-    color: $accent-color;
     margin: 0;
-    text-shadow: 5px 5px $dark-color;
+    color: rgb(86, 177, 177);
+    text-shadow: 5px 5px $base-color;
 }
 
 h2 {
@@ -81,7 +83,7 @@ ul {
 }
 
 .backButton {
-    background-color: $accent-color;
+    background-color: $base-color;
     color: $background-color;
     font-family: $heading-font;
     padding: 20px 50px;
@@ -92,22 +94,23 @@ ul {
     margin: 1% 0;
 
     &:hover {
-        color: $background-color;
-        background-color: $base-color;
+        color: $base-color;
+        background-color: $accent-color;
     }
 }
 
-.findPets {
-    font-size: 2rem;
-    padding: 0px 10px;
-    background-color: $base-color;
-    border: 2px dashed $accent-color;
-    color: $accent-color;
-    &:hover {
-        color: $background-color;
-        background-color: $base-color;
-    }
-}
+// .findPets {
+//     font-size: 2rem;
+//     padding: 0px 10px;
+//     background-color: $base-color;
+//     border: 3px dashed $accent-color;
+//     color: $accent-color;
+//     &:hover {
+//         color: $background-color;
+//         border: 3px dashed $base-color;
+//         background-color: $base-color;
+//     }
+// }
 
 /*LANDING PAGE*/
 .petType {
@@ -152,8 +155,6 @@ ul {
         border-radius: 25px;
         background-color: transparent;
         border: none;
-
-        
     }
 
     & li:last-child {
@@ -254,8 +255,9 @@ ul {
     }
 
     h3 {
-        font-size: 2rem;
-        color: $accent-color;
+        font-size: 2.5rem;
+        color: $lightbase-color;
+        text-shadow: 2px 2px $base-color;
         font-family: $heading-font;
         margin: 0;
     }
@@ -267,7 +269,6 @@ ul {
 
     li {
         font-size: 1rem;
-        color: $dark-color;
     }
 
     ul {
@@ -314,41 +315,28 @@ ul {
 
 .petFacts, .petStory, .petLocation, .breedFacts {
     padding: 20px;
+    box-shadow: 10px 10px $accent-color;
+    background-color: $light-color-opacity;
+    p {
+        font-size: 1rem;
+        margin: 0;
+    }
 }
 
 .petFacts {
     grid-area: petFacts;
-    box-shadow: 5px 5px $accent-color;
-    border: 1px solid $accent-color;
 }
 
 .breedFacts {
     grid-area: breedFacts;
-    box-shadow: 5px 5px $accent-color;
-    border: 1px solid $accent-color;
 }
 
 .petStory {
     grid-area: petStory;
-    box-shadow: 5px 5px $accent-color;
-    border: 1px solid $accent-color;
-
-    p {
-        font-size: 1rem;
-        margin: 0;
-    }
 }
 
 .petLocation {
     grid-area: location;
-    box-shadow: 5px 5px $accent-color;
-    border: 1px solid $accent-color;
-
-    p {
-        font-size: 1rem;
-        margin: 0;
-    }
-
 }
 
 .adoptMe {
@@ -435,9 +423,9 @@ footer {
     min-height: 5vh;
     text-align: center;
     text-transform: uppercase;
-    background-color: $accent-color;
-    color: $background-color;
-
+    font-family: $heading-font;
+    background-color: $lightbase-color;
+    color: $base-color;
     p {
         margin: 0;
         padding: 5px;

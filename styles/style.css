@@ -185,6 +185,7 @@ body {
   font-size: 62.5%;
   font-family: "Open Sans", sans-serif;
   background-image: url(../assets/bgPattern.jpg);
+  /*fallback*/
   background-size: contain;
   color: #284B52;
   position: relative;
@@ -236,8 +237,8 @@ h1 {
   text-align: center;
   padding: 10px;
   font-size: 5rem;
-  color: #80B4BB;
   margin: 0;
+  color: #56b1b1;
   text-shadow: 5px 5px #284B52;
 }
 
@@ -254,7 +255,7 @@ ul {
 }
 
 .backButton {
-  background-color: #80B4BB;
+  background-color: #284B52;
   color: #E2EAEE;
   font-family: "Pangolin", cursive;
   padding: 20px 50px;
@@ -266,21 +267,8 @@ ul {
 }
 
 .backButton:hover {
-  color: #E2EAEE;
-  background-color: #284B52;
-}
-
-.findPets {
-  font-size: 2rem;
-  padding: 0px 10px;
-  background-color: #284B52;
-  border: 2px dashed #80B4BB;
-  color: #80B4BB;
-}
-
-.findPets:hover {
-  color: #E2EAEE;
-  background-color: #284B52;
+  color: #284B52;
+  background-color: #FCCFED;
 }
 
 /*LANDING PAGE*/
@@ -329,7 +317,7 @@ ul {
 .age button {
   text-transform: uppercase;
   font-family: "Pangolin", cursive;
-  color: #80B4BB;
+  color: #FCCFED;
   border-radius: 25px;
   background-color: transparent;
   border: none;
@@ -349,16 +337,16 @@ ul {
 
 .userLocation p {
   display: inline;
-  background-color: #80B4BB;
+  background-color: #FCCFED;
   padding: 0px 10px;
-  border: 2px dashed #E2EAEE;
+  border: 2px dashed #FEF9A8;
 }
 
 .userLocation input {
   font-size: 2rem;
   padding: 0px 10px;
-  color: #80B4BB;
-  border: 2px dashed #E2EAEE;
+  color: #FCCFED;
+  border: 2px dashed #FEF9A8;
 }
 
 /*LIST OF ADOPTABLE PETS BY AGE*/
@@ -378,7 +366,7 @@ ul {
   top: 190px;
   left: 0;
   width: 100%;
-  color: #E2EAEE;
+  color: #FEF9A8;
   z-index: 1;
   font-size: 1rem;
   padding: 0 5px;
@@ -413,8 +401,8 @@ ul {
   /*stop image stretching*/
   border-radius: 50%;
   position: relative;
-  -webkit-box-shadow: 5px 5px #80B4BB;
-          box-shadow: 5px 5px #80B4BB;
+  -webkit-box-shadow: 5px 5px #FCCFED;
+          box-shadow: 5px 5px #FCCFED;
 }
 
 /*PET ADOPTION PAGE*/
@@ -443,21 +431,21 @@ ul {
 }
 
 .petInformation h3 {
-  font-size: 2rem;
-  color: #80B4BB;
+  font-size: 2.5rem;
+  color: #56b1b1;
+  text-shadow: 2px 2px #284B52;
   font-family: "Pangolin", cursive;
   margin: 0;
 }
 
 .petInformation .petName {
   text-decoration: underline;
-  -webkit-text-decoration-color: #80B4BB;
-          text-decoration-color: #80B4BB;
+  -webkit-text-decoration-color: #FCCFED;
+          text-decoration-color: #FCCFED;
 }
 
 .petInformation li {
   font-size: 1rem;
-  color: #284B52;
 }
 
 .petInformation ul {
@@ -466,7 +454,7 @@ ul {
 }
 
 .petInformation a {
-  color: #80B4BB;
+  color: #FCCFED;
   text-decoration: none;
   text-transform: uppercase;
 }
@@ -502,21 +490,26 @@ ul {
   height: 300px;
   width: 300px;
   border-radius: 50%;
-  -webkit-box-shadow: 10px 10px #80B4BB;
-          box-shadow: 10px 10px #80B4BB;
+  -webkit-box-shadow: 10px 10px #FCCFED;
+          box-shadow: 10px 10px #FCCFED;
 }
 
 .petFacts, .petStory, .petLocation, .breedFacts {
   padding: 20px;
+  -webkit-box-shadow: 10px 10px #FCCFED;
+          box-shadow: 10px 10px #FCCFED;
+  background-color: rgba(255, 254, 234, 0.8);
+}
+
+.petFacts p, .petStory p, .petLocation p, .breedFacts p {
+  font-size: 1rem;
+  margin: 0;
 }
 
 .petFacts {
   -ms-grid-row: 3;
   -ms-grid-column: 2;
   grid-area: petFacts;
-  -webkit-box-shadow: 5px 5px #80B4BB;
-          box-shadow: 5px 5px #80B4BB;
-  border: 1px solid #80B4BB;
 }
 
 .breedFacts {
@@ -524,9 +517,6 @@ ul {
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: breedFacts;
-  -webkit-box-shadow: 5px 5px #80B4BB;
-          box-shadow: 5px 5px #80B4BB;
-  border: 1px solid #80B4BB;
 }
 
 .petStory {
@@ -534,28 +524,12 @@ ul {
   -ms-grid-column: 2;
   -ms-grid-column-span: 2;
   grid-area: petStory;
-  -webkit-box-shadow: 5px 5px #80B4BB;
-          box-shadow: 5px 5px #80B4BB;
-  border: 1px solid #80B4BB;
-}
-
-.petStory p {
-  font-size: 1rem;
-  margin: 0;
 }
 
 .petLocation {
   -ms-grid-row: 3;
   -ms-grid-column: 3;
   grid-area: location;
-  -webkit-box-shadow: 5px 5px #80B4BB;
-          box-shadow: 5px 5px #80B4BB;
-  border: 1px solid #80B4BB;
-}
-
-.petLocation p {
-  font-size: 1rem;
-  margin: 0;
 }
 
 .adoptMe {
@@ -576,7 +550,7 @@ ul {
 
 .adoptMe a {
   text-decoration: none;
-  background-color: #80B4BB;
+  background-color: #FCCFED;
   color: white;
   padding: 10px 20px;
   border-radius: 20px;
@@ -594,7 +568,7 @@ ul {
 
 /*ALERT SECTION*/
 .alert {
-  background-color: #80B4BB;
+  background-color: #FCCFED;
   opacity: 90%;
   color: white;
   border-radius: 25px;
@@ -651,8 +625,9 @@ footer {
   min-height: 5vh;
   text-align: center;
   text-transform: uppercase;
-  background-color: #80B4BB;
-  color: #E2EAEE;
+  font-family: "Pangolin", cursive;
+  background-color: #56b1b1;
+  color: #284B52;
 }
 
 footer p {
