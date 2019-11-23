@@ -82,7 +82,7 @@ ul {
     background-color: $accent-color;
     color: $background-color;
     font-family: $heading-font;
-    padding: 20px 50px;
+    padding: 10px 30px;
     border: none;
     font-size: 2rem;
     text-transform: uppercase;
@@ -182,6 +182,13 @@ ul {
 }
 
 /*LIST OF ADOPTABLE PETS BY AGE*/
+
+.adoptionOptions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .adoptablePets {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -435,6 +442,7 @@ footer {
     text-transform: uppercase;
     background-color: $accent-color;
     color: $background-color;
+    transition: all 0.5s;
 
     p {
         margin: 0;

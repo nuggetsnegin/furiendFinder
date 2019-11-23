@@ -255,7 +255,7 @@ ul {
   background-color: #80B4BB;
   color: #E2EAEE;
   font-family: "Pangolin", cursive;
-  padding: 20px 50px;
+  padding: 10px 30px;
   border: none;
   font-size: 2rem;
   text-transform: uppercase;
@@ -360,6 +360,22 @@ ul {
 }
 
 /*LIST OF ADOPTABLE PETS BY AGE*/
+.adoptionOptions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .adoptablePets {
   display: -ms-grid;
   display: grid;
@@ -651,6 +667,8 @@ footer {
   text-transform: uppercase;
   background-color: #80B4BB;
   color: #E2EAEE;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 footer p {
