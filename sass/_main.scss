@@ -104,7 +104,7 @@ ul {
 
 .backButton {
     background-color: $base-color;
-    color: $background-color;
+    color: white;
     font-family: $heading-font;
     padding: 10px 30px;
     border: none;
@@ -175,6 +175,39 @@ ul {
     }
 }
 
+/*SPEECH BUBBLE*/
+.speechBubble {
+    position: relative;
+    background: $dark-color;
+    width: 50%;
+    height: 100px;
+    margin: 0 auto;
+    border-radius: 20px;
+
+    p {
+        font-size: 1.1rem;
+        padding: 30px;
+        font-family: $heading-font;
+        color: $light-color;
+    }
+}
+
+.speechBubble:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 50px solid transparent;
+    border-top-color: $dark-color;
+    border-bottom: 0;
+    border-left: 0;
+    margin-left: -21.5px;
+    margin-bottom: -43px;  /*arrow*/
+}
+
+
 /*AGE PAGE*/
 .age {
     display: flex;
@@ -205,7 +238,7 @@ ul {
     text-align: center;
 
     h2 {
-        background-color: $background-color;
+        background-color: white;
         border: solid 5px $dark-color;
         box-shadow: 10px 10px 0 $accent-color;
         margin-bottom: 100px;
@@ -235,7 +268,7 @@ ul {
     .adoptionButton {
         border: solid $dark-color 5px;
         border-radius: 30px;
-        background-color: $background-color;
+        background-color: white;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -344,9 +377,14 @@ ul {
         text-decoration: none;
         text-transform: uppercase;
         transition: all 0.5s;
-    }a:hover{
+    }
+    a:hover{
         color: $base-color;
         border-bottom: 2px dashed $accent-color;
+    }
+    a:focus{
+        color: $base-color;
+        border-bottom: 5px dashed $dark-color;
     }
 
     p,
@@ -375,12 +413,16 @@ ul {
 .breedFacts {
     padding: 20px;
     box-shadow: 10px 10px $accent-color;
-    background-color: $background-color;
+    background-color: white;
     border: solid 5px $dark-color;
 
     p {
         font-size: 1rem;
         margin: 0;
+    }
+
+    .reColor{
+        color: $accent-color;
     }
 }
 
@@ -419,7 +461,7 @@ ul {
     a {
         text-decoration: none;
         background-color: $accent-color;
-        color: $background-color;
+        color: white;
         padding: 10px 20px;
         border-radius: 20px;
     }
@@ -495,8 +537,6 @@ ul {
     left: 0;
     bottom: 0;
     right: 0;
-    // width: 99vw;
-    // height: 100vh;
     color: $dark-color;
     display: flex;
     flex-direction: column;
@@ -536,7 +576,7 @@ ul {
     }
 }
 
-// Facts meters
+/* FACT METER */
 .factmeter1,
 .factmeter2,
 .factmeter3,
@@ -547,67 +587,28 @@ ul {
     border: 2px solid $base-color;
     position: absolute;
     left: 30%;
+    border-radius: 25px;
 }
 
 .factmeter1 {
-
     background-image: linear-gradient(to right, $barColor 20%, $light-color 0%);
 }
 
 .factmeter2 {
     background-image: linear-gradient(to right, $barColor 40%, $light-color 0%);
-
 }
 
 .factmeter3 {
     background-image: linear-gradient(to right, $barColor 60%, $light-color 0%);
-
 }
 
 .factmeter4 {
     background-image: linear-gradient(to right, $barColor 80%, $light-color 0%);
-
 }
 
 .factmeter5 {
     background-image: linear-gradient(to right, $barColor 100%, $light-color 0%);
-
 }
-
-
-/*SPEECH BUBBLE*/
-.speechBubble {
-    position: relative;
-    background: $dark-color;
-    width: 50%;
-    height: 100px;
-    margin: 0 auto;
-    border-radius: 20px;
-
-    p {
-        font-size: 1.1rem;
-        padding: 30px;
-        font-family: $heading-font;
-        color: $light-color;
-    }
-}
-
-.speechBubble:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border: 50px solid transparent;
-    border-top-color: $dark-color;
-    border-bottom: 0;
-    border-left: 0;
-    margin-left: -21.5px;
-    /*arrow*/
-    margin-bottom: -43px;
-}
-
 
 /*FOOTER*/
 footer {

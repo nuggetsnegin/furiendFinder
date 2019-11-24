@@ -312,14 +312,14 @@ furiendFinder.appendInformation = function (name, photos, gender, size, breedNam
             `<div class="breedFacts">
             <h3>Breed Facts:</h3>
             <ul>
-                ${temperament ? `<li>Temperament: ${temperament}</li>` : ""}
-                ${life_span?`<li>Average Lifespan: ${life_span}</li>`:""}
-                ${weight.metric?`<li>Average Weight: ${weight.metric} kg</li>`:""}
-                ${origin?`<li>Origin: ${origin}</li>`:""}
-                ${affection_level?`<li>Affection Level: <div class="factmeter${affection_level}"></div></li>`:""}
-                ${adaptability ? `<li>Adaptability Level: <div class="factmeter${adaptability}"></div></li>`:""}
-                ${child_friendly ? `<li>Child Friendly Level: <div class="factmeter${child_friendly}"></div></li>`:""}
-                ${energy_level ? `<li>Energy Level: <div class="factmeter${energy_level}"></div></li>`:""}
+                ${temperament ? `<li><span class="reColor">Temperament:</span> ${temperament}</li>` : ""}
+                 ${life_span?`<li><span class="reColor">Average Lifespan: </span> ${life_span}</li>`:""}
+                 ${weight.metric?`<li><span class="reColor">Average Weight: </span> ${weight.metric} kg</li>`:""}
+                 ${origin?`<li><span class="reColor">Origin:</span> ${origin}</li>`: ""}
+                 ${affection_level?`<li><span class="reColor">Affection Level:</span> <div class="factmeter${affection_level}"></div></li>`: ""}
+                 ${adaptability ? `<li><span class="reColor">Adaptability Level:</span> <div class="factmeter${adaptability}"></div></li>`: ""}
+                 ${child_friendly ? `<li><span class="reColor">Child Friendly Level:</span> <div class="factmeter${child_friendly}"></div></li>`:""}
+                 ${energy_level ? `<span class="reColor"><li>Energy Level:</span> <div class="factmeter$     {energy_level}"></div></li>`:""}
             </ul>
             </div>`
         )
@@ -334,14 +334,14 @@ furiendFinder.appendInformation = function (name, photos, gender, size, breedNam
     )
     
     $(`.petFactsUl`).html(
-        `<li>Breed: ${mixed?"Mixed":""} ${breedName}</li>
-        <li>Gender: ${gender}</li>
-        <li>Size: ${size}</li>`
+        `<li><span class="reColor">Breed:</span> ${mixed?"Mixed":""} ${breedName}</li>
+        <li><span class="reColor">Gender:</span> ${gender}</li>
+        <li><span class="reColor">Size:</span> ${size}</li>`
     )
 
     for (attribute in attributes) {
         $(`.petFactsUl`).append(
-            `<li>${attribute.replace('_',' ')}: ${attributes[attribute]?"✔":"✖"}</li>`
+            `<li><span class="reColor">${attribute.replace('_',' ')}:</span> ${attributes[attribute]?"✔":"✖"}</li>`
         )
     }
 
@@ -352,8 +352,8 @@ furiendFinder.appendInformation = function (name, photos, gender, size, breedNam
     $(`.petLocation`).html(
         /*using conditionals for error handling API information*/
         `<h3>Organization: </h3>
-        <p>Email: ${contact.email?contact.email:"No email available"}</p>
-        <p>Phone Number: ${contact.phone ? contact.phone : "No phone number available"}</p>
+        <p><span class="reColor">E-mail:</span> ${contact.email?contact.email:"No email available"}</p>
+        <p><span class="reColor">Phone #:</span> ${contact.phone ? contact.phone : "No phone number available"}</p>
         <ul></ul>`
     )
     
@@ -361,7 +361,7 @@ furiendFinder.appendInformation = function (name, photos, gender, size, breedNam
     /*not showing null if no address available*/     
         if (contact.address[contacts] !== null && contact.address[contacts] !== "") {
             $(`.petLocation ul`).append(
-                `<li>${contacts}: ${contact.address[contacts]}<li>`
+                `<li><span class="reColor">${contacts}:</span> ${contact.address[contacts]}<li>`
             )
         }
 

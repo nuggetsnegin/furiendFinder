@@ -276,7 +276,7 @@ ul {
 
 .backButton {
   background-color: #3fc1c9;
-  color: #E2EAEE;
+  color: white;
   font-family: "Pangolin", cursive;
   padding: 10px 30px;
   border: none;
@@ -354,6 +354,39 @@ ul {
   border: 5px solid #e8f6fd;
 }
 
+/*SPEECH BUBBLE*/
+.speechBubble {
+  position: relative;
+  background: #023055;
+  width: 50%;
+  height: 100px;
+  margin: 0 auto;
+  border-radius: 20px;
+}
+
+.speechBubble p {
+  font-size: 1.1rem;
+  padding: 30px;
+  font-family: "Pangolin", cursive;
+  color: #e8f6fd;
+}
+
+.speechBubble:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border: 50px solid transparent;
+  border-top-color: #023055;
+  border-bottom: 0;
+  border-left: 0;
+  margin-left: -21.5px;
+  margin-bottom: -43px;
+  /*arrow*/
+}
+
 /*AGE PAGE*/
 .age {
   display: -webkit-box;
@@ -391,7 +424,7 @@ ul {
 }
 
 .petAge h2 {
-  background-color: #E2EAEE;
+  background-color: white;
   border: solid 5px #023055;
   -webkit-box-shadow: 10px 10px 0 #f393b5;
           box-shadow: 10px 10px 0 #f393b5;
@@ -433,7 +466,7 @@ ul {
 .adoptablePets .adoptionButton {
   border: solid #023055 5px;
   border-radius: 30px;
-  background-color: #E2EAEE;
+  background-color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -572,6 +605,11 @@ ul {
   border-bottom: 2px dashed #f393b5;
 }
 
+.petInformation a:focus {
+  color: #3fc1c9;
+  border-bottom: 5px dashed #023055;
+}
+
 .petInformation p,
 .petInformation ul {
   padding: 5px;
@@ -604,7 +642,7 @@ ul {
   padding: 20px;
   -webkit-box-shadow: 10px 10px #f393b5;
           box-shadow: 10px 10px #f393b5;
-  background-color: #E2EAEE;
+  background-color: white;
   border: solid 5px #023055;
 }
 
@@ -614,6 +652,13 @@ ul {
 .breedFacts p {
   font-size: 1rem;
   margin: 0;
+}
+
+.petFacts .reColor,
+.petStory .reColor,
+.petLocation .reColor,
+.breedFacts .reColor {
+  color: #f393b5;
 }
 
 .petFacts {
@@ -667,7 +712,7 @@ ul {
 .adoptMe a {
   text-decoration: none;
   background-color: #f393b5;
-  color: #E2EAEE;
+  color: white;
   padding: 10px 20px;
   border-radius: 20px;
 }
@@ -795,6 +840,7 @@ ul {
   margin: 0 auto;
 }
 
+/* FACT METER */
 .factmeter1,
 .factmeter2,
 .factmeter3,
@@ -805,6 +851,7 @@ ul {
   border: 2px solid #3fc1c9;
   position: absolute;
   left: 30%;
+  border-radius: 25px;
 }
 
 .factmeter1 {
@@ -830,39 +877,6 @@ ul {
 .factmeter5 {
   background-image: -webkit-gradient(linear, left top, right top, color-stop(100%, #eca7ec), color-stop(0%, #e8f6fd));
   background-image: linear-gradient(to right, #eca7ec 100%, #e8f6fd 0%);
-}
-
-/*SPEECH BUBBLE*/
-.speechBubble {
-  position: relative;
-  background: #023055;
-  width: 50%;
-  height: 100px;
-  margin: 0 auto;
-  border-radius: 20px;
-}
-
-.speechBubble p {
-  font-size: 1.1rem;
-  padding: 30px;
-  font-family: "Pangolin", cursive;
-  color: #e8f6fd;
-}
-
-.speechBubble:after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border: 50px solid transparent;
-  border-top-color: #023055;
-  border-bottom: 0;
-  border-left: 0;
-  margin-left: -21.5px;
-  /*arrow*/
-  margin-bottom: -43px;
 }
 
 /*FOOTER*/
