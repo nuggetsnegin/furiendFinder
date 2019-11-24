@@ -206,7 +206,7 @@ ul {
 
         span {
             font-family: $heading-font;
-            border-bottom: 3px solid $dark-color;
+            box-shadow: inset 0 -5px 0 $dark-color;
         }
     }
 }
