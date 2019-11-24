@@ -287,7 +287,7 @@ furiendFinder.appendToUl = function (totalPets, petAge, petType) {
 
     $(`.${petAge}`).empty().append(`
         <p>${petAge}</p>
-        <img src="./assets/${petAge}.PNG">
+        <img src="./assets/${petAge}${petType}.PNG">
         <p>${totalPets}</p>`
     );
 }
