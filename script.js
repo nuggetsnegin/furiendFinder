@@ -179,9 +179,9 @@ furiendFinder.getPetsAvailable = function (petAge, petType,city, functionCall, d
             },
         }).then((data) => {
             furiendFinder.city = city;
-            setTimeout(() => {
+            // setTimeout(() => {
                 $(`.loadingScreen`).fadeOut();
-            }, 1000);
+            // }, 1000);
             
             functionCall(data, petAge, petType, city);
             $(`.${disappearingDivClass}`).hide();

@@ -30,8 +30,11 @@
     <main>
 
         <div class="loadingScreen">
-            <img src="assets/walking.gif" alt="loading gif">
-            <p>Loading Results<span>.</span><span>.</span><span>.</span></p>
+            <div>
+                <img src="assets/walking.gif" alt="loading gif">
+                <p>Loading Results<span>.</span><span>.</span><span>.</span></p>
+            </div>
+            
         </div>
 
         <div class="container">
@@ -40,25 +43,25 @@
                     <label for="location" class="visuallyHidden"></label>
                     <p>Find furiends in: </p> <input type="text" id="location" placeholder="Toronto, ON">
                 </div>
-                <div class="speechBubble"><p>We're here to help you find the purfect friend in a 50 mile radius! Simply input your city and province (or state)above!</p></div>
+                <div class="speechBubble"><p>We're here to help you find the purfect friend in a 50 km radius! Simply input your city and province (or state)above!</p></div>
                 <ul class="type">
                     <li>
                         <button class="typeButton"  value="dog">
                             <img src="./assets/dogMain.png" alt="illustration of a dog">
                         </button>
-                        <h2>Dog</h2>
+                        <p>Dog</p>
                     </li>
                     
                     <li>
                         <button class="typeButton"  value="cat">
                             <img src="./assets/catMain.png" alt="illustration of a Cat">
                         </button>
-                        <h2>Cat</h2>
+                        <p>Cat</p>
                     </li>
                 </ul>
             </div>
             <div class="petAge">
-                <h2 class="locationResults">There are..</h2>
+                <h2 class="locationResults">Select the age of your future furiend!</h2>
                 <ul class="age">
                     <li><button class="baby ageButton" value="baby">
                             <img src="assets/baby.PNG" alt="drawing of a baby cat">

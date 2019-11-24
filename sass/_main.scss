@@ -4,7 +4,7 @@
 $base-color: #3fc1c9;
 $lightbase-color: #3fc1c9;
 $accent-color: #fc5185;
-$light-color: #f5f5f5;
+$light-color: #e8f6fd;
 $dark-color: #023055;
 // $light-color-opacity: rgba(255, 254, 234, 0.8);
 $background-color: #E2EAEE;
@@ -18,8 +18,8 @@ cursive;
 body {
     font-size: 62.5%;
     font-family: $main-font;
-    background-image: url(../assets/bgPattern.jpg);
-    background-color: khaki; /*fallback*/
+    // background-image: url(../assets/bgPattern.jpg);
+    background-color: $light-color; /*fallback*/
     background-size: contain;
     color: $dark-color;
     position: relative;
@@ -27,7 +27,7 @@ body {
 
 header {
     min-height: 15vh;
-    background-color: rgba(228, 66, 136, 0.6);
+    background-color: $accent-color;
     
     .headerMain {
         display: flex;
@@ -50,6 +50,7 @@ main {
 
 p {
     font-size: 2rem;
+    margin: 0;
 }
 
 .container {
@@ -78,6 +79,9 @@ h2 {
     font-family: $accent-font;
     margin: 0;
     color: $dark-color;
+    
+    margin-bottom: 10px;
+    padding: 10px 0;
 }
 
 ul {
@@ -130,9 +134,14 @@ ul {
         background: transparent;
         border: none;
         padding: 0;
+        transition: all 0.5s;
+
+        &:disabled {
+            opacity: 0.8;
+        }
     }
 
-    h2 {
+    p {
         margin: 0;
         text-transform: uppercase;
         font-size: 2rem;
@@ -147,11 +156,14 @@ ul {
 .age {
     display: flex;
     justify-content: space-between;
+    margin: 50px;
 
     li {
         
         width: 20%;
     }
+
+    
 
     button {
         
@@ -170,14 +182,24 @@ ul {
 
 .petAge {
     text-align: center;
+    
+
+    h2 {
+        background-color: white;
+        border: solid 5px $dark-color;
+        box-shadow: 10px 10px 0 $accent-color;
+        margin-bottom: 100px;
+    }
 }
 
 .userLocation {
     font-family: $heading-font;
+    padding-bottom: 20px;
     p {
-        margin-right: 1%;
+        // margin-right: 1%;
         display: inline;
-        background-color: $base-color;
+        
+        // background-color: $base-color;
         padding: 0px 15px;
         border: none;
         border-radius: 25px;
@@ -189,7 +211,9 @@ ul {
         padding: 0px 15px;
         color: $accent-color;
         border: none;
-        border-radius: 25px;
+        border-bottom: $accent-color solid 2px;
+        background-color: $light-color;
+        // border-radius: 25px;
         // border: 2px dashed $light-color;
     }
 
@@ -205,14 +229,14 @@ ul {
 }
 .adoptablePets {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
     padding: 20px;
 
     .adoptionButton{
         border: solid $dark-color 5px;
         border-radius: 30px;
-        background-color: $light-color;
+        background-color: white;
 
         .info {
             // background-color: $base-color;
@@ -341,7 +365,7 @@ ul {
         overflow: hidden;
         height: 20vw;
         width: 20vw;
-        border-radius: 50%;
+        // border-radius: 50%;
         box-shadow: 10px 10px $accent-color;
         border: solid 5px $dark-color;
     }
@@ -350,7 +374,7 @@ ul {
 .petFacts, .petStory, .petLocation, .breedFacts {
     padding: 20px;
     box-shadow: 10px 10px $accent-color;
-    background-color: $light-color;
+    background-color: white;
     border: solid 5px $dark-color;
     p {
         font-size: 1rem;
@@ -441,16 +465,29 @@ ul {
     position: absolute;
     top: 0;
     left: 0;
-    width: 99vw;
-    height: 100vh;
-    color: $accent-color;
+    bottom: 0;
+    right: 0;
+    // width: 99vw;
+    // height: 100vh;
+    color: $dark-color;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
+    div {
+        border: solid 5px $dark-color;
+        padding: 20px;
+        text-align: center;
+        background-color: $light-color;
+        border-radius: 50%;
+    }
+
     p {
         font-size: 3rem;
+        background-color: $light-color;
+        border: solid 5px $dark-color;
+        padding: 10px;
     }
 
     & span {
@@ -466,14 +503,15 @@ ul {
     }
 
     img{
-        width: 20%;
+        width: 50%;
+        margin: 0 auto;
     }
 }
 
 /*SPEECH BUBBLE*/
 .speechBubble {
 	position: relative;
-    background: #fcf8fb;
+    background: $dark-color;
     width: 50%;
     height: 100px;
     margin: 0 auto;
@@ -483,6 +521,7 @@ ul {
         font-size: 1.3rem;
         padding: 25px;
         font-family: $heading-font;
+        color: $light-color;
     }
 }
 
@@ -494,7 +533,7 @@ ul {
 	width: 0;
 	height: 0;
 	border: 50px solid transparent;
-	border-top-color: #fcf8fb;
+	border-top-color: $dark-color;
 	border-bottom: 0;
 	border-left: 0;
 	margin-left: -21.5px; /*arrow*/
