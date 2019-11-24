@@ -8,7 +8,8 @@
     <title>Furiend Finder</title>
     <script src='https://code.jquery.com/jquery-3.2.1.min.js'
         integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=' crossorigin='anonymous'></script>
-    <link href="https://fonts.googleapis.com/css?family=Dosis:300,400,700|Pangolin|Open+Sans:300,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dosis:300,400,700|Pangolin|Open+Sans:300,400&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all">
     <link rel="stylesheet" href="./styles/style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -24,7 +25,7 @@
                 <h1>Furiend Finder</h1>
             </div>
         </div>
-        
+
     </header>
 
     <main>
@@ -34,7 +35,7 @@
                 <img src="assets/walking.gif" alt="loading gif">
                 <p>Loading Results<span>.</span><span>.</span><span>.</span></p>
             </div>
-            
+
         </div>
 
         <div class="container">
@@ -43,17 +44,20 @@
                     <label for="location" class="visuallyHidden"></label>
                     <p>Find furiends in: </p> <input type="text" id="location" placeholder="Toronto, ON">
                 </div>
-                <div class="speechBubble"><p>We're here to help you find the purfect friend in a 50 km radius! Simply input your city and province (or state)above and then pick one of us!</p></div>
+                <div class="speechBubble">
+                    <p>We're here to help you find the purfect friend in a 50 km radius! Simply input your city and
+                        province (or state)above and then pick one of us!</p>
+                </div>
                 <ul class="type">
                     <li>
-                        <button class="typeButton"  value="dog">
+                        <button class="typeButton" value="dog">
                             <img src="./assets/dogMain.png" alt="illustration of a dog">
                         </button>
                         <p>Dog</p>
                     </li>
-                    
+
                     <li>
-                        <button class="typeButton"  value="cat">
+                        <button class="typeButton" value="cat">
                             <img src="./assets/catMain.png" alt="illustration of a cat">
                         </button>
                         <p>Cat</p>
@@ -81,42 +85,50 @@
                     </li>
                 </ul>
 
-                
-                
+
+
             </div>
 
             <div class="adoptionOptions">
-                
+
                 <ul class="adoptablePets"></ul>
                 <button class="backButtonToAge backButton"><i class="fas fa-angle-double-left"></i></button>
             </div>
 
             <div class="petInformation">
-                
+
                 <h2>Hi there, my name is <span class="petName"></span>!</h2>
                 <div class="petImage"></div>
                 <div class="petFacts">
                     <h3>Pet Information</h3>
                     <ul class="petFactsUl"></ul>
                 </div>
-                
+
                 <div class="petStory"></div>
                 <div class="petLocation"></div>
 
                 <div class="adoptMe"></div>
-                
+
             </div>
         </div>
 
         <div class="alert">
             <h3>OOPS!</h3>
-            <!-- make a sad cat + dog-->
             <p>Please enter a valid city and province/state!</p>
             <button class="acceptAlert">Okay!</button>
+            <img src="./assets/sadCatDog.png" alt="Illustration of a sad dog and cat">
+        </div>
+
+        <!-- <div class="popInCat slideIn">
+            <img src="./assets/catPopIn.png" alt="Illustration of a cat waving">
+        </div> -->
+
+        <div class="popInDog slideIn">
+            <img src="./assets/dogPopIn.png" alt="Illustration of a dog waving">
         </div>
     </main>
 
-    
+
 
     <footer>
         <p>🦴 Made by Juan & Negin Copyright &copy; 2019 🦴</p>

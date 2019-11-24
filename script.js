@@ -80,8 +80,8 @@ furiendFinder.getGeoLocation = () => {
 
 /*init method, on page load*/
 furiendFinder.init = function () {
-
-    
+    // $('.popInCat').hide();
+    // $('.popInDog').hide();
     $('.ageButton').on('click', furiendFinder.ageClickEvent); /*only call click events atached to buttons when document ready*/
     $('.adoptablePets').on('click', '.adoptionButton', furiendFinder.getMoreInfoCLickEvent);
 
@@ -287,8 +287,8 @@ furiendFinder.appendToUl = function (totalPets, petAge, petType) {
 
     $(`.${petAge}`).empty().append(`
         <p>${petAge}</p>
-        <img src="./assets/${petAge}${petType}.PNG">
-        <p>${totalPets}</p>`
+        <div class="bounce"><img src="./assets/${petAge}${petType}.PNG"></div>
+        <p>${totalPets} available</p>`
     );
 }
 

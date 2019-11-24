@@ -3,7 +3,7 @@
 /*VARIABLES*/
 $base-color: #3fc1c9;
 $barColor: #790279;
-$accent-color: #fc5185;
+$accent-color: #f393b5;
 $light-color: #e8f6fd;
 $dark-color: #023055;
 // $light-color-opacity: rgba(255, 254, 234, 0.8);
@@ -18,8 +18,9 @@ cursive;
 body {
     font-size: 62.5%;
     font-family: $main-font;
-    // background-image: url(../assets/bgPattern.jpg);
-    background-color: $light-color; /*fallback*/
+    background-image: url(../assets/bgPattern.png);
+    background-color: $light-color;
+    /*fallback*/
     background-size: contain;
     color: $dark-color;
     position: relative;
@@ -27,8 +28,8 @@ body {
 
 header {
     min-height: 15vh;
-    background-color: $accent-color;
-    
+    // background-color: $accent-color;
+
     .headerMain {
         display: flex;
         justify-content: center;
@@ -45,7 +46,7 @@ header {
 main {
     min-height: 80vh;
     padding: 20px 0;
-    
+
 }
 
 p {
@@ -73,20 +74,24 @@ button {
 h1 {
     font-family: $heading-font;
     text-align: center;
-    padding: 10px;
+    padding: 10px 200px;
     font-size: 5rem;
-    margin: 0;
-    color: $base-color;
-    text-shadow: 5px 5px $dark-color;
+    letter-spacing: 5px;
+    margin-top: 1%;
+    margin-bottom: 0;
+    color: $dark-color;
+    text-shadow: 5px 5px $base-color;
     cursor: pointer;
+    background-color: $accent-color;
+    border-radius: 50px;
 }
+
 
 h2 {
     font-size: 3rem;
     font-family: $accent-font;
     margin: 0;
     color: $dark-color;
-    
     margin-bottom: 10px;
     padding: 10px 0;
 }
@@ -114,19 +119,6 @@ ul {
     }
 }
 
-// .findPets {
-//     font-size: 2rem;
-//     padding: 0px 10px;
-//     background-color: $base-color;
-//     border: 3px dashed $accent-color;
-//     color: $accent-color;
-//     &:hover {
-//         color: $background-color;
-//         border: 3px dashed $base-color;
-//         background-color: $base-color;
-//     }
-// }
-
 /*LANDING PAGE*/
 .petType {
     text-align: center;
@@ -139,7 +131,6 @@ ul {
 
     button {
         background: transparent;
-        
 
         &:disabled {
             opacity: 0.8;
@@ -149,11 +140,14 @@ ul {
     p {
         margin: 0;
         text-transform: uppercase;
-        font-size: 2rem;
+        font-size: 3rem;
+        font-family: $heading-font;
+        text-shadow: $base-color 3px 3px;
     }
 
     img {
-        max-width: 400px;
+        max-width: 320px;
+
     }
 }
 
@@ -164,30 +158,29 @@ ul {
     margin: 50px;
 
     li {
-        
         width: 20%;
     }
 
-    
-
     button {
-        
         text-transform: uppercase;
         font-family: $heading-font;
-        color: $accent-color;
+        color: $dark-color;
         border-radius: 25px;
         background-color: transparent;
         border: none;
     }
 
     & li:last-child {
-            padding: 0;
+        padding: 0;
+    }
+
+    p{
+        text-shadow: $accent-color 2px 2px;
     }
 }
 
 .petAge {
     text-align: center;
-    
 
     h2 {
         background-color: white;
@@ -197,26 +190,17 @@ ul {
 
         span {
             font-family: $heading-font;
-            // color: $base-color;
             text-decoration: underline;
-         }
+        }
     }
-
-    
 }
 
 .userLocation {
     font-family: $heading-font;
     padding-bottom: 20px;
+
     p {
-        // margin-right: 1%;
         display: inline;
-        
-        // background-color: $base-color;
-        padding: 0px 15px;
-        border: none;
-        border-radius: 25px;
-        // border: 2px dashed $light-color;
     }
 
     input {
@@ -224,29 +208,27 @@ ul {
         padding: 0px 15px;
         color: $accent-color;
         border: none;
-        border-bottom: $accent-color solid 2px;
-        background-color: $light-color;
-        // border-radius: 25px;
-        // border: 2px dashed $light-color;
+        border-bottom: $accent-color solid 3px;
+        background-color: rgba(244, 244, 244, 0.3);
     }
 
 }
 
 /*LIST OF ADOPTABLE PETS BY AGE*/
-
 .adoptionOptions {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
 .adoptablePets {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 50px;
     padding: 20px;
 
-    .adoptionButton{
+    .adoptionButton {
         border: solid $dark-color 5px;
         border-radius: 30px;
         background-color: white;
@@ -257,7 +239,6 @@ ul {
         max-width: 280px;
 
         .info {
-            // background-color: $base-color;
             border-radius: 20px;
             padding: 10px;
             margin-top: 10px;
@@ -268,13 +249,11 @@ ul {
         text-transform: uppercase;
         font-family: $heading-font;
         margin: 0;
-        // top: 190px;
-        // left: 0;
         width: 100%;
         color: $dark-color;
         text-shadow: 1px 1px 1px $light-color;
         z-index: 1;
-        
+
         font-size: 1rem;
         padding: 0 5px;
         // position: absolute;
@@ -305,6 +284,7 @@ ul {
         border: solid 5px $base-color;
     }
 }
+
 
 
 /*PET ADOPTION PAGE*/
@@ -358,16 +338,6 @@ ul {
         transition: all 0.5s;
     }
 
-    a:hover {
-        // color: red;
-        /*placeholder*/
-    }
-
-    a:visited {
-        color: red;
-        /*placeholder*/
-    }
-
     p,
     ul {
         padding: 5px;
@@ -390,11 +360,15 @@ ul {
     }
 }
 
-.petFacts, .petStory, .petLocation, .breedFacts {
+.petFacts,
+.petStory,
+.petLocation,
+.breedFacts {
     padding: 20px;
     box-shadow: 10px 10px $accent-color;
     background-color: white;
     border: solid 5px $dark-color;
+
     p {
         font-size: 1rem;
         margin: 0;
@@ -407,6 +381,7 @@ ul {
 
 .breedFacts {
     grid-area: breedFacts;
+
     li {
         display: flex;
     }
@@ -432,8 +407,6 @@ ul {
     color: white;
     border-radius: 25px;
 
-    
-
     a {
         text-decoration: none;
         background-color: $accent-color;
@@ -444,8 +417,6 @@ ul {
 
     a:hover {
         box-shadow: $dark-color 10px 10px;
-        /*placeholders*/
-
     }
 
     a:visited {
@@ -462,33 +433,48 @@ ul {
     text-align: center;
     position: absolute;
     z-index: 1;
+    box-shadow: $dark-color 10px 10px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 20px;
+    padding: 40px;
+    padding-bottom: 0;
 
     button {
         background-color: $base-color;
-        color: $dark-color;
+        color: $background-color;
         border-radius: 30px;
         font-size: 2rem;
+        margin-bottom: 2%;
+    }
+
+    button:hover {
+        box-shadow: $dark-color 10px 10px;
     }
 
     h3 {
         font-family: $heading-font;
-        font-size: 4rem;
-        padding-top: 50px;
+        font-size: 3rem;
+        padding-top: 20px;
         margin: 0;
+        text-shadow: $dark-color 3px 3px;
     }
 
     p {
         margin: 0;
-        padding: 50px;
+        font-size: 1.5rem;
+        padding: 10px;
+    }
+
+    img {
+        width: 40%;
+        height: 40%;
+        margin: 0 auto;
     }
 }
 
 /*LOADING SCREEN*/
-.loadingScreen{
+.loadingScreen {
     background-color: $base-color;
     z-index: 2;
     position: absolute;
@@ -531,14 +517,18 @@ ul {
         animation: appear infinite alternate-reverse 1s 0.66s;
     }
 
-    img{
+    img {
         width: 50%;
         margin: 0 auto;
     }
 }
 
 // Facts meters
-.factmeter1,.factmeter2,.factmeter3,.factmeter4,.factmeter5 {
+.factmeter1,
+.factmeter2,
+.factmeter3,
+.factmeter4,
+.factmeter5 {
     width: 40%;
     height: 20px;
     border: 2px solid $base-color;
@@ -546,38 +536,42 @@ ul {
     left: 30%;
 }
 
-.factmeter1{
-    
-    background-image: linear-gradient(to right, $barColor 20%,$light-color 0%);
+.factmeter1 {
+
+    background-image: linear-gradient(to right, $barColor 20%, $light-color 0%);
 }
-.factmeter2{
-    background-image: linear-gradient(to right, $barColor 40%,$light-color 0%);
-  
+
+.factmeter2 {
+    background-image: linear-gradient(to right, $barColor 40%, $light-color 0%);
+
 }
-.factmeter3{
-    background-image: linear-gradient(to right, $barColor 60%,$light-color 0%);
-   
+
+.factmeter3 {
+    background-image: linear-gradient(to right, $barColor 60%, $light-color 0%);
+
 }
-.factmeter4{
-    background-image: linear-gradient(to right, $barColor 80%,$light-color 0%);
- 
+
+.factmeter4 {
+    background-image: linear-gradient(to right, $barColor 80%, $light-color 0%);
+
 }
-.factmeter5{
-    background-image: linear-gradient(to right, $barColor 100%,$light-color 0%);
-    
+
+.factmeter5 {
+    background-image: linear-gradient(to right, $barColor 100%, $light-color 0%);
+
 }
 
 
 /*SPEECH BUBBLE*/
 .speechBubble {
-	position: relative;
+    position: relative;
     background: $dark-color;
     width: 50%;
     height: 100px;
     margin: 0 auto;
     border-radius: 20px;
-    
-    p{
+
+    p {
         font-size: 1.1rem;
         padding: 30px;
         font-family: $heading-font;
@@ -586,18 +580,19 @@ ul {
 }
 
 .speechBubble:after {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 50%;
-	width: 0;
-	height: 0;
-	border: 50px solid transparent;
-	border-top-color: $dark-color;
-	border-bottom: 0;
-	border-left: 0;
-	margin-left: -21.5px; /*arrow*/
-	margin-bottom: -43px;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 50px solid transparent;
+    border-top-color: $dark-color;
+    border-bottom: 0;
+    border-left: 0;
+    margin-left: -21.5px;
+    /*arrow*/
+    margin-bottom: -43px;
 }
 
 
@@ -613,10 +608,23 @@ footer {
 
     p {
         margin: 0;
-        padding: 5px;
+        padding: 10px;
         font-size: 1rem;
     }
 }
+
+//POPIN CAT & DOG
+.popInCat,
+.popInDog {
+    display: none;
+    // position: absolute;
+    // top: 0;
+    // right: 0;
+    // height: 20%;
+    // width: 20%;
+    // z-index: 1;
+}
+
 
 // KEYFRAMES
 
