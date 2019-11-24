@@ -28,7 +28,8 @@ body {
 
 header {
     min-height: 15vh;
-    // background-color: $accent-color;
+    background-color: $accent-color;
+    border-bottom: 5px solid $dark-color;
 
     .headerMain {
         display: flex;
@@ -111,11 +112,13 @@ ul {
     font-size: 2rem;
     text-transform: uppercase;
     border-radius: 25px;
+    border: 3px solid $dark-color;
     margin: 1% 0;
 
     &:hover {
         color: $base-color;
         background-color: $dark-color;
+        border: 3px solid $base-color;
     }
 }
 
@@ -147,51 +150,6 @@ ul {
 
     img {
         max-width: 320px;
-
-    }
-}
-
-/*AGE PAGE*/
-.age {
-    display: flex;
-    justify-content: space-between;
-    margin: 50px;
-
-    li {
-        width: 20%;
-    }
-
-    button {
-        text-transform: uppercase;
-        font-family: $heading-font;
-        color: $dark-color;
-        border-radius: 25px;
-        background-color: transparent;
-        border: none;
-    }
-
-    & li:last-child {
-        padding: 0;
-    }
-
-    p{
-        text-shadow: $accent-color 2px 2px;
-    }
-}
-
-.petAge {
-    text-align: center;
-
-    h2 {
-        background-color: white;
-        border: solid 5px $dark-color;
-        box-shadow: 10px 10px 0 $accent-color;
-        margin-bottom: 100px;
-
-        span {
-            font-family: $heading-font;
-            text-decoration: underline;
-        }
     }
 }
 
@@ -211,8 +169,48 @@ ul {
         border-bottom: $accent-color solid 3px;
         background-color: rgba(244, 244, 244, 0.3);
     }
-
 }
+
+/*AGE PAGE*/
+.age {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px;
+
+    li {
+        width: 20%;
+    }
+
+    button {
+        text-transform: uppercase;
+        font-family: $heading-font;
+        color: $dark-color;
+        text-shadow: $accent-color 2px 2px;
+        background-color: transparent;
+        border: none;
+    }
+
+    & li:last-child {
+        padding: 0;
+    }
+}
+
+.petAge {
+    text-align: center;
+
+    h2 {
+        background-color: white;
+        border: solid 5px $dark-color;
+        box-shadow: 10px 10px 0 $accent-color;
+        margin-bottom: 100px;
+
+        span {
+            font-family: $heading-font;
+            text-decoration: underline;
+        }
+    }
+}
+
 
 /*LIST OF ADOPTABLE PETS BY AGE*/
 .adoptionOptions {
@@ -228,36 +226,34 @@ ul {
     gap: 50px;
     padding: 20px;
 
-    .adoptionButton {
-        border: solid $dark-color 5px;
-        border-radius: 30px;
-        background-color: white;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        max-width: 280px;
+.adoptionButton {
+    border: solid $dark-color 5px;
+    border-radius: 30px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+     max-width: 280px;
 
-        .info {
-            border-radius: 20px;
-            padding: 10px;
-            margin-top: 10px;
+    .info {
+        border-radius: 20px;
+        padding: 10px;
+        margin-top: 10px;
         }
-    }
+}
 
-    p {
-        text-transform: uppercase;
-        font-family: $heading-font;
-        margin: 0;
-        width: 100%;
-        color: $dark-color;
-        text-shadow: 1px 1px 1px $light-color;
-        z-index: 1;
-
-        font-size: 1rem;
-        padding: 0 5px;
-        // position: absolute;
-    }
+p {
+    text-transform: uppercase;
+    font-family: $heading-font;
+    margin: 0;
+    width: 100%;
+    color: $dark-color;
+    text-shadow: 1px 1px 1px $light-color;
+    z-index: 1;
+    font-size: 1rem;
+    padding: 0 5px;
+}
 
     p:first-child {
         top: 50px;
@@ -272,20 +268,20 @@ ul {
         background: transparent;
         padding: 10px;
         border: none;
+        &:hover{
+            background-color: $accent-color;
+        }
     }
 
     img {
         width: 250px;
         height: 250px;
-        object-fit: cover;
-        /*stop image stretching*/
+        object-fit: cover; /*stop image stretching*/
         border-radius: 50%;
         position: relative;
         border: solid 5px $base-color;
     }
 }
-
-
 
 /*PET ADOPTION PAGE*/
 .petInformation {

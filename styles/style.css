@@ -194,6 +194,8 @@ body {
 
 header {
   min-height: 15vh;
+  background-color: #f393b5;
+  border-bottom: 5px solid #023055;
 }
 
 header .headerMain {
@@ -281,12 +283,14 @@ ul {
   font-size: 2rem;
   text-transform: uppercase;
   border-radius: 25px;
+  border: 3px solid #023055;
   margin: 1% 0;
 }
 
 .backButton:hover {
   color: #3fc1c9;
   background-color: #023055;
+  border: 3px solid #3fc1c9;
 }
 
 /*LANDING PAGE*/
@@ -324,6 +328,24 @@ ul {
   max-width: 320px;
 }
 
+.userLocation {
+  font-family: "Pangolin", cursive;
+  padding-bottom: 20px;
+}
+
+.userLocation p {
+  display: inline;
+}
+
+.userLocation input {
+  font-size: 2rem;
+  padding: 0px 15px;
+  color: #f393b5;
+  border: none;
+  border-bottom: #f393b5 solid 3px;
+  background-color: rgba(244, 244, 244, 0.3);
+}
+
 /*AGE PAGE*/
 .age {
   display: -webkit-box;
@@ -343,17 +365,13 @@ ul {
   text-transform: uppercase;
   font-family: "Pangolin", cursive;
   color: #023055;
-  border-radius: 25px;
+  text-shadow: #f393b5 2px 2px;
   background-color: transparent;
   border: none;
 }
 
 .age li:last-child {
   padding: 0;
-}
-
-.age p {
-  text-shadow: #f393b5 2px 2px;
 }
 
 .petAge {
@@ -371,24 +389,6 @@ ul {
 .petAge h2 span {
   font-family: "Pangolin", cursive;
   text-decoration: underline;
-}
-
-.userLocation {
-  font-family: "Pangolin", cursive;
-  padding-bottom: 20px;
-}
-
-.userLocation p {
-  display: inline;
-}
-
-.userLocation input {
-  font-size: 2rem;
-  padding: 0px 15px;
-  color: #f393b5;
-  border: none;
-  border-bottom: #f393b5 solid 3px;
-  background-color: rgba(244, 244, 244, 0.3);
 }
 
 /*LIST OF ADOPTABLE PETS BY AGE*/
@@ -473,6 +473,10 @@ ul {
   background: transparent;
   padding: 10px;
   border: none;
+}
+
+.adoptablePets button:hover {
+  background-color: #f393b5;
 }
 
 .adoptablePets img {
