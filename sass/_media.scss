@@ -1,0 +1,34 @@
+@media (max-width: 1295px) {
+
+    .speechBubble{
+       p{
+         padding: 20px 10px;
+       }
+    }
+}
+
+@media (max-width: 930px) {
+    .speechBubble{
+       p{
+         padding-top: 15px;
+         font-size: .9rem;
+       }
+    }
+}
+
+@media (max-width: 650px) {
+    .speechBubble{
+        width: 65%;
+    }
+}
+
+
+@media (max-width: 450px) {
+    .speechBubble{
+        width: 100%;
+        p{
+            font-size: .88rem;
+            padding: 7px 5px;
+        }
+    }
+}
