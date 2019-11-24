@@ -2,7 +2,7 @@
 
 /*VARIABLES*/
 $base-color: #3fc1c9;
-$barColor: #eca7ec;
+$barColor: #ffbfd6;
 $accent-color: #f393b5;
 $light-color: #e8f6fd;
 $dark-color: #023055;
@@ -141,7 +141,7 @@ ul {
             opacity: 0.8;
         }
     }
-
+    
     p {
         margin: 0;
         text-transform: uppercase;
@@ -170,7 +170,9 @@ ul {
         border: none;
         border-bottom: $accent-color solid 3px;
         background-color: rgba(244, 244, 244, 0.3);
-    }&:focus{
+    }
+    
+    &:focus{
         border: 5px solid $light-color;
     }
 }
@@ -225,7 +227,9 @@ ul {
         text-shadow: $accent-color 2px 2px;
         background-color: transparent;
         border: none;
-    }&:focus{
+    }
+    
+    &:focus{
         border: 5px solid $light-color;
     }
 
@@ -312,6 +316,8 @@ ul {
             border: solid $base-color 5px;
             img{
                 border: solid $dark-color 5px;
+                width: 260px;
+                height: 260px;
             }
         }
         &:focus{
@@ -423,6 +429,7 @@ ul {
 
     .reColor{
         color: $accent-color;
+        font-weight: 800;
     }
 }
 
@@ -617,7 +624,6 @@ footer {
     text-transform: uppercase;
     font-family: $heading-font;
     background-color: $base-color;
-    // color: $base-color;
     transition: all 0.5s;
 
     p {

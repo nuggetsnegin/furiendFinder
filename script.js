@@ -287,7 +287,7 @@ furiendFinder.appendToUl = function (totalPets, petAge, petType) {
 
     $(`.${petAge}`).empty().append(`
         <p>${petAge}</p>
-        <div class="bounce"><img src="./assets/${petAge}${petType}.PNG"></div>
+        <img src="./assets/${petAge}${petType}.PNG">
         <p>${totalPets} available</p>`
     );
 }
@@ -319,7 +319,7 @@ furiendFinder.appendInformation = function (name, photos, gender, size, breedNam
                  ${affection_level?`<li><span class="reColor">Affection Level:</span> <div class="factmeter${affection_level}"></div></li>`: ""}
                  ${adaptability ? `<li><span class="reColor">Adaptability Level:</span> <div class="factmeter${adaptability}"></div></li>`: ""}
                  ${child_friendly ? `<li><span class="reColor">Child Friendly Level:</span> <div class="factmeter${child_friendly}"></div></li>`:""}
-                 ${energy_level ? `<span class="reColor"><li>Energy Level:</span> <div class="factmeter$     {energy_level}"></div></li>`:""}
+                 ${energy_level ? `<span class="reColor"><li>Energy Level:</span> <div class="factmeter${energy_level}"></div></li>`:""}
             </ul>
             </div>`
         )

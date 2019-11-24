@@ -528,6 +528,8 @@ ul {
 
 .adoptablePets button:hover img {
   border: solid #023055 5px;
+  width: 260px;
+  height: 260px;
 }
 
 .adoptablePets button:focus {
@@ -659,6 +661,7 @@ ul {
 .petLocation .reColor,
 .breedFacts .reColor {
   color: #f393b5;
+  font-weight: 800;
 }
 
 .petFacts {
@@ -855,28 +858,28 @@ ul {
 }
 
 .factmeter1 {
-  background-image: -webkit-gradient(linear, left top, right top, color-stop(20%, #eca7ec), color-stop(0%, #e8f6fd));
-  background-image: linear-gradient(to right, #eca7ec 20%, #e8f6fd 0%);
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(20%, #ffbfd6), color-stop(0%, #e8f6fd));
+  background-image: linear-gradient(to right, #ffbfd6 20%, #e8f6fd 0%);
 }
 
 .factmeter2 {
-  background-image: -webkit-gradient(linear, left top, right top, color-stop(40%, #eca7ec), color-stop(0%, #e8f6fd));
-  background-image: linear-gradient(to right, #eca7ec 40%, #e8f6fd 0%);
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(40%, #ffbfd6), color-stop(0%, #e8f6fd));
+  background-image: linear-gradient(to right, #ffbfd6 40%, #e8f6fd 0%);
 }
 
 .factmeter3 {
-  background-image: -webkit-gradient(linear, left top, right top, color-stop(60%, #eca7ec), color-stop(0%, #e8f6fd));
-  background-image: linear-gradient(to right, #eca7ec 60%, #e8f6fd 0%);
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(60%, #ffbfd6), color-stop(0%, #e8f6fd));
+  background-image: linear-gradient(to right, #ffbfd6 60%, #e8f6fd 0%);
 }
 
 .factmeter4 {
-  background-image: -webkit-gradient(linear, left top, right top, color-stop(80%, #eca7ec), color-stop(0%, #e8f6fd));
-  background-image: linear-gradient(to right, #eca7ec 80%, #e8f6fd 0%);
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(80%, #ffbfd6), color-stop(0%, #e8f6fd));
+  background-image: linear-gradient(to right, #ffbfd6 80%, #e8f6fd 0%);
 }
 
 .factmeter5 {
-  background-image: -webkit-gradient(linear, left top, right top, color-stop(100%, #eca7ec), color-stop(0%, #e8f6fd));
-  background-image: linear-gradient(to right, #eca7ec 100%, #e8f6fd 0%);
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(100%, #ffbfd6), color-stop(0%, #e8f6fd));
+  background-image: linear-gradient(to right, #ffbfd6 100%, #e8f6fd 0%);
 }
 
 /*FOOTER*/
