@@ -677,6 +677,7 @@ ul {
 .petLocation .reColor,
 .breedFacts .reColor {
   color: #f3286f;
+  font-weight: 800;
 }
 
 .petFacts {

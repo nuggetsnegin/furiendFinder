@@ -141,7 +141,7 @@ ul {
             opacity: 0.8;
         }
     }
-
+    
     p {
         margin: 0;
         text-transform: uppercase;
@@ -170,7 +170,9 @@ ul {
         border: none;
         border-bottom: $accent-color solid 3px;
         background-color: rgba(244, 244, 244, 0.3);
-    }&:focus{
+    }
+    
+    &:focus{
         border: 5px solid $light-color;
     }
 }
@@ -225,7 +227,9 @@ ul {
         text-shadow: $accent-color 2px 2px;
         background-color: transparent;
         border: none;
-    }&:focus{
+    }
+    
+    &:focus{
         border: 5px solid $light-color;
     }
 
@@ -436,6 +440,7 @@ ul {
 
     .reColor{
         color: $accent-color;
+        font-weight: 800;
     }
 }
 
@@ -630,7 +635,6 @@ footer {
     text-transform: uppercase;
     font-family: $heading-font;
     background-color: $base-color;
-    // color: $base-color;
     transition: all 0.5s;
 
     p {
