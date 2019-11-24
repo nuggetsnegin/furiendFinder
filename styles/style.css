@@ -491,7 +491,7 @@ ul {
   -ms-grid-rows: (min-content)[3];
       grid-template-rows: repeat(3, -webkit-min-content);
       grid-template-rows: repeat(3, min-content);
-      grid-template-areas: "title title title" "petImage petStory petStory" "petImage petFacts location" "breedFacts breedFacts breedFacts" "adoptMe adoptMe adoptMe";
+      grid-template-areas: "title title title" "petImage petStory petStory" "petImage petFacts location" "breedFacts breedFacts breedFacts" "adoptMe adoptMe adoptMe";
 }
 
 .petInformation h2 {
@@ -784,8 +784,8 @@ ul {
 }
 
 .speechBubble p {
-  font-size: 1.3rem;
-  padding: 25px;
+  font-size: 1.1rem;
+  padding: 30px;
   font-family: "Pangolin", cursive;
   color: #e8f6fd;
 }
