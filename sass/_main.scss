@@ -206,7 +206,7 @@ ul {
 
         span {
             font-family: $heading-font;
-            text-decoration: underline;
+            border-bottom: 3px solid $dark-color;
         }
     }
 }
@@ -226,34 +226,34 @@ ul {
     gap: 50px;
     padding: 20px;
 
-.adoptionButton {
-    border: solid $dark-color 5px;
-    border-radius: 30px;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-     max-width: 280px;
+    .adoptionButton {
+        border: solid $dark-color 5px;
+        border-radius: 30px;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 280px;
 
-    .info {
-        border-radius: 20px;
-        padding: 10px;
-        margin-top: 10px;
-        }
-}
+        .info {
+            border-radius: 20px;
+            padding: 10px;
+            margin-top: 10px;
+            }
+    }
 
-p {
-    text-transform: uppercase;
-    font-family: $heading-font;
-    margin: 0;
-    width: 100%;
-    color: $dark-color;
-    text-shadow: 1px 1px 1px $light-color;
-    z-index: 1;
-    font-size: 1rem;
-    padding: 0 5px;
-}
+    p {
+        text-transform: uppercase;
+        font-family: $heading-font;
+        margin: 0;
+        width: 100%;
+        color: $dark-color;
+        text-shadow: 1px 1px 1px $light-color;
+        z-index: 1;
+        font-size: 1rem;
+        padding: 0 5px;
+    }
 
     p:first-child {
         top: 50px;
@@ -314,8 +314,7 @@ p {
     }
 
     .petName {
-        text-decoration: underline;
-        text-decoration-color: $accent-color;
+        border-bottom: 5px solid $accent-color;
     }
 
     li {
@@ -345,12 +344,10 @@ p {
     padding: 50px;
 
     img {
-        object-fit: cover;
-        /*to not stretch image*/
+        object-fit: cover; /*to not stretch image*/
         overflow: hidden;
         height: 20vw;
         width: 20vw;
-        // border-radius: 50%;
         box-shadow: 10px 10px $accent-color;
         border: solid 5px $dark-color;
     }

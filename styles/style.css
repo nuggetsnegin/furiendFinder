@@ -388,7 +388,7 @@ ul {
 
 .petAge h2 span {
   font-family: "Pangolin", cursive;
-  text-decoration: underline;
+  border-bottom: 3px solid #023055;
 }
 
 /*LIST OF ADOPTABLE PETS BY AGE*/
@@ -524,9 +524,7 @@ ul {
 }
 
 .petInformation .petName {
-  text-decoration: underline;
-  -webkit-text-decoration-color: #f393b5;
-          text-decoration-color: #f393b5;
+  border-bottom: 5px solid #f393b5;
 }
 
 .petInformation li {
