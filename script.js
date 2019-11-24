@@ -113,6 +113,8 @@ furiendFinder.init = function () {
         $(".backButtonToOptions").hide();
     })
 
+    $(`.petImage button`).on("click", furiendFinder.pictureChange);
+
     //Calling the functiion to ask the user for the location 
     furiendFinder.getGeoLocation();
     
@@ -282,6 +284,12 @@ furiendFinder.adoptableButton = function (index, name, breed, url, petType, mixe
     )
 }
 
+// method to make pictures change
+furiendFinder.pictureChange = function () {
+    $(`.petImage img`).css("transform", `translate(-100%)`);
+
+}
+
 /*method to display results into the html*/
 furiendFinder.appendToUl = function (totalPets, petAge, petType) {
 
@@ -329,9 +337,20 @@ furiendFinder.appendInformation = function (name, photos, gender, size, breedNam
         `${name}`
     )
 
-    $(`.petImage`).html(
-        `<img src="${photos[0].medium}">`
-    )
+    $(`.petImage img`).remove();
+
+    if (photos.length <= 1) {
+        $(`.petImage button`).hide();
+    } else {
+        $(`.petImage button`).show();
+    }
+
+    photos.forEach((photo, index) => {
+        
+        $(`.petImage`).append(
+            `<img src="${photo.medium}">`)
+              
+    })
     
     $(`.petFactsUl`).html(
         `<li><span class="reColor">Breed:</span> ${mixed?"Mixed":""} ${breedName}</li>
@@ -346,7 +365,7 @@ furiendFinder.appendInformation = function (name, photos, gender, size, breedNam
     }
 
     $(`.petStory`).html(
-`<h3>My Story: </h3><p>${description !== "null" ? `${description} <a href = "${url}" > read more</a >`:"I'm a little shy, contact me to learn more about me!"} </p>`
+        `<h3>My Story: </h3><p>${description !== "null" ? `${description} <a href = "${url}" > read more</a >`:"I'm a little shy, contact me to learn more about me!"} </p>`
     )
 
     $(`.petLocation`).html(

@@ -2,8 +2,8 @@
 
 /*VARIABLES*/
 $base-color: #3fc1c9;
-$barColor: #eca7ec;
-$accent-color: #f393b5;
+$barColor: #b42da2;
+$accent-color: #f3286f;
 $light-color: #e8f6fd;
 $dark-color: #023055;
 // $light-color-opacity: rgba(255, 254, 234, 0.8);
@@ -303,15 +303,17 @@ ul {
         display: flex;
         flex-direction: column;
         position: relative;
-        overflow: hidden;
+        // overflow: hidden;
         background: transparent;
         padding: 10px;
         border: none;
         &:hover{
-            background-color: $accent-color;
+            
+            box-shadow: $dark-color 0px 0px 20px 10px;
             border: solid $base-color 5px;
             img{
                 border: solid $dark-color 5px;
+                transform: scale(1.05);
             }
         }
         &:focus{
@@ -326,6 +328,7 @@ ul {
         border-radius: 50%;
         position: relative;
         border: solid 5px $base-color;
+        transition: all 0.5s;
     }
 }
 
@@ -395,15 +398,25 @@ ul {
 
 .petImage {
     grid-area: petImage;
-    padding: 50px;
+    height: 20vw;
+    width: 20vw;
+    box-shadow: 10px 10px $accent-color;
+    border: solid 5px $dark-color;
+    display: flex;
+    overflow: hidden;
 
     img {
         object-fit: cover; /*to not stretch image*/
         overflow: hidden;
-        height: 20vw;
-        width: 20vw;
-        box-shadow: 10px 10px $accent-color;
-        border: solid 5px $dark-color;
+        height: 100%;
+        width: 100%;
+        min-width: 100%;
+        position: relative;
+        transition: all 0.5s;
+    }
+    button {
+        position: absolute;
+        z-index: 3;
     }
 }
 

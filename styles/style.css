@@ -194,7 +194,7 @@ body {
 
 header {
   min-height: 15vh;
-  background-color: #f393b5;
+  background-color: #f3286f;
   border-bottom: 5px solid #023055;
 }
 
@@ -255,7 +255,7 @@ h1 {
   color: #023055;
   text-shadow: 5px 5px #3fc1c9;
   cursor: pointer;
-  background-color: #f393b5;
+  background-color: #f3286f;
   border-radius: 50px;
 }
 
@@ -344,9 +344,9 @@ ul {
 .userLocation input {
   font-size: 2rem;
   padding: 0px 15px;
-  color: #f393b5;
+  color: #f3286f;
   border: none;
-  border-bottom: #f393b5 solid 3px;
+  border-bottom: #f3286f solid 3px;
   background-color: rgba(244, 244, 244, 0.3);
 }
 
@@ -406,7 +406,7 @@ ul {
   text-transform: uppercase;
   font-family: "Pangolin", cursive;
   color: #023055;
-  text-shadow: #f393b5 2px 2px;
+  text-shadow: #f3286f 2px 2px;
   background-color: transparent;
   border: none;
 }
@@ -426,8 +426,8 @@ ul {
 .petAge h2 {
   background-color: white;
   border: solid 5px #023055;
-  -webkit-box-shadow: 10px 10px 0 #f393b5;
-          box-shadow: 10px 10px 0 #f393b5;
+  -webkit-box-shadow: 10px 10px 0 #f3286f;
+          box-shadow: 10px 10px 0 #f3286f;
   margin-bottom: 100px;
 }
 
@@ -515,19 +515,21 @@ ul {
       -ms-flex-direction: column;
           flex-direction: column;
   position: relative;
-  overflow: hidden;
   background: transparent;
   padding: 10px;
   border: none;
 }
 
 .adoptablePets button:hover {
-  background-color: #f393b5;
+  -webkit-box-shadow: #023055 0px 0px 20px 10px;
+          box-shadow: #023055 0px 0px 20px 10px;
   border: solid #3fc1c9 5px;
 }
 
 .adoptablePets button:hover img {
   border: solid #023055 5px;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 .adoptablePets button:focus {
@@ -543,6 +545,8 @@ ul {
   border-radius: 50%;
   position: relative;
   border: solid 5px #3fc1c9;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 /*PET ADOPTION PAGE*/
@@ -557,7 +561,7 @@ ul {
   -ms-grid-rows: (min-content)[3];
       grid-template-rows: repeat(3, -webkit-min-content);
       grid-template-rows: repeat(3, min-content);
-      grid-template-areas: "title title title" "petImage petStory petStory" "petImage petFacts location" "breedFacts breedFacts breedFacts" "adoptMe adoptMe adoptMe";
+      grid-template-areas: "title title title" "petImage petStory petStory" "petImage petFacts location" "breedFacts breedFacts breedFacts" "adoptMe adoptMe adoptMe";
 }
 
 .petInformation h2 {
@@ -579,8 +583,8 @@ ul {
 }
 
 .petInformation .petName {
-  -webkit-box-shadow: inset 0 -5px 0 #f393b5;
-          box-shadow: inset 0 -5px 0 #f393b5;
+  -webkit-box-shadow: inset 0 -5px 0 #f3286f;
+          box-shadow: inset 0 -5px 0 #f3286f;
 }
 
 .petInformation li {
@@ -593,7 +597,7 @@ ul {
 }
 
 .petInformation a {
-  color: #f393b5;
+  color: #f3286f;
   text-decoration: none;
   text-transform: uppercase;
   -webkit-transition: all 0.5s;
@@ -602,7 +606,7 @@ ul {
 
 .petInformation a:hover {
   color: #3fc1c9;
-  border-bottom: 2px dashed #f393b5;
+  border-bottom: 2px dashed #f3286f;
 }
 
 .petInformation a:focus {
@@ -620,7 +624,15 @@ ul {
   -ms-grid-row-span: 2;
   -ms-grid-column: 1;
   grid-area: petImage;
-  padding: 50px;
+  height: 20vw;
+  width: 20vw;
+  -webkit-box-shadow: 10px 10px #f3286f;
+          box-shadow: 10px 10px #f3286f;
+  border: solid 5px #023055;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
 }
 
 .petImage img {
@@ -628,11 +640,17 @@ ul {
      object-fit: cover;
   /*to not stretch image*/
   overflow: hidden;
-  height: 20vw;
-  width: 20vw;
-  -webkit-box-shadow: 10px 10px #f393b5;
-          box-shadow: 10px 10px #f393b5;
-  border: solid 5px #023055;
+  height: 100%;
+  width: 100%;
+  min-width: 100%;
+  position: relative;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.petImage button {
+  position: absolute;
+  z-index: 3;
 }
 
 .petFacts,
@@ -640,8 +658,8 @@ ul {
 .petLocation,
 .breedFacts {
   padding: 20px;
-  -webkit-box-shadow: 10px 10px #f393b5;
-          box-shadow: 10px 10px #f393b5;
+  -webkit-box-shadow: 10px 10px #f3286f;
+          box-shadow: 10px 10px #f3286f;
   background-color: white;
   border: solid 5px #023055;
 }
@@ -658,7 +676,7 @@ ul {
 .petStory .reColor,
 .petLocation .reColor,
 .breedFacts .reColor {
-  color: #f393b5;
+  color: #f3286f;
 }
 
 .petFacts {
@@ -711,7 +729,7 @@ ul {
 
 .adoptMe a {
   text-decoration: none;
-  background-color: #f393b5;
+  background-color: #f3286f;
   color: white;
   padding: 10px 20px;
   border-radius: 20px;
@@ -734,7 +752,7 @@ ul {
 
 /*ALERT SECTION*/
 .alert {
-  background-color: #f393b5;
+  background-color: #f3286f;
   color: #E2EAEE;
   border-radius: 25px;
   text-align: center;
@@ -855,28 +873,28 @@ ul {
 }
 
 .factmeter1 {
-  background-image: -webkit-gradient(linear, left top, right top, color-stop(20%, #eca7ec), color-stop(0%, #e8f6fd));
-  background-image: linear-gradient(to right, #eca7ec 20%, #e8f6fd 0%);
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(20%, #b42da2), color-stop(0%, #e8f6fd));
+  background-image: linear-gradient(to right, #b42da2 20%, #e8f6fd 0%);
 }
 
 .factmeter2 {
-  background-image: -webkit-gradient(linear, left top, right top, color-stop(40%, #eca7ec), color-stop(0%, #e8f6fd));
-  background-image: linear-gradient(to right, #eca7ec 40%, #e8f6fd 0%);
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(40%, #b42da2), color-stop(0%, #e8f6fd));
+  background-image: linear-gradient(to right, #b42da2 40%, #e8f6fd 0%);
 }
 
 .factmeter3 {
-  background-image: -webkit-gradient(linear, left top, right top, color-stop(60%, #eca7ec), color-stop(0%, #e8f6fd));
-  background-image: linear-gradient(to right, #eca7ec 60%, #e8f6fd 0%);
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(60%, #b42da2), color-stop(0%, #e8f6fd));
+  background-image: linear-gradient(to right, #b42da2 60%, #e8f6fd 0%);
 }
 
 .factmeter4 {
-  background-image: -webkit-gradient(linear, left top, right top, color-stop(80%, #eca7ec), color-stop(0%, #e8f6fd));
-  background-image: linear-gradient(to right, #eca7ec 80%, #e8f6fd 0%);
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(80%, #b42da2), color-stop(0%, #e8f6fd));
+  background-image: linear-gradient(to right, #b42da2 80%, #e8f6fd 0%);
 }
 
 .factmeter5 {
-  background-image: -webkit-gradient(linear, left top, right top, color-stop(100%, #eca7ec), color-stop(0%, #e8f6fd));
-  background-image: linear-gradient(to right, #eca7ec 100%, #e8f6fd 0%);
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(100%, #b42da2), color-stop(0%, #e8f6fd));
+  background-image: linear-gradient(to right, #b42da2 100%, #e8f6fd 0%);
 }
 
 /*FOOTER*/
