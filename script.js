@@ -284,7 +284,7 @@ furiendFinder.adoptableButton = function (index, name, breed, url, petType, mixe
     )
 }
 
-// method to make pictures change
+/* method to make pictures change */
 furiendFinder.pictureChange = function () {
     $(`.petImage img`).css("transform", `translate(-100%)`);
 
@@ -389,6 +389,23 @@ furiendFinder.appendInformation = function (name, photos, gender, size, breedNam
         `<a href=${url + "#animal_adoption_inquiry_guest_profile_firstName"}>Adopt Me!</a>`
     )
 }
+
+/*mouseOver animations!*/
+$(`.ageButton`).on("mouseover", function(){
+    $(this).addClass('wobble');
+});
+
+$('.ageButton').on("animationend", function () {
+    $(this).removeClass('wobble');
+});
+
+$(`.typeButton img`).on("mouseover", function(){
+    $(this).addClass('bounce');
+});
+
+$('.typeButton img').on("animationend", function () {
+    $(this).removeClass('bounce');
+});
 
 
 // Default settings for the Animation On Scroll Library
