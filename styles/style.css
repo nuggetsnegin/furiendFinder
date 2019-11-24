@@ -247,7 +247,7 @@ button {
 h1 {
   font-family: "Pangolin", cursive;
   text-align: center;
-  padding: 10px 200px;
+  padding: 10px;
   font-size: 5rem;
   letter-spacing: 5px;
   margin-top: 1%;
@@ -256,7 +256,6 @@ h1 {
   text-shadow: 5px 5px #3fc1c9;
   cursor: pointer;
   background-color: #f3286f;
-  border-radius: 50px;
 }
 
 h2 {
@@ -335,6 +334,12 @@ ul {
 .userLocation {
   font-family: "Pangolin", cursive;
   padding-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .userLocation p {
@@ -348,6 +353,7 @@ ul {
   border: none;
   border-bottom: #f3286f solid 3px;
   background-color: rgba(244, 244, 244, 0.3);
+  width: 50%;
 }
 
 .userLocation:focus {
@@ -359,7 +365,6 @@ ul {
   position: relative;
   background: #023055;
   width: 50%;
-  height: 100px;
   margin: 0 auto;
   border-radius: 20px;
 }
@@ -561,7 +566,7 @@ ul {
   -ms-grid-rows: (min-content)[3];
       grid-template-rows: repeat(3, -webkit-min-content);
       grid-template-rows: repeat(3, min-content);
-      grid-template-areas: "title title title" "petImage petStory petStory" "petImage petFacts location" "breedFacts breedFacts breedFacts" "adoptMe adoptMe adoptMe";
+      grid-template-areas: "title title title" "petImage petStory petStory" "petImage petFacts location" "breedFacts breedFacts breedFacts" "adoptMe adoptMe adoptMe";
 }
 
 .petInformation h2 {
