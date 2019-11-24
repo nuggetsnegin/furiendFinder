@@ -871,8 +871,8 @@ footer p {
 }
 
 .slideIn {
-  -webkit-animation: slide-out-right 2s ease-in 20s infinite forwards;
-  animation: slide-out-right 2s ease-in 20s infinite forwards;
+  -webkit-animation: slide-out-right 2s ease-in 1s infinite forwards;
+  animation: slide-out-right 2s ease-in 1s infinite forwards;
 }
 
 .bounce {
