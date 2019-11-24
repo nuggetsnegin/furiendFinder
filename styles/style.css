@@ -250,6 +250,7 @@ h1 {
   margin: 0;
   color: #3fc1c9;
   text-shadow: 5px 5px #023055;
+  cursor: pointer;
 }
 
 h2 {
@@ -355,6 +356,11 @@ ul {
   -webkit-box-shadow: 10px 10px 0 #fc5185;
           box-shadow: 10px 10px 0 #fc5185;
   margin-bottom: 100px;
+}
+
+.petAge h2 span {
+  font-family: "Pangolin", cursive;
+  text-decoration: underline;
 }
 
 .userLocation {
@@ -525,10 +531,11 @@ ul {
   color: #fc5185;
   text-decoration: none;
   text-transform: uppercase;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .petInformation a:hover {
-  color: red;
   /*placeholder*/
 }
 
@@ -632,7 +639,8 @@ ul {
 }
 
 .adoptMe a:hover {
-  color: red;
+  -webkit-box-shadow: #023055 10px 10px;
+          box-shadow: #023055 10px 10px;
   /*placeholders*/
 }
 

@@ -124,6 +124,14 @@ furiendFinder.init = function () {
     $(`.loadingScreen`).hide();
     $(`.backButton`).hide();
 
+    $("h1").on("click", () => {
+        $(`.petAge`).hide();
+        $(`.petInformation`).hide();
+        $(`.adoptionOptions`).hide();
+        $(`.petType`).fadeIn();
+
+    })
+
     // We disabled the type buttons until the user has entered the location
     $(`.typeButton`).attr("disabled","true");
     

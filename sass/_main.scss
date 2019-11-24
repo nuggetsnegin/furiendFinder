@@ -78,6 +78,7 @@ h1 {
     margin: 0;
     color: $base-color;
     text-shadow: 5px 5px $dark-color;
+    cursor: pointer;
 }
 
 h2 {
@@ -193,7 +194,15 @@ ul {
         border: solid 5px $dark-color;
         box-shadow: 10px 10px 0 $accent-color;
         margin-bottom: 100px;
+
+        span {
+            font-family: $heading-font;
+            // color: $base-color;
+            text-decoration: underline;
+         }
     }
+
+    
 }
 
 .userLocation {
@@ -346,10 +355,11 @@ ul {
         color: $accent-color;
         text-decoration: none;
         text-transform: uppercase;
+        transition: all 0.5s;
     }
 
     a:hover {
-        color: red;
+        // color: red;
         /*placeholder*/
     }
 
@@ -433,7 +443,7 @@ ul {
     }
 
     a:hover {
-        color: red;
+        box-shadow: $dark-color 10px 10px;
         /*placeholders*/
 
     }
