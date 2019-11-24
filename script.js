@@ -308,10 +308,10 @@ furiendFinder.appendInformation = function (name, photos, gender, size, breedNam
                 ${life_span?`<li>Average Lifespan: ${life_span}</li>`:""}
                 ${weight.metric?`<li>Average Weight: ${weight.metric} kg</li>`:""}
                 ${origin?`<li>Origin: ${origin}</li>`:""}
-                ${affection_level?`<li>Affection Level: ${affection_level}</li>`:""}
-                ${adaptability?`<li>Adaptability Level: ${adaptability}</li>`:""}
-                ${child_friendly?`<li>Child Friendly Level: ${child_friendly}</li>`:""}
-                ${energy_level?`<li>Energy Level: ${energy_level}</li>`:""}
+                ${affection_level?`<li>Affection Level: <div class="factmeter${affection_level}"></div></li>`:""}
+                ${adaptability ? `<li>Adaptability Level: <div class="factmeter${adaptability}"></div></li>`:""}
+                ${child_friendly ? `<li>Child Friendly Level: <div class="factmeter${child_friendly}"></div></li>`:""}
+                ${energy_level ? `<li>Energy Level: <div class="factmeter${energy_level}"></div></li>`:""}
             </ul>
             </div>`
         )
@@ -338,7 +338,7 @@ furiendFinder.appendInformation = function (name, photos, gender, size, breedNam
     }
 
     $(`.petStory`).html(
-        `<h3>My Story: </h3><p>${description?description:"I'm a little shy, contact me to learn more about me!"} <a href="${url}">read more</a></p>`
+`<h3>My Story: </h3><p>${description !== "null" ? `${description} <a href = "${url}" > read more</a >`:"I'm a little shy, contact me to learn more about me!"} </p>`
     )
 
     $(`.petLocation`).html(

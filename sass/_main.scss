@@ -2,7 +2,7 @@
 
 /*VARIABLES*/
 $base-color: #3fc1c9;
-$lightbase-color: #3fc1c9;
+$barColor: #790279;
 $accent-color: #fc5185;
 $light-color: #e8f6fd;
 $dark-color: #023055;
@@ -38,7 +38,7 @@ header {
 
     .backButton {
         position: absolute;
-        left: 0px;
+        left: 100px;
     }
 }
 
@@ -64,13 +64,19 @@ img {
     display: block;
 }
 
+button {
+    border: none;
+    padding: 5px 40px;
+    transition: all 0.5s;
+}
+
 h1 {
     font-family: $heading-font;
     text-align: center;
     padding: 10px;
     font-size: 5rem;
     margin: 0;
-    color: $lightbase-color;
+    color: $base-color;
     text-shadow: 5px 5px $dark-color;
 }
 
@@ -132,9 +138,7 @@ ul {
 
     button {
         background: transparent;
-        border: none;
-        padding: 0;
-        transition: all 0.5s;
+        
 
         &:disabled {
             opacity: 0.8;
@@ -237,6 +241,11 @@ ul {
         border: solid $dark-color 5px;
         border-radius: 30px;
         background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 280px;
 
         .info {
             // background-color: $base-color;
@@ -284,7 +293,7 @@ ul {
         /*stop image stretching*/
         border-radius: 50%;
         position: relative;
-        border: solid 5px $lightbase-color;
+        border: solid 5px $base-color;
     }
 }
 
@@ -313,7 +322,7 @@ ul {
 
     h3 {
         font-size: 2.5rem;
-        color: $lightbase-color;
+        color: $base-color;
         text-shadow: 3px 2px $dark-color;
         font-family: $heading-font;
         margin: 0;
@@ -388,6 +397,9 @@ ul {
 
 .breedFacts {
     grid-area: breedFacts;
+    li {
+        display: flex;
+    }
 }
 
 .petStory {
@@ -435,7 +447,6 @@ ul {
 /*ALERT SECTION*/
 .alert {
     background-color: $accent-color;
-    opacity: 90%;
     color: white;
     border-radius: 25px;
     text-align: center;
@@ -443,7 +454,15 @@ ul {
     z-index: 1;
     top: 50%;
     left: 50%;
-    transform: translate(-50%);
+    transform: translate(-50%, -50%);
+    padding: 20px;
+
+    button {
+        background-color: $base-color;
+        color: $dark-color;
+        border-radius: 30px;
+        font-size: 2rem;
+    }
 
     h3 {
         font-family: $heading-font;
@@ -508,6 +527,37 @@ ul {
     }
 }
 
+// Facts meters
+.factmeter1,.factmeter2,.factmeter3,.factmeter4,.factmeter5 {
+    width: 40%;
+    height: 20px;
+    border: 2px solid $base-color;
+    position: absolute;
+    left: 30%;
+}
+
+.factmeter1{
+    
+    background-image: linear-gradient(to right, $barColor 20%,$light-color 0%);
+}
+.factmeter2{
+    background-image: linear-gradient(to right, $barColor 40%,$light-color 0%);
+  
+}
+.factmeter3{
+    background-image: linear-gradient(to right, $barColor 60%,$light-color 0%);
+   
+}
+.factmeter4{
+    background-image: linear-gradient(to right, $barColor 80%,$light-color 0%);
+ 
+}
+.factmeter5{
+    background-image: linear-gradient(to right, $barColor 100%,$light-color 0%);
+    
+}
+
+
 /*SPEECH BUBBLE*/
 .speechBubble {
 	position: relative;
@@ -547,7 +597,7 @@ footer {
     text-align: center;
     text-transform: uppercase;
     font-family: $heading-font;
-    background-color: $lightbase-color;
+    background-color: $base-color;
     // color: $base-color;
     transition: all 0.5s;
 

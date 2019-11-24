@@ -211,7 +211,7 @@ header .headerMain {
 
 header .backButton {
   position: absolute;
-  left: 0px;
+  left: 100px;
 }
 
 main {
@@ -233,6 +233,13 @@ p {
 img {
   width: 100%;
   display: block;
+}
+
+button {
+  border: none;
+  padding: 5px 40px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 h1 {
@@ -294,10 +301,6 @@ ul {
 
 .type button {
   background: transparent;
-  border: none;
-  padding: 0;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
 }
 
 .type button:disabled {
@@ -405,6 +408,20 @@ ul {
   border: solid #023055 5px;
   border-radius: 30px;
   background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 280px;
 }
 
 .adoptablePets .adoptionButton .info {
@@ -571,6 +588,12 @@ ul {
   grid-area: breedFacts;
 }
 
+.breedFacts li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .petStory {
   -ms-grid-row: 2;
   -ms-grid-column: 2;
@@ -621,7 +644,6 @@ ul {
 /*ALERT SECTION*/
 .alert {
   background-color: #fc5185;
-  opacity: 90%;
   color: white;
   border-radius: 25px;
   text-align: center;
@@ -629,8 +651,16 @@ ul {
   z-index: 1;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%);
-          transform: translate(-50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  padding: 20px;
+}
+
+.alert button {
+  background-color: #3fc1c9;
+  color: #023055;
+  border-radius: 30px;
+  font-size: 2rem;
 }
 
 .alert h3 {
@@ -700,6 +730,39 @@ ul {
 .loadingScreen img {
   width: 50%;
   margin: 0 auto;
+}
+
+.factmeter1, .factmeter2, .factmeter3, .factmeter4, .factmeter5 {
+  width: 40%;
+  height: 20px;
+  border: 2px solid #3fc1c9;
+  position: absolute;
+  left: 30%;
+}
+
+.factmeter1 {
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(20%, #790279), color-stop(0%, #e8f6fd));
+  background-image: linear-gradient(to right, #790279 20%, #e8f6fd 0%);
+}
+
+.factmeter2 {
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(40%, #790279), color-stop(0%, #e8f6fd));
+  background-image: linear-gradient(to right, #790279 40%, #e8f6fd 0%);
+}
+
+.factmeter3 {
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(60%, #790279), color-stop(0%, #e8f6fd));
+  background-image: linear-gradient(to right, #790279 60%, #e8f6fd 0%);
+}
+
+.factmeter4 {
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(80%, #790279), color-stop(0%, #e8f6fd));
+  background-image: linear-gradient(to right, #790279 80%, #e8f6fd 0%);
+}
+
+.factmeter5 {
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(100%, #790279), color-stop(0%, #e8f6fd));
+  background-image: linear-gradient(to right, #790279 100%, #e8f6fd 0%);
 }
 
 /*SPEECH BUBBLE*/
