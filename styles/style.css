@@ -955,6 +955,10 @@ footer p {
 }
 
 @media (max-width: 930px) {
+  h1 {
+    font-size: 4rem;
+    text-shadow: 4px 4px #3fc1c9;
+  }
   .speechBubble p {
     padding-top: 15px;
     font-size: .9rem;
@@ -982,18 +986,74 @@ footer p {
 }
 
 @media (max-width: 650px) {
+  h1 {
+    padding-top: 25px;
+    font-size: 3rem;
+    text-shadow: 3px 3px #3fc1c9;
+  }
   .speechBubble {
     width: 65%;
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 500px) {
+  h1 {
+    padding-top: 40px;
+    font-size: 2.3rem;
+    text-shadow: 2px 2px #3fc1c9;
+  }
   .speechBubble {
+    margin-top: 20%;
     width: 100%;
   }
   .speechBubble p {
     font-size: .88rem;
     padding: 7px 5px;
+  }
+  .userLocation p, .userLocation input {
+    font-size: 1.5rem;
+  }
+  .type {
+    padding-top: 30px;
+  }
+  .type p {
+    font-size: 2rem;
+  }
+  .alert {
+    padding: 50px;
+    padding-bottom: 0;
+  }
+  .alert h3 {
+    font-size: 2rem;
+    padding-top: 0;
+  }
+  .alert p {
+    font-size: 1.2rem;
+  }
+  .alert button {
+    margin-top: 1%;
+    font-size: 1rem;
+  }
+  .alert img {
+    height: 80%;
+    width: 80%;
+    padding-top: 10px;
+  }
+}
+
+@media (max-width: 405px) {
+  h1 {
+    font-size: 1.8rem;
+    text-shadow: 2px 2px #3fc1c9;
+    padding-top: 20px;
+  }
+  .userLocation input, .userLocation p {
+    font-size: 1.2rem;
+    /*to fix, maybe stack?*/
+  }
+  footer p {
+    font-size: .7rem;
+    padding: 10px 0px;
   }
 }
 
