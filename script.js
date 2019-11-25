@@ -17,20 +17,19 @@ furiendFinder.secretPetFinder = "Lwa5bb5fyzQ51KMtEbbJb8QWgItW49OsEuYqgElG";
 /*storing cat api key*/
 furiendFinder.catApiKey = "796188a0-0bca-4abe-968b-403b12c2c82d";
 
-// MapQuest api Key
+/* MapQuest api Key */
 furiendFinder.mapQuestKey = "gVcJABFXiDTymAro7AI80OiMBbUOCygN";
 
-// storing pet type
+/* storing pet type */
 furiendFinder.petType = "cat";
 
-// Making a property to store the user's city
+/* Making a property to store the user's city*/
 furiendFinder.city = "";
 
-// Storing picture position
+/* Storing picture position */
 furiendFinder.picturePosition = 0;
 
 /* Geolocation function to get the city and province of the user. If the geolocation is not allowed then Toronto will be the default. */
-
 furiendFinder.getGeoLocation = () => {
 
     const success = (position) => {
@@ -58,6 +57,7 @@ furiendFinder.getGeoLocation = () => {
     }
 
     const error = (error) => {
+        /*to fix: HOW SHOULD WE DISPLAY THIS?*/
         console.log(`Unable to retrieve your location due to ${error.code}: ${error.message}`);
         furiendFinder.city = "Toronto, ON";
         $(`#location`).val(furiendFinder.city);
@@ -73,6 +73,7 @@ furiendFinder.getGeoLocation = () => {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(success, error, geoOptions);
     } else {
+    /*to fix: HOW SHOULD WE DISPLAY THIS?*/
         console.log("Geolocation services are not supported by your web browser.");
         furiendFinder.city = "Toronto, ON";
         $(`#location`).val(furiendFinder.city);
@@ -85,12 +86,11 @@ furiendFinder.getGeoLocation = () => {
 
 /*init method, on page load*/
 furiendFinder.init = function () {
-    // $('.popInCat').hide();
-    // $('.popInDog').hide();
-    $('.ageButton').on('click', furiendFinder.ageClickEvent); /*only call click events atached to buttons when document ready*/
+    /*only call click events atached to buttons when document ready*/
+    $('.ageButton').on('click', furiendFinder.ageClickEvent); 
     $('.adoptablePets').on('click', '.adoptionButton', furiendFinder.getMoreInfoCLickEvent);
 
-    // Getting breeds facts on initialization
+    /*Getting breeds facts on initialization*/
     furiendFinder.getBreedFacts("cat");
     furiendFinder.getBreedFacts("dog");
 
@@ -105,25 +105,27 @@ furiendFinder.init = function () {
         $(`.petType`).fadeIn();
         $(".backButton").fadeOut();
     });
+
     $(`.backButtonToAge`).on("click", function () {
         $(`.adoptionOptions`).hide();
         $(`.petAge`).fadeIn();
         $(".backButtonToType").show();
         $(".backButtonToAge").hide();
     });
+
     $(`header`).on("click", `.backButtonToOptions`, function () {
         $(`.petInformation`).fadeOut();
         $(`.adoptionOptions`).fadeIn();
         $(".backButtonToAge").show();
         $(".backButtonToOptions").hide();
-    })
+    });
 
     $(`.petImage button`).on("click", furiendFinder.pictureChange);
 
-    //Calling the functiion to ask the user for the location 
+    /*Calling the function to ask the user for the location*/
     furiendFinder.getGeoLocation();
     
-    // We make sure the other divs of the App are not displayed
+    /*We make sure the other divs of the App are not displayed*/
     $(`.petInformation`).hide();
     $(`.petAge`).hide();
     $(`.adoptionOptions`).hide();
@@ -136,15 +138,14 @@ furiendFinder.init = function () {
         $(`.petInformation`).hide();
         $(`.adoptionOptions`).hide();
         $(`.petType`).fadeIn();
-
     })
 
-    // We disabled the type buttons until the user has entered the location
+    /*We disabled the type buttons until the user has entered the location*/
     $(`.typeButton`).attr("disabled","true");
     
 }
 
-// Click event for the buttons to select the pet type(cat or dog)
+/*Click event for the buttons to select the pet type(cat or dog)*/
 furiendFinder.selectPetTypeClickEvent = function () {
     $(`.loadingScreen`).fadeIn();
     furiendFinder.city = $(`#location`).val();
@@ -153,7 +154,7 @@ furiendFinder.selectPetTypeClickEvent = function () {
     furiendFinder.getPetsNumberByAge(furiendFinder.petType, furiendFinder.city);
 }
 
-// Method to make cat and dog appear randomly appear
+/*Method to make cat and dog appear randomly appear*/
 furiendFinder.petSurprise = function () {
     
     const randomNumberCatOrDog = Math.ceil(Math.random() * 2);
@@ -175,7 +176,7 @@ furiendFinder.petSurprise = function () {
     }, 1000);
 }
 
-// Method to get all the available pets by every age
+/* Method to get all the available pets by every age*/
 furiendFinder.getPetsNumberByAge = function (petType,city) {
     const petAgeArray = ["baby", "young", "adult", "senior"];
     /*run a for loop 4 times (0-3) and using the getPetsAvailable method to grab the pet's age and using the petFinder api query to get those words into the function*/
@@ -184,7 +185,7 @@ furiendFinder.getPetsNumberByAge = function (petType,city) {
     }
 }
 
-/*find all the available pets for adoption*/
+/*Find all the available pets for adoption*/
 furiendFinder.getPetsAvailable = function (petAge, petType,city, functionCall, disappearingDivClass, appearingDivClass) {
     $.ajax({
         url: "https://api.petfinder.com/v2/oauth2/token",
@@ -207,18 +208,14 @@ furiendFinder.getPetsAvailable = function (petAge, petType,city, functionCall, d
                 age: petAge,
                 type: petType,
                 status: "adoptable",
-                distance: 31,
-                /*50miles in km*/
+                distance: 31, /*50miles in km*/
                 location: city,
-                /*change later to a variable*/
                 limit: 50,
                 sort: "random"
             },
         }).then((data) => {
             furiendFinder.city = city;
-            // setTimeout(() => {
-                $(`.loadingScreen`).fadeOut();
-            // }, 1000);
+            $(`.loadingScreen`).fadeOut();
             
             functionCall(data, petAge, petType, city);
             $(`.${disappearingDivClass}`).hide();
@@ -231,10 +228,9 @@ furiendFinder.getPetsAvailable = function (petAge, petType,city, functionCall, d
             }
         }).fail((error) => {
             $(`.loadingScreen`).fadeOut();
-            $(`.alert`).fadeIn();
-            
+            $(`.alert`).fadeIn(); 
         });
-    })
+    });
 }
 
 
@@ -308,7 +304,7 @@ furiendFinder.adoptableButton = function (index, name, breed, url, petType, mixe
                 </div>
             </button>
         </li>`
-    )
+    );
 }
 
 /* method to make pictures change */
@@ -330,7 +326,6 @@ furiendFinder.pictureChange = function () {
     } else {
         $(`.nextPhoto`).removeAttr("disabled");
     }
-    
 }
 
 /*method to display results into the html*/
@@ -345,7 +340,8 @@ furiendFinder.appendToUl = function (totalPets, petAge, petType) {
 
 furiendFinder.appendInformation = function (name, photos, gender, size, breedName, attributes, description, contact, url, mixed) {
 
-    if(breedName.includes('Domestic')){ /*breed names are different from two APIs*/
+    /*ERROR HANDLING: breed names are different between two petFinder and catAPI*/
+    if(breedName.includes('Domestic')){ 
         breedName = 'American Shorthair';
     }
 
@@ -357,23 +353,23 @@ furiendFinder.appendInformation = function (name, photos, gender, size, breedNam
 
     if (breedFactsInfo !== undefined) {
 
-        const { life_span,temperament,origin,weight,affection_level,adaptability,child_friendly,energy_level} = breedFactsInfo
+        const { life_span,temperament,origin,weight,affection_level,adaptability,child_friendly,energy_level} = breedFactsInfo; 
 
         $(`.petFacts`).after(
             `<div class="breedFacts">
-            <h3>Breed Facts:</h3>
-            <ul>
-                ${temperament ? `<li><span class="reColor">Temperament: </span> ${temperament}</li>` : ""}
-                 ${life_span?`<li><span class="reColor">Average Lifespan: </span> ${life_span}</li>`:""}
-                 ${weight.metric?`<li><span class="reColor">Average Weight: </span> ${weight.metric} kg</li>`:""}
-                 ${origin?`<li><span class="reColor">Origin: </span> ${origin}</li>`: ""}
-                 ${affection_level?`<li><span class="reColor">Affection Level: </span> <div class="factmeter${affection_level}"></div></li>`: ""}
-                 ${adaptability ? `<li><span class="reColor">Adaptability Level: </span> <div class="factmeter${adaptability}"></div></li>`: ""}
-                 ${child_friendly ? `<li><span class="reColor">Child Friendly Level: </span> <div class="factmeter${child_friendly}"></div></li>`:""}
-                 ${energy_level ? `<span class="reColor"><li>Energy Level: </span> <div class="factmeter${energy_level}"></div></li>`:""}
-            </ul>
+                <h3>Breed Facts:</h3>
+                <ul>
+                    ${temperament ? `<li><span class="reColor">Temperament: </span> ${temperament}</li>` : ""}
+                    ${life_span?`<li><span class="reColor">Average Lifespan: </span> ${life_span}</li>`:""}
+                    ${weight.metric?`<li><span class="reColor">Average Weight: </span> ${weight.metric} kg</li>`:""}
+                    ${origin?`<li><span class="reColor">Origin: </span> ${origin}</li>`: ""}
+                    ${affection_level?`<li><span class="reColor">Affection Level: </span> <div class="factmeter${affection_level}"></div></li>`: ""}
+                    ${adaptability ? `<li><span class="reColor">Adaptability Level: </span> <div class="factmeter${adaptability}"></div></li>`: ""}
+                    ${child_friendly ? `<li><span class="reColor">Child Friendly Level: </span> <div class="factmeter${child_friendly}"></div></li>`:""}
+                    ${energy_level ? `<span class="reColor"><li>Energy Level: </span> <div class="factmeter${energy_level}"></div></li>`:""}
+                </ul>
             </div>`
-        )
+        );
     };
 
     $(`.petName`).html(
@@ -394,7 +390,6 @@ furiendFinder.appendInformation = function (name, photos, gender, size, breedNam
     $(`.nextPhoto`).removeAttr("disabled");
 
     photos.forEach((photo, index) => {
-        
         $(`.petImage`).append(
             `<img src="${photo.medium}">`)
               
@@ -425,7 +420,7 @@ furiendFinder.appendInformation = function (name, photos, gender, size, breedNam
     )
     
     for (contacts in contact.address) {
-    /*not showing null if no address available*/     
+    /*not showing null if no address available*/   
         if (contact.address[contacts] !== null && contact.address[contacts] !== "") {
             $(`.petLocation ul`).append(
                 `<li><span class="reColor">${contacts}:</span> ${contact.address[contacts]}<li>`
@@ -438,25 +433,7 @@ furiendFinder.appendInformation = function (name, photos, gender, size, breedNam
     )
 }
 
-/*mouseOver animations!*/
-// $(`.ageButton`).on("mouseover", function(){
-//     $(this).addClass('wobble');
-// });
-
-// $('.ageButton').on("animationend", function () {
-//     $(this).removeClass('wobble');
-// });
-
-// $(`.typeButton img`).on("mouseover", function(){
-//     $(this).addClass('bounce');
-// });
-
-// $('.typeButton img').on("animationend", function () {
-//     $(this).removeClass('bounce');
-// });
-
-
-// Default settings for the Animation On Scroll Library
+/*Default settings for the Animation On Scroll Library*/
 AOS.init({
     // Global settings:
     disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
@@ -467,7 +444,6 @@ AOS.init({
     disableMutationObserver: false, // disables automatic mutations' detections (advanced)
     debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
     throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
-
 
     // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
     offset: 0, // offset (in px) from the original trigger point
@@ -482,7 +458,7 @@ AOS.init({
 
 $(document).ready(function () {
     furiendFinder.init();
-    // Initializing AOS
+    /*Initializing AOS*/
     AOS.init();
     furiendFinder.petSurprise();
     
