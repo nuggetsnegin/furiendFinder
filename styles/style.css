@@ -1056,6 +1056,13 @@ footer p {
     position: absolute;
     left: 1%;
   }
+  .adoptionOptions h2 {
+    font-size: 2.5rem;
+  }
+  .adoptionOptions h2 span {
+    -webkit-box-shadow: inset 0 -3px 0 #023055;
+            box-shadow: inset 0 -3px 0 #023055;
+  }
 }
 
 @media (max-width: 990px) {
@@ -1108,7 +1115,7 @@ footer p {
   }
 }
 
-@media (max-width: 885px) {
+@media (max-width: 908px) {
   .petAge h2 {
     padding: 8px 5px;
     font-size: 2.2rem;
@@ -1119,6 +1126,16 @@ footer p {
   .adoptablePets img {
     width: 200px;
     height: 200px;
+  }
+  .adoptionOptions {
+    padding-top: 20px;
+  }
+  .adoptionOptions h2 {
+    font-size: 1.7rem;
+  }
+  .adoptionOptions h2 span {
+    -webkit-box-shadow: inset 0 -3px 0 #023055;
+            box-shadow: inset 0 -3px 0 #023055;
   }
 }
 
@@ -1152,6 +1169,18 @@ footer p {
     font-family: "Pangolin", cursive;
     text-shadow: 2px 2px #3fc1c9;
     padding: 10px;
+  }
+  .adoptionOptions {
+    padding-top: 15px;
+  }
+  .adoptionOptions h2 {
+    font-size: 1.6rem;
+    text-align: center;
+    padding: 7px;
+  }
+  .adoptionOptions h2 span {
+    -webkit-box-shadow: inset 0 -3px 0 #023055;
+            box-shadow: inset 0 -3px 0 #023055;
   }
   .petAge h2 {
     font-size: 2rem;
@@ -1224,6 +1253,13 @@ footer p {
   .userLocation input, .userLocation p {
     font-size: 1.2rem;
     /*to fix, maybe stack?*/
+  }
+  .adoptionOptions h2 {
+    font-size: 1.3rem;
+  }
+  .adoptionOptions h2 span {
+    -webkit-box-shadow: inset 0 -2px 0 #023055;
+            box-shadow: inset 0 -2px 0 #023055;
   }
   .adoptablePets {
     -ms-grid-columns: 1fr;

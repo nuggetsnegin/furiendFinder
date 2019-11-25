@@ -16,6 +16,14 @@
         left: 1%;
     }
 
+    .adoptionOptions h2{
+        font-size: 2.5rem;
+
+        span{
+            box-shadow: inset 0 -3px 0 $dark-color;
+        }
+    }
+
     // .age{
     //     padding: 20px 0;
 
@@ -83,7 +91,7 @@
     }
 }
 
-@media(max-width: 885px){
+@media(max-width: 908px){
 
     // .age{
     //     padding: 10px 0;
@@ -103,6 +111,19 @@
             width: 200px;
             height: 200px;
         }
+    }
+
+    .adoptionOptions{
+        padding-top: 20px;
+
+        h2{
+            font-size: 1.7rem; 
+
+            span{
+                box-shadow: inset 0 -3px 0 $dark-color;
+            }
+        }
+
     }
 }
 
@@ -140,6 +161,20 @@
             font-family: $heading-font;
             text-shadow: 2px 2px $base-color;
             padding: 10px;
+        }
+    }
+
+    .adoptionOptions{
+        padding-top: 15px;
+
+        h2{
+            font-size: 1.6rem; 
+            text-align: center;
+            padding: 7px;
+
+            span{
+                box-shadow: inset 0 -3px 0 $dark-color;
+            }
         }
     }
 
@@ -229,6 +264,16 @@
     .userLocation{
         input,p{
             font-size: 1.2rem; /*to fix, maybe stack?*/
+        }
+    }
+
+    .adoptionOptions{
+        h2{
+            font-size: 1.3rem;
+
+            span{
+                box-shadow: inset 0 -2px 0 $dark-color;
+            }
         }
     }
 
