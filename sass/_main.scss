@@ -156,7 +156,7 @@ ul {
         background: transparent;
 
         &:enabled:hover{ /*using this so that when button is disabled it doesnt activate*/
-            animation: bounce-bottom 0.9s both;
+            animation: bounce 0.9s both;
         }
         
         &:focus {
@@ -260,7 +260,7 @@ ul {
         }
 
         &:hover img{
-            animation: wobble-ver-right 0.8s both;
+            animation: wobble 0.8s both;
         }     
     }
     
