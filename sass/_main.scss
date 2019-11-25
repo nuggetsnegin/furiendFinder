@@ -517,6 +517,8 @@ ul {
     .reColor{
         color: $accent-color;
         font-weight: 800;
+        width: 35%;
+        display: inline-block;
     }
 }
 
@@ -674,11 +676,12 @@ ul {
 .factmeter3,
 .factmeter4,
 .factmeter5 {
-    width: 40%;
+    width: 60%;
     height: 20px;
     border: 2px solid $base-color;
     // position: absolute;
     // left: 30%;
+    display: inline-block;
     border-radius: 25px;
 }
 

@@ -475,7 +475,7 @@ furiendFinder.appendInformation = function (name, photos, gender, size, breedNam
 
                     ${child_friendly ? `<li><span class="reColor">Child Friendly Level: </span> <div class="factmeter${child_friendly} aria-label="level ${child_friendly}"></div></li>`: ""}
 
-                    ${energy_level ? `<span class="reColor"><li>Energy Level: </span> <div class="factmeter${energy_level}" aria-label="level ${energy_level}"></div></li>`: ""}
+                    ${energy_level ? `<li><span class="reColor">Energy Level: </span> <div class="factmeter${energy_level}" aria-label="level ${energy_level}"></div></li>`: ""}
                 </ul>
             </div>`
         );
