@@ -6,7 +6,6 @@ $barColor: #b42da2;
 $accent-color: #f3286f;
 $light-color: #e8f6fd;
 $dark-color: #023055;
-// $light-color-opacity: rgba(255, 254, 234, 0.8);
 $background-color: #E2EAEE;
 $accent-font: 'Dosis',
 sans-serif;
@@ -103,7 +102,7 @@ ul {
     border: none;
     font-size: 2rem;
     text-transform: uppercase;
-    border-radius: 25px;
+    border-radius: 50%;
     border: 3px solid $dark-color;
     margin: 1% 5% 1% 0;
 
@@ -146,7 +145,6 @@ ul {
     p {
         margin: 0;
         text-transform: uppercase;
-        // font-size: 3rem; unused
         font-family: $heading-font;
         text-shadow: $base-color 3px 3px;
     }
@@ -408,8 +406,8 @@ ul {
 
     h3 {
         font-size: 2.5rem;
-        color: $base-color;
-        text-shadow: 3px 2px $dark-color;
+        color: $dark-color;
+        text-shadow: 2px 2px $base-color;
         font-family: $heading-font;
         margin: 0;
     }
@@ -450,8 +448,8 @@ ul {
 
 .petImage {
     grid-area: petImage;
-    height: 20vw;
-    width: 20vw;
+    height: 38vw;
+    width: 38vw;
     box-shadow: 10px 10px $accent-color;
     border: solid 5px $dark-color;
     display: flex;
@@ -476,6 +474,7 @@ ul {
         color: $dark-color;
         background-color: $base-color;
         border-radius: 50%;
+        border: 3px solid $dark-color;
         padding: 0;
         width: 50px;
         height: 50px;
@@ -483,6 +482,7 @@ ul {
         &:enabled:hover, &:focus{
             background-color: $dark-color;
             color: $base-color;
+            border: 3px solid $base-color;
         }
 
         &:disabled {
@@ -527,10 +527,6 @@ ul {
 .breedFacts {
     grid-area: breedFacts;
     position: relative;
-
-    li {
-        display: flex;
-    }
 }
 
 .petStory {
@@ -681,8 +677,8 @@ ul {
     width: 40%;
     height: 20px;
     border: 2px solid $base-color;
-    position: absolute;
-    left: 30%;
+    // position: absolute;
+    // left: 30%;
     border-radius: 25px;
 }
 

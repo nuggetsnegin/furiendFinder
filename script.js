@@ -15,10 +15,10 @@ const furiendFinder = {
 };
 
 /*storing petFinder api key*/
-furiendFinder.petFinderApiKey = "bMlZfEidmf7kNocIPx9z0lC62XwFTmFu94bYQFRRzc8sxD9x6I";
+furiendFinder.petFinderApiKey = "c8ii4sOOBPTzBQauWmNof3ZNapts6Ld0oBLTY5RZcb4VeOqtcm";
 
 /*required for oauth*/
-furiendFinder.secretPetFinder = "Lwa5bb5fyzQ51KMtEbbJb8QWgItW49OsEuYqgElG";
+furiendFinder.secretPetFinder = "p6b3lhtd4bGo4OxjTEJK3D0eYqllfDGRI6VIXUAF";
 
 /*storing cat api key*/
 furiendFinder.catApiKey = "796188a0-0bca-4abe-968b-403b12c2c82d";
@@ -409,13 +409,26 @@ furiendFinder.pictureChange = function () {
  * ----------------------------------------
  */
 furiendFinder.appendToUl = function (totalPets, petAge, petType) {
-    const capitalizedType = petType.charAt(0).toUpperCase() + petType.substring(1);
+    const capitalizedType = furiendFinder.upperCase(petType);
 
     $(`.${petAge}`).empty().append(`
         <p>${petAge}</p>
         <img src="assets/${petAge}${capitalizedType}.png" alt="Illustration of a ${petAge} ${petType}">
         <p>${totalPets} available</p>`
     );
+}
+
+/**
+ * ----------------------------------------
+ * UPPER CASE
+ * Method that will grab the first character in a string
+ * and set it to uppercase, used for image camelCase convention
+ * and consistency.
+ * ----------------------------------------
+ */
+furiendFinder.upperCase = function(word){
+    const capitalizedWord = word.charAt(0).toUpperCase() + word.substring(1);
+    return capitalizedWord;
 }
 
 /**
@@ -448,14 +461,21 @@ furiendFinder.appendInformation = function (name, photos, gender, size, breedNam
             `<div class="breedFacts">
                 <h3>Breed Facts:</h3>
                 <ul>
-                    ${temperament ? `<li><p><span class="reColor">Temperament: </span>${temperament}</p></li>` : ""}
-                    ${life_span?`<li><span class="reColor">Average Lifespan: </span> ${life_span}</li>`:""}
-                    ${weight.metric?`<li><span class="reColor">Average Weight: </span> ${weight.metric} kg</li>`:""}
+                    ${temperament ? `<li><span class="reColor">Temperament: </span>${temperament}</li>` : ""}
+
+                    ${life_span ? `<li><span class="reColor">Average Lifespan:</span> ${life_span}</li>` : ""}
+
+                    ${weight.metric?`<li><span class="reColor">Average Weight: </span> ${weight.metric} kg</li>`: ""}
+
                     ${origin?`<li><span class="reColor">Origin: </span> ${origin}</li>`: ""}
-                    ${affection_level?`<li><span class="reColor">Affection Level: </span> <div class="factmeter${affection_level}"></div></li>`: ""}
-                    ${adaptability ? `<li><span class="reColor">Adaptability Level: </span> <div class="factmeter${adaptability}"></div></li>`: ""}
-                    ${child_friendly ? `<li><span class="reColor">Child Friendly Level: </span> <div class="factmeter${child_friendly}"></div></li>`:""}
-                    ${energy_level ? `<span class="reColor"><li>Energy Level: </span> <div class="factmeter${energy_level}"></div></li>`:""}
+
+                    ${affection_level?`<li><span class="reColor">Affection Level: </span> <div class="factmeter${affection_level}" aria-label="level ${affection_level}"></div></li>`: ""}
+
+                    ${adaptability ? `<li><span class="reColor">Adaptability Level: </span> <div class="factmeter${adaptability}" aria-label="level ${adaptability}"></div></li>`: ""}
+
+                    ${child_friendly ? `<li><span class="reColor">Child Friendly Level: </span> <div class="factmeter${child_friendly} aria-label="level ${child_friendly}"></div></li>`: ""}
+
+                    ${energy_level ? `<span class="reColor"><li>Energy Level: </span> <div class="factmeter${energy_level}" aria-label="level ${energy_level}"></div></li>`: ""}
                 </ul>
             </div>`
         );
@@ -492,7 +512,7 @@ furiendFinder.appendInformation = function (name, photos, gender, size, breedNam
 
     for (attribute in attributes) {
         $(`.petFactsUl`).append(
-            `<li><span class="reColor">${attribute.replace('_',' ')}:</span> ${attributes[attribute]?"✔":"✖"}</li>`
+            `<li><span class="reColor">${furiendFinder.upperCase(attribute.replace('_',' '))}:</span> ${attributes[attribute]?"✔":"✖"}</li>`
         )
     }
 
@@ -512,7 +532,7 @@ furiendFinder.appendInformation = function (name, photos, gender, size, breedNam
     /*not showing null if no address available*/   
         if (contact.address[contacts] !== null && contact.address[contacts] !== "") {
             $(`.petLocation ul`).append(
-                `<li><span class="reColor">${contacts}:</span> ${contact.address[contacts]}<li>`
+                `<li><span class="reColor">${furiendFinder.upperCase(contacts)}:</span> ${contact.address[contacts]}<li>`
             )
         }
     }

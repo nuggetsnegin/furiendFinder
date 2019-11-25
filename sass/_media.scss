@@ -19,6 +19,13 @@
             box-shadow: inset 0 -3px 0 $dark-color;
         }
     }
+
+    .ageButton{
+        p{
+            font-size: 1.4rem;
+            text-shadow: $accent-color 1px 1px;
+        }
+    }
 }
 
 @media (max-width: 990px) {
@@ -181,7 +188,7 @@
     .loadingScreen{
 
         div{
-        box-shadow: 5px 5px $dark-color;
+            box-shadow: 5px 5px $dark-color;
         }
 
         p {
@@ -190,6 +197,10 @@
             text-shadow: 2px 2px $base-color;
             padding: 10px;
         }
+    }
+
+    .age button{
+        padding-bottom: 50px;
     }
 
     .userLocation {
@@ -227,7 +238,6 @@
     }
 
     .petInformation{
-        
         gap: 30px;
         grid-template-columns: 1fr;
         grid-template-rows: repeat(7, min-content);
@@ -247,7 +257,6 @@
     .nextPhoto, 
     .previousPhoto{
         top: 50%;
-
     }
 }
 
@@ -361,9 +370,9 @@
     }
 }
 
-@media(max-width: 385px){
+@media(max-width: 410px){
     h1{
-        font-size: 1.6rem;
+        font-size: 2rem;
         text-shadow: 2px 2px $base-color;
     }
 }
