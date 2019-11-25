@@ -235,10 +235,10 @@ ul {
     flex-wrap: wrap;
 
     li {
-            flex-basis: 15%;
-            flex-grow: 1;
-            max-width: 230px;
-        }
+        flex-basis: 15%;
+        flex-grow: 1;
+        max-width: 230px;
+    }
 
     button {
         text-transform: uppercase;
@@ -247,17 +247,12 @@ ul {
         text-shadow: $accent-color 2px 2px;
         background-color: transparent;
         border: none;
-        padding: 0;
-        
-        
-        
+        padding: 0; 
 
         img {
             transition: all 0.5s;
             padding: 20px 0;
         }
-
-        
 
         &:focus img {
             transform: scale(1.3);
@@ -265,8 +260,7 @@ ul {
 
         &:hover img{
             animation: wobble-ver-right 0.8s both;
-        }
-        
+        }     
     }
     
     &:focus{
@@ -313,7 +307,6 @@ ul {
         span{
             box-shadow: inset 0 -5px 0 $dark-color;
         }
-
     
     }
 }

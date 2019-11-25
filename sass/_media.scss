@@ -16,6 +16,15 @@
         left: 1%;
     }
 
+    // .age{
+    //     padding: 20px 0;
+
+    //     p{
+    //         font-size: 1.5rem;
+    //         text-shadow: $accent-color 1px 1px;
+    //     }
+    // }
+
 }
 
 @media (max-width: 990px) {
@@ -29,6 +38,13 @@
          padding-top: 15px;
          font-size: .9rem;
        }
+    }
+
+    .petAge h2{
+        font-size: 2.5rem;
+        span {
+            box-shadow: inset 0 -3px 0 $dark-color;
+        }
     }
 
     .adoptablePets{
@@ -69,6 +85,18 @@
 
 @media(max-width: 885px){
 
+    // .age{
+    //     padding: 10px 0;
+    //     p{
+    //         font-size: 1.2rem;
+    //     }
+    // }
+
+    .petAge h2{
+        padding: 8px 5px;
+        font-size: 2.2rem;
+    }
+
     .adoptablePets{
         padding: 10px;
         img{
@@ -78,7 +106,7 @@
     }
 }
 
-@media(max-width: 720px){
+@media(max-width: 775px){
     .adoptablePets{
         grid-template-columns: repeat(2, 1fr);
         gap: 30px;
@@ -90,7 +118,7 @@
     }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 695px) {
     h1{
         padding-top: 25px;
         font-size: 3rem;
@@ -113,6 +141,18 @@
             text-shadow: 2px 2px $base-color;
             padding: 10px;
         }
+    }
+
+    // .age{
+    //     padding-top: 30px;
+    //     gap: 20px;
+    //     display: grid;
+    //     grid-template-columns: repeat(2, 1fr);
+    //     grid-template-columns: repeat(2, 1fr);
+    // }
+
+    .petAge h2{
+        font-size: 2rem;
     }
 
     .adoptablePets{
