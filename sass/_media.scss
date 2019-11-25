@@ -6,12 +6,6 @@
        }
     }
 
-    .petImage{
-        height: 40vh;
-        width: 40vh;
-    }
-
-
     .adoptionOptions h2{
         font-size: 2.5rem;
         
@@ -249,6 +243,18 @@
     .previousPhoto{
         top: 50%;
     }
+
+    .breedFacts .reColor{
+        width: 50%;
+    }
+
+    .factmeter1,
+    .factmeter2,
+    .factmeter3,
+    .factmeter4,
+    .factmeter5 {
+        width: 40%;
+    }
 }
 
 
@@ -363,7 +369,7 @@
 
 @media(max-width: 410px){
     h1{
-        font-size: 2rem;
+        font-size: 1.5rem;
         text-shadow: 2px 2px $base-color;
     }
 
@@ -385,13 +391,16 @@
         }
     }
 
-}
+    .breedFacts .reColor{
+        width: 65%;
+    }
 
-@media(max-width: 335px){
-
-    .petImage{
-        height: 30vh;
-        width: 30vh;
+    .factmeter1,
+    .factmeter2,
+    .factmeter3,
+    .factmeter4,
+    .factmeter5 {
+        width: 30%;
     }
 
 }

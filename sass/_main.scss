@@ -69,7 +69,7 @@ button {
 
 h1 {
     font-family: $heading-font;
-    padding: 10px;
+    padding-left: 10px;
     font-size: 5rem;
     letter-spacing: 5px;
     margin: 0;
@@ -325,6 +325,7 @@ ul {
         justify-content: center;
         align-items: center;
         max-width: 280px;
+        min-height: 350px;
 
         .info {
             border-radius: 20px;
@@ -517,8 +518,7 @@ ul {
     .reColor{
         color: $accent-color;
         font-weight: 800;
-        width: 35%;
-        display: inline-block;
+       
     }
 }
 
@@ -529,6 +529,10 @@ ul {
 .breedFacts {
     grid-area: breedFacts;
     position: relative;
+    .reColor {
+         width: 30%;
+         display: inline-block;
+    }
 }
 
 .petStory {
@@ -623,7 +627,7 @@ ul {
 
 /*LOADING SCREEN*/
 .loadingScreen {
-    background-color: $base-color;
+    background-color: $background-color;
     z-index: 2;
     position: absolute;
     top: 0;
@@ -635,15 +639,6 @@ ul {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    div {
-        // border: solid 5px $dark-color;
-        padding: 50px;
-        text-align: center;
-        background-color: $light-color;
-        border-radius: 25px;
-        box-shadow: 15px 15px $dark-color;
-    }
 
     p {
         font-size: 3.5rem;
@@ -677,10 +672,8 @@ ul {
 .factmeter4,
 .factmeter5 {
     width: 60%;
-    height: 20px;
+    height: 15px;
     border: 2px solid $base-color;
-    // position: absolute;
-    // left: 30%;
     display: inline-block;
     border-radius: 25px;
 }

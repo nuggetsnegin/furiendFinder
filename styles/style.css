@@ -242,7 +242,7 @@ button {
 
 h1 {
   font-family: "Pangolin", cursive;
-  padding: 10px;
+  padding-left: 10px;
   font-size: 5rem;
   letter-spacing: 5px;
   margin: 0;
@@ -556,6 +556,7 @@ ul {
       -ms-flex-align: center;
           align-items: center;
   max-width: 280px;
+  min-height: 350px;
 }
 
 .adoptablePets .adoptionButton .info {
@@ -780,8 +781,6 @@ ul {
 .breedFacts .reColor {
   color: #f3286f;
   font-weight: 800;
-  width: 35%;
-  display: inline-block;
 }
 
 .petFacts {
@@ -796,6 +795,11 @@ ul {
   -ms-grid-column-span: 3;
   grid-area: breedFacts;
   position: relative;
+}
+
+.breedFacts .reColor {
+  width: 30%;
+  display: inline-block;
 }
 
 .petStory {
@@ -903,7 +907,7 @@ ul {
 
 /*LOADING SCREEN*/
 .loadingScreen {
-  background-color: #3fc1c9;
+  background-color: #E2EAEE;
   z-index: 2;
   position: absolute;
   top: 0;
@@ -924,15 +928,6 @@ ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.loadingScreen div {
-  padding: 50px;
-  text-align: center;
-  background-color: #e8f6fd;
-  border-radius: 25px;
-  -webkit-box-shadow: 15px 15px #023055;
-          box-shadow: 15px 15px #023055;
 }
 
 .loadingScreen p {
@@ -966,7 +961,7 @@ ul {
 .factmeter4,
 .factmeter5 {
   width: 60%;
-  height: 20px;
+  height: 15px;
   border: 2px solid #3fc1c9;
   display: inline-block;
   border-radius: 25px;
@@ -1051,10 +1046,6 @@ footer p {
 @media (max-width: 1295px) {
   .speechBubble p {
     padding: 20px 10px;
-  }
-  .petImage {
-    height: 40vh;
-    width: 40vh;
   }
   .adoptionOptions h2 {
     font-size: 2.5rem;
@@ -1252,6 +1243,16 @@ footer p {
   .previousPhoto {
     top: 50%;
   }
+  .breedFacts .reColor {
+    width: 50%;
+  }
+  .factmeter1,
+  .factmeter2,
+  .factmeter3,
+  .factmeter4,
+  .factmeter5 {
+    width: 40%;
+  }
 }
 
 @media (max-width: 550px) {
@@ -1343,7 +1344,7 @@ footer p {
 
 @media (max-width: 410px) {
   h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-shadow: 2px 2px #3fc1c9;
   }
   .petInformation h2 {
@@ -1357,12 +1358,15 @@ footer p {
     height: 40vh;
     width: 40vh;
   }
-}
-
-@media (max-width: 335px) {
-  .petImage {
-    height: 30vh;
-    width: 30vh;
+  .breedFacts .reColor {
+    width: 65%;
+  }
+  .factmeter1,
+  .factmeter2,
+  .factmeter3,
+  .factmeter4,
+  .factmeter5 {
+    width: 30%;
   }
 }
 
