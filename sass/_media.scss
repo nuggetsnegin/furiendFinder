@@ -14,26 +14,16 @@
 
     .adoptionOptions h2{
         font-size: 2.5rem;
-
+        
         span{
             box-shadow: inset 0 -3px 0 $dark-color;
         }
     }
-
-    // .age{
-    //     padding: 20px 0;
-
-    //     p{
-    //         font-size: 1.5rem;
-    //         text-shadow: $accent-color 1px 1px;
-    //     }
-    // }
-
 }
 
 @media (max-width: 990px) {
+
     h1{
-        
         font-size: 3.5rem;
         text-shadow: 4px 4px $base-color;
     }
@@ -74,7 +64,7 @@
         }
 
     }
-    .factmeter1, .factmeter2, .factmeter3, .factmeter4, .factmeter5 { /*TO FIX*/
+    .factmeter1, .factmeter2, .factmeter3, .factmeter4, .factmeter5 { 
         width: 7%;
         height: 20px;
         border: 2px solid  #3fc1c9;
@@ -89,13 +79,6 @@
 }
 
 @media(max-width: 908px){
-
-    // .age{
-    //     padding: 10px 0;
-    //     p{
-    //         font-size: 1.2rem;
-    //     }
-    // }
 
     .petAge h2{
         padding: 8px 5px;
@@ -129,6 +112,7 @@
     .container {
         width: 90%;
     }
+
     .adoptablePets{
         grid-template-columns: repeat(2, 1fr);
         gap: 30px;
@@ -148,7 +132,6 @@
 @media (max-width: 695px) {
 
     h1{
-        
         font-size: 2.8rem;
     }
 
@@ -161,7 +144,6 @@
         flex-basis: auto;
     }
     
-
     .loadingScreen{
 
         div{
@@ -199,14 +181,6 @@
         }
     }
 
-    // .age{
-    //     padding-top: 30px;
-    //     gap: 20px;
-    //     display: grid;
-    //     grid-template-columns: repeat(2, 1fr);
-    //     grid-template-columns: repeat(2, 1fr);
-    // }
-
     .petAge h2{
         font-size: 2rem;
     }
@@ -226,11 +200,12 @@
         margin: 0;
         padding: 5px 10px;
     }
-    h1{
-       
+    
+    h1{ 
         font-size: 2.5rem;
         text-shadow: 2px 2px $base-color;
     }
+
     .speechBubble{
         margin-top: 20%;
         width: 100%;
@@ -239,11 +214,13 @@
             padding: 7px 5px;
         }
     }
+
     .userLocation{
         p, input{
             font-size: 1.5rem;
         }
     }
+
     .type{
         padding-top: 30px;
         p{
@@ -254,17 +231,21 @@
     .alert{ /*resizing alert box*/
         padding: 50px;
         padding-bottom: 0;
+
         h3{
             font-size: 2rem;
             padding-top: 0;
         }
+
         p{
             font-size: 1.2rem;
         }
+
         button{
             margin-top: 1%;
             font-size: 1rem;
         }
+
         button:hover {
             box-shadow: $dark-color 2px 2px;
         }
@@ -320,7 +301,6 @@
             padding: 10px 0px;
         }
     }
-
 }
 
 @media(max-width: 385px){
