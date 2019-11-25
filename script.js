@@ -151,6 +151,28 @@ furiendFinder.selectPetTypeClickEvent = function () {
     furiendFinder.getPetsNumberByAge(furiendFinder.petType, furiendFinder.city);
 }
 
+// Method to make cat and dog appear randomly appear
+furiendFinder.petSurprise = function () {
+    
+    const randomNumberCatOrDog = Math.ceil(Math.random() * 2);
+    const randomPosition = (Math.ceil(Math.random() * 70)) + 10;
+
+    $("main").append(`<img class="popUp${randomNumberCatOrDog===2 ? "Right":"Left"}" src="./assets/${randomNumberCatOrDog===2?"dog":"cat"}PopIn.png" alt="Illustration of a cat waving" aria-hidden="true" >`);
+    $(`.popUp${randomNumberCatOrDog===2 ? "Right" : "Left"}`).css("top", `${randomPosition}%`)
+    setTimeout(() => {
+        
+        console.log(randomNumberCatOrDog)
+        $(`.popUp${randomNumberCatOrDog===2 ? "Right" : "Left"}`).css("transform", `translate(${randomNumberCatOrDog===1 ?"":"-"}19vw)`);
+        setTimeout(() => {
+            $(`.popUp${randomNumberCatOrDog === 2 ? "Right" : "Left"}`).css("transition", "all 2s").css("transform", `translate(${randomNumberCatOrDog === 2 ? "" : "-"}19vw)`);
+            setTimeout(() => {
+                $(`.popUp${randomNumberCatOrDog === 2 ? "Right" : "Left"}`).remove();
+                furiendFinder.petSurprise();
+            }, 6000);
+        }, 3000);
+    }, 1000);
+}
+
 // Method to get all the available pets by every age
 furiendFinder.getPetsNumberByAge = function (petType,city) {
     const petAgeArray = ["baby", "young", "adult", "senior"];
@@ -460,5 +482,6 @@ $(document).ready(function () {
     furiendFinder.init();
     // Initializing AOS
     AOS.init();
+    furiendFinder.petSurprise();
     
 })
