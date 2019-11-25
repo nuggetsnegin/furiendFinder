@@ -153,6 +153,7 @@ furiendFinder.init = function () {
         $(`.petInformation`).hide();
         $(`.adoptionOptions`).hide();
         $(`.petType`).fadeIn();
+        $(`.backButton`).hide();
     })
 
     /*We disabled the type buttons until the user has entered the location*/
@@ -500,7 +501,7 @@ furiendFinder.appendInformation = function (name, photos, gender, size, breedNam
 
     photos.forEach((photo, index) => {
         $(`.petImage`).append(
-            `<img src="${photo.medium}">`)
+            `<img src="${photo.medium}" alt="Adoptable ${breedName} ${petType}">`)
               
     })
     
