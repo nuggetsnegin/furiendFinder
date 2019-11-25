@@ -77,7 +77,6 @@ h1 {
     color: $dark-color;
     text-shadow: 5px 5px $base-color;
     cursor: pointer;
-    background-color: $accent-color;
 }
 
 
@@ -377,6 +376,7 @@ ul {
         width: 250px;
         height: 250px;
         object-fit: cover; /*stop image stretching*/
+        object-position: top;
         border-radius: 50%;
         position: relative;
         border: solid 5px $base-color;
@@ -526,6 +526,7 @@ ul {
 
 .breedFacts {
     grid-area: breedFacts;
+    position: relative;
 
     li {
         display: flex;
