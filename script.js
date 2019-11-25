@@ -314,6 +314,7 @@ furiendFinder.getMoreInfoCLickEvent = function () {
     $(`.adoptionOptions`).hide();
     $(".backButtonToAge").hide();
     $(".backButtonToOptions").show();
+    window.location ="#header";
     const petIndex = $(this).val();
     const petType = furiendFinder.petType;
     const animalArray = furiendFinder[petType].animalsArray[petIndex];
