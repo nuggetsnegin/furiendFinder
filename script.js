@@ -99,11 +99,11 @@ furiendFinder.init = function () {
     })
 
     $(`header`).on("click", ".backButtonToType",function () {
-        $(`.petAge`).hide();
-        $(`.petType`).show();
-        $(".backButton").hide();
+        $(`.petAge`).fadeOut();
+        $(`.petType`).fadeIn();
+        $(".backButton").fadeOut();
     });
-    $(`header`).on("click", `.backButtonToAge`, function () {
+    $(`.backButtonToAge`).on("click", function () {
         $(`.adoptionOptions`).hide();
         $(`.petAge`).fadeIn();
         $(".backButtonToType").show();
@@ -339,14 +339,14 @@ furiendFinder.appendInformation = function (name, photos, gender, size, breedNam
             `<div class="breedFacts">
             <h3>Breed Facts:</h3>
             <ul>
-                ${temperament ? `<li><span class="reColor">Temperament:</span> ${temperament}</li>` : ""}
+                ${temperament ? `<li><span class="reColor">Temperament: </span> ${temperament}</li>` : ""}
                  ${life_span?`<li><span class="reColor">Average Lifespan: </span> ${life_span}</li>`:""}
                  ${weight.metric?`<li><span class="reColor">Average Weight: </span> ${weight.metric} kg</li>`:""}
-                 ${origin?`<li><span class="reColor">Origin:</span> ${origin}</li>`: ""}
-                 ${affection_level?`<li><span class="reColor">Affection Level:</span> <div class="factmeter${affection_level}"></div></li>`: ""}
-                 ${adaptability ? `<li><span class="reColor">Adaptability Level:</span> <div class="factmeter${adaptability}"></div></li>`: ""}
-                 ${child_friendly ? `<li><span class="reColor">Child Friendly Level:</span> <div class="factmeter${child_friendly}"></div></li>`:""}
-                 ${energy_level ? `<span class="reColor"><li>Energy Level:</span> <div class="factmeter${energy_level}"></div></li>`:""}
+                 ${origin?`<li><span class="reColor">Origin: </span> ${origin}</li>`: ""}
+                 ${affection_level?`<li><span class="reColor">Affection Level: </span> <div class="factmeter${affection_level}"></div></li>`: ""}
+                 ${adaptability ? `<li><span class="reColor">Adaptability Level: </span> <div class="factmeter${adaptability}"></div></li>`: ""}
+                 ${child_friendly ? `<li><span class="reColor">Child Friendly Level: </span> <div class="factmeter${child_friendly}"></div></li>`:""}
+                 ${energy_level ? `<span class="reColor"><li>Energy Level: </span> <div class="factmeter${energy_level}"></div></li>`:""}
             </ul>
             </div>`
         )
@@ -367,6 +367,7 @@ furiendFinder.appendInformation = function (name, photos, gender, size, breedNam
     furiendFinder.numberOfPhotos = photos.length;
     furiendFinder.photoPosition = 1;
     $(`.previousPhoto`).attr("disabled", "true");
+    $(`.nextPhoto`).removeAttr("disabled");
 
     photos.forEach((photo, index) => {
         
@@ -414,21 +415,21 @@ furiendFinder.appendInformation = function (name, photos, gender, size, breedNam
 }
 
 /*mouseOver animations!*/
-$(`.ageButton`).on("mouseover", function(){
-    $(this).addClass('wobble');
-});
+// $(`.ageButton`).on("mouseover", function(){
+//     $(this).addClass('wobble');
+// });
 
-$('.ageButton').on("animationend", function () {
-    $(this).removeClass('wobble');
-});
+// $('.ageButton').on("animationend", function () {
+//     $(this).removeClass('wobble');
+// });
 
-$(`.typeButton img`).on("mouseover", function(){
-    $(this).addClass('bounce');
-});
+// $(`.typeButton img`).on("mouseover", function(){
+//     $(this).addClass('bounce');
+// });
 
-$('.typeButton img').on("animationend", function () {
-    $(this).removeClass('bounce');
-});
+// $('.typeButton img').on("animationend", function () {
+//     $(this).removeClass('bounce');
+// });
 
 
 // Default settings for the Animation On Scroll Library
