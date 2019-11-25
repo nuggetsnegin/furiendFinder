@@ -375,4 +375,32 @@
         font-size: 2rem;
         text-shadow: 2px 2px $base-color;
     }
+
+    .petInformation{
+
+        h2{
+            font-size: 2rem;
+            padding-top: 20px;
+
+        }
+
+        h3{
+            font-size: 2rem;
+        }
+
+        .petImage{
+            height: 40vh;
+            width: 40vh;
+        }
+    }
+
+}
+
+@media(max-width: 335px){
+
+    .petImage{
+        height: 30vh;
+        width: 30vh;
+    }
+
 }

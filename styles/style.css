@@ -1351,6 +1351,24 @@ footer p {
     font-size: 2rem;
     text-shadow: 2px 2px #3fc1c9;
   }
+  .petInformation h2 {
+    font-size: 2rem;
+    padding-top: 20px;
+  }
+  .petInformation h3 {
+    font-size: 2rem;
+  }
+  .petInformation .petImage {
+    height: 40vh;
+    width: 40vh;
+  }
+}
+
+@media (max-width: 335px) {
+  .petImage {
+    height: 30vh;
+    width: 30vh;
+  }
 }
 
 /* ----------------------------------------------
