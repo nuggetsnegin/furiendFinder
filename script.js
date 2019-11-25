@@ -1,4 +1,4 @@
-// Unescape any special characters from responses, such as %20 or &#39;s
+/*Escape any special characters from petFinder API story responses, such as %20 or &#39;s*/
 function unescape(string){
     return new DOMParser().parseFromString(string, 'text/html').querySelector('html').textContent;
 }
@@ -10,8 +10,10 @@ const furiendFinder = {
 };
 /*storing petFinder api key*/
 furiendFinder.petFinderApiKey = "bMlZfEidmf7kNocIPx9z0lC62XwFTmFu94bYQFRRzc8sxD9x6I";
-/*needed for oauth*/
+
+/*required for oauth*/
 furiendFinder.secretPetFinder = "Lwa5bb5fyzQ51KMtEbbJb8QWgItW49OsEuYqgElG";
+
 /*storing cat api key*/
 furiendFinder.catApiKey = "796188a0-0bca-4abe-968b-403b12c2c82d";
 
@@ -27,7 +29,7 @@ furiendFinder.city = "";
 // Storing picture position
 furiendFinder.picturePosition = 0;
 
-// Geolocation function to get the city and province of the user. If the geolocation is not allowed then Toronto will be the default.
+/* Geolocation function to get the city and province of the user. If the geolocation is not allowed then Toronto will be the default. */
 
 furiendFinder.getGeoLocation = () => {
 
@@ -336,7 +338,7 @@ furiendFinder.appendToUl = function (totalPets, petAge, petType) {
 
     $(`.${petAge}`).empty().append(`
         <p>${petAge}</p>
-        <img src="./assets/${petAge}${petType}.PNG">
+        <img src="assets/${petAge}${petType}.PNG">
         <p>${totalPets} available</p>`
     );
 }
