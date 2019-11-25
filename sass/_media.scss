@@ -5,6 +5,11 @@
          padding: 20px 10px;
        }
     }
+
+    .petImage{
+        height: 40vh;
+        width: 40vh;
+    }
 }
 
 @media (max-width: 930px) {
@@ -13,6 +18,27 @@
          padding-top: 15px;
          font-size: .9rem;
        }
+    }
+    .petInformation{
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, min-content);
+        grid-template-areas:
+        "title title title"
+        "petImage petStory petStory"
+        "breedFacts petFacts location"
+        "breedFacts adoptMe adoptMe";
+    }
+    .factmeter1, .factmeter2, .factmeter3, .factmeter4, .factmeter5 { /*TO FIX*/
+        width: 7%;
+        height: 20px;
+        border: 2px solid  #3fc1c9;
+        position: absolute;
+        left: 32%;
+        border-radius: 25px;
+    }
+    
+    .breedFacts li{
+        display: inline-block;
     }
 }
 
