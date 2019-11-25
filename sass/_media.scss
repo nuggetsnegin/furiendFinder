@@ -123,6 +123,18 @@
         gap: 10px;
     }
 
+    .type {
+
+        width: 100%;
+        li {
+            min-width: auto;
+        }
+
+        button {
+            padding: 0;
+        }
+    }
+
     .petFacts,
     .petStory,
     .petLocation,
@@ -163,7 +175,7 @@
     }
 
     .type li {
-        flex-basis: auto;
+        flex-basis: 50%;
     }
     
     .loadingScreen{
