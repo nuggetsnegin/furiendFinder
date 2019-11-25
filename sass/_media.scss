@@ -11,9 +11,11 @@
         width: 40vh;
     }
 
-    // .backButton{
-    //     left: 60px;
-    // }
+    header .backButton{
+        position: absolute;
+        left: 1%;
+    }
+
 }
 
 @media (max-width: 930px) {
@@ -28,6 +30,10 @@
          font-size: .9rem;
        }
     }
+
+
+    }
+
     .petInformation{
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(4, min-content);
@@ -90,7 +96,7 @@
         }
     }
 
-    .alert{
+    .alert{ /*resizing alert box*/
         padding: 50px;
         padding-bottom: 0;
         h3{
@@ -104,6 +110,10 @@
             margin-top: 1%;
             font-size: 1rem;
         }
+        button:hover {
+            box-shadow: $dark-color 2px 2px;
+        }
+
         img{
             height: 80%;
             width: 80%;

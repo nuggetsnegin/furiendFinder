@@ -952,6 +952,10 @@ footer p {
     height: 40vh;
     width: 40vh;
   }
+  header .backButton {
+    position: absolute;
+    left: 1%;
+  }
 }
 
 @media (max-width: 930px) {
@@ -962,6 +966,15 @@ footer p {
   .speechBubble p {
     padding-top: 15px;
     font-size: .9rem;
+  }
+  .petAge {
+    width: 10%;
+  }
+  .petAge p {
+    font-size: .5rem;
+  }
+  .petAge img {
+    width: 30%;
   }
   .petInformation {
     -ms-grid-columns: (1fr)[3];
@@ -1020,6 +1033,7 @@ footer p {
     font-size: 2rem;
   }
   .alert {
+    /*resizing alert box*/
     padding: 50px;
     padding-bottom: 0;
   }
@@ -1033,6 +1047,10 @@ footer p {
   .alert button {
     margin-top: 1%;
     font-size: 1rem;
+  }
+  .alert button:hover {
+    -webkit-box-shadow: #023055 2px 2px;
+            box-shadow: #023055 2px 2px;
   }
   .alert img {
     height: 80%;
