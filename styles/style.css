@@ -210,6 +210,7 @@ header .headerMain {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
+  height: 18vh;
 }
 
 main {
@@ -241,7 +242,6 @@ button {
 
 h1 {
   font-family: "Pangolin", cursive;
-  text-align: center;
   padding: 10px;
   font-size: 5rem;
   letter-spacing: 5px;
@@ -271,7 +271,7 @@ ul {
   background-color: #3fc1c9;
   color: white;
   font-family: "Pangolin", cursive;
-  padding: 10px 30px;
+  padding: 10px 20px;
   border: none;
   font-size: 2rem;
   text-transform: uppercase;
@@ -367,6 +367,11 @@ ul {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .userLocation p {
@@ -628,7 +633,7 @@ ul {
   -ms-grid-rows: (min-content)[3];
       grid-template-rows: repeat(3, -webkit-min-content);
       grid-template-rows: repeat(3, min-content);
-      grid-template-areas: "title title title" "petImage petStory petStory" "petImage petFacts location" "breedFacts breedFacts breedFacts" "adoptMe adoptMe adoptMe";
+      grid-template-areas: "title title title" "petImage petStory petStory" "petImage petFacts location" "breedFacts breedFacts breedFacts" "adoptMe adoptMe adoptMe";
 }
 
 .petInformation h2 {
@@ -1052,10 +1057,6 @@ footer p {
     height: 40vh;
     width: 40vh;
   }
-  header .backButton {
-    position: absolute;
-    left: 1%;
-  }
   .adoptionOptions h2 {
     font-size: 2.5rem;
   }
@@ -1067,8 +1068,7 @@ footer p {
 
 @media (max-width: 990px) {
   h1 {
-    padding-top: 30px;
-    font-size: 4rem;
+    font-size: 3.5rem;
     text-shadow: 4px 4px #3fc1c9;
   }
   .speechBubble p {
@@ -1094,7 +1094,7 @@ footer p {
     -ms-grid-rows: (min-content)[4];
         grid-template-rows: repeat(4, -webkit-min-content);
         grid-template-rows: repeat(4, min-content);
-        grid-template-areas: "title title" "petImage petStory" "petFacts location" "breedFacts adoptMe";
+        grid-template-areas: "title title" "petImage petStory" "petFacts location" "breedFacts adoptMe";
   }
   .petInformation .adoptMe {
     width: 100%;
@@ -1141,6 +1141,9 @@ footer p {
 }
 
 @media (max-width: 775px) {
+  .container {
+    width: 90%;
+  }
   .adoptablePets {
     -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
@@ -1150,15 +1153,15 @@ footer p {
     width: 250px;
     height: 250px;
   }
+  .speechBubble {
+    width: 75%;
+    margin-bottom: 30px;
+  }
 }
 
 @media (max-width: 695px) {
   h1 {
-    padding-top: 35px;
-    font-size: 3.2rem;
-  }
-  .speechBubble {
-    width: 65%;
+    font-size: 2.8rem;
   }
   .loadingScreen div {
     -webkit-box-shadow: 5px 5px #023055;
@@ -1169,6 +1172,16 @@ footer p {
     font-family: "Pangolin", cursive;
     text-shadow: 2px 2px #3fc1c9;
     padding: 10px;
+  }
+  .userLocation {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .userLocation input {
+    width: 80%;
+    text-align: center;
   }
   .adoptionOptions {
     padding-top: 15px;
@@ -1191,10 +1204,13 @@ footer p {
   }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 550px) {
+  .backButton {
+    margin: 0;
+    padding: 5px 10px;
+  }
   h1 {
-    padding-top: 40px;
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     text-shadow: 2px 2px #3fc1c9;
   }
   .speechBubble {
@@ -1245,6 +1261,10 @@ footer p {
 }
 
 @media (max-width: 475px) {
+  h1 {
+    font-size: 2rem;
+    text-shadow: 2px 2px #3fc1c9;
+  }
   .userLocation input, .userLocation p {
     font-size: 1.2rem;
     /*to fix, maybe stack?*/
@@ -1271,9 +1291,9 @@ footer p {
   }
 }
 
-@media (max-width: 430px) {
+@media (max-width: 385px) {
   h1 {
-    font-size: 2rem;
+    font-size: 1.6rem;
     text-shadow: 2px 2px #3fc1c9;
   }
 }
