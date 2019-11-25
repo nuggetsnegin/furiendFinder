@@ -1067,6 +1067,7 @@ footer p {
 
 @media (max-width: 990px) {
   h1 {
+    padding-top: 30px;
     font-size: 4rem;
     text-shadow: 4px 4px #3fc1c9;
   }
@@ -1153,9 +1154,8 @@ footer p {
 
 @media (max-width: 695px) {
   h1 {
-    padding-top: 25px;
-    font-size: 3rem;
-    text-shadow: 3px 3px #3fc1c9;
+    padding-top: 35px;
+    font-size: 3.2rem;
   }
   .speechBubble {
     width: 65%;
@@ -1191,10 +1191,10 @@ footer p {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 520px) {
   h1 {
     padding-top: 40px;
-    font-size: 2.3rem;
+    font-size: 2.8rem;
     text-shadow: 2px 2px #3fc1c9;
   }
   .speechBubble {
@@ -1245,11 +1245,6 @@ footer p {
 }
 
 @media (max-width: 475px) {
-  h1 {
-    font-size: 1.8rem;
-    text-shadow: 2px 2px #3fc1c9;
-    padding-top: 20px;
-  }
   .userLocation input, .userLocation p {
     font-size: 1.2rem;
     /*to fix, maybe stack?*/
@@ -1273,6 +1268,13 @@ footer p {
   footer p {
     font-size: .7rem;
     padding: 10px 0px;
+  }
+}
+
+@media (max-width: 430px) {
+  h1 {
+    font-size: 2rem;
+    text-shadow: 2px 2px #3fc1c9;
   }
 }
 
