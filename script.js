@@ -330,10 +330,11 @@ furiendFinder.pictureChange = function () {
 
 /*method to display results into the html*/
 furiendFinder.appendToUl = function (totalPets, petAge, petType) {
+    const capitalizedType = petType.charAt(0).toUpperCase() + petType.substring(1);
 
     $(`.${petAge}`).empty().append(`
         <p>${petAge}</p>
-        <img src="assets/${petAge}${petType}.PNG" alt="Illustration of a ${petAge} ${petType}">
+        <img src="assets/${petAge}${capitalizedType}.PNG" alt="Illustration of a ${petAge} ${petType}">
         <p>${totalPets} available</p>`
     );
 }
