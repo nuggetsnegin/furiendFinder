@@ -48,33 +48,39 @@
     }
 
     .petInformation{
-        gap: 15px;
-        padding-bottom: 0px;
+        gap: 30px;
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(4, min-content);
+        grid-template-rows: repeat(5, min-content);
         grid-template-areas:
         "title title"
         "petImage petStory"
         "petFacts location"
-        "breedFacts adoptMe";
+        "breedFacts breedFacts"
+        "adoptMe adoptMe";
 
         .adoptMe{
             width: 100%;
             align-self: center;
-        }
+            margin-bottom: 1%;
 
+            a{
+                font-size: 3rem;
+            }
+        }
     }
+
+    .petImage{
+        height: 51vh;
+        width: 51vh;
+    }
+
     .factmeter1, .factmeter2, .factmeter3, .factmeter4, .factmeter5 { 
-        width: 7%;
+        width: 50%;
         height: 20px;
         border: 2px solid  #3fc1c9;
         position: absolute;
         left: 32%;
         border-radius: 25px;
-    }
-    
-    .breedFacts li{
-        display: inline-block;
     }
 }
 
@@ -111,6 +117,22 @@
 
     .container {
         width: 90%;
+    }
+
+    .petInformation{
+        gap: 10px;
+    }
+
+    .petFacts,
+    .petStory,
+    .petLocation,
+    .breedFacts {
+        padding: 10px;
+        box-shadow: 4px 4px $accent-color;
+    }
+
+    .petImage{
+        box-shadow: 4px 4px $accent-color;
     }
 
     .adoptablePets{
@@ -190,6 +212,36 @@
             width: 200px;
             height: 200px;
         }
+    }
+
+    .petInformation{
+        text-align: center;
+        gap: 10px;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(7, min-content);
+        grid-template-areas:
+        "title"
+        "petImage"
+        "petStory"
+        "petFacts"
+        "location"
+        "breedFacts"
+        "adoptMe";
+    }
+
+    .petImage{
+        margin: 0 auto;
+        border-radius: 50%;
+    }
+    .nextPhoto, 
+    .previousPhoto{
+        top: 50%;
+
+    }
+
+    .breedFacts li{
+        display: block;
+        text-align: center;
     }
 }
 
