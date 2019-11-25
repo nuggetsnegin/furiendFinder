@@ -409,6 +409,7 @@ ul {
     border: solid 5px $dark-color;
     display: flex;
     overflow: hidden;
+    position: relative;
 
     img {
         object-fit: cover; /*to not stretch image*/
@@ -422,6 +423,15 @@ ul {
     button {
         position: absolute;
         z-index: 3;
+        bottom: 0;
+
+        &.nextPhoto {
+            right:0;
+        }
+
+        &.previousPhoto {
+            left: 0;
+        }
     }
 }
 

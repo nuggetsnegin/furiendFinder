@@ -24,6 +24,9 @@ furiendFinder.petType = "cat";
 // Making a property to store the user's city
 furiendFinder.city = "";
 
+// Storing picture position
+furiendFinder.picturePosition = 0;
+
 // Geolocation function to get the city and province of the user. If the geolocation is not allowed then Toronto will be the default.
 
 furiendFinder.getGeoLocation = () => {
@@ -286,7 +289,27 @@ furiendFinder.adoptableButton = function (index, name, breed, url, petType, mixe
 
 /* method to make pictures change */
 furiendFinder.pictureChange = function () {
-    $(`.petImage img`).css("transform", `translate(-100%)`);
+    const numberOfPhotos = furiendFinder.numberOfPhotos;
+    const value = parseInt($(this).val());
+    
+
+    if (numberOfPhotos > furiendFinder.photoPosition) {
+        furiendFinder.photoPosition += value;
+        $(`.petImage img`).css("transform", `translate(${-value * (100 * (furiendFinder.photoPosition-1))}%)`);
+        if (numberOfPhotos === furiendFinder.photoPosition) {
+            $(".nextPhoto").attr("disabled", "true");
+
+        }
+
+        if (furiendFinder.photoPosition === 1) {
+            $(`.previousPhoto`).attr("disabled", "true");
+        } else {
+            $(`.previousPhoto`).removeAttr("disabled");
+        }
+    } else {
+        
+    }
+    
 
 }
 
@@ -344,6 +367,9 @@ furiendFinder.appendInformation = function (name, photos, gender, size, breedNam
     } else {
         $(`.petImage button`).show();
     }
+
+    furiendFinder.numberOfPhotos = photos.length;
+    furiendFinder.photoPosition = 1;
 
     photos.forEach((photo, index) => {
         
