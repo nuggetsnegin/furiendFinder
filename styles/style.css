@@ -566,7 +566,7 @@ ul {
   -ms-grid-rows: (min-content)[3];
       grid-template-rows: repeat(3, -webkit-min-content);
       grid-template-rows: repeat(3, min-content);
-      grid-template-areas: "title title title" "petImage petStory petStory" "petImage petFacts location" "breedFacts breedFacts breedFacts" "adoptMe adoptMe adoptMe";
+      grid-template-areas: "title title title" "petImage petStory petStory" "petImage petFacts location" "breedFacts breedFacts breedFacts" "adoptMe adoptMe adoptMe";
 }
 
 .petInformation h2 {
@@ -638,6 +638,7 @@ ul {
   display: -ms-flexbox;
   display: flex;
   overflow: hidden;
+  position: relative;
 }
 
 .petImage img {
@@ -656,6 +657,15 @@ ul {
 .petImage button {
   position: absolute;
   z-index: 3;
+  bottom: 0;
+}
+
+.petImage button.nextPhoto {
+  right: 0;
+}
+
+.petImage button.previousPhoto {
+  left: 0;
 }
 
 .petFacts,
@@ -967,22 +977,13 @@ footer p {
     padding-top: 15px;
     font-size: .9rem;
   }
-  .petAge {
-    width: 10%;
-  }
-  .petAge p {
-    font-size: .5rem;
-  }
-  .petAge img {
-    width: 30%;
-  }
   .petInformation {
     -ms-grid-columns: (1fr)[3];
         grid-template-columns: repeat(3, 1fr);
     -ms-grid-rows: (min-content)[4];
         grid-template-rows: repeat(4, -webkit-min-content);
         grid-template-rows: repeat(4, min-content);
-        grid-template-areas: "title title title" "petImage petStory petStory" "breedFacts petFacts location" "breedFacts adoptMe adoptMe";
+        grid-template-areas: "title title title" "petImage petStory petStory" "breedFacts petFacts location" "breedFacts adoptMe adoptMe";
   }
   .factmeter1, .factmeter2, .factmeter3, .factmeter4, .factmeter5 {
     /*TO FIX*/
