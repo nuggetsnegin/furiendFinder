@@ -18,7 +18,7 @@
 
 }
 
-@media (max-width: 930px) {
+@media (max-width: 990px) {
     h1{
         font-size: 4rem;
         text-shadow: 4px 4px $base-color;
@@ -31,14 +31,27 @@
        }
     }
 
+    .adoptablePets{
+        gap: 10px;
+        padding: 20px;
+    }
+
     .petInformation{
-        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        padding-bottom: 0px;
+        grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(4, min-content);
         grid-template-areas:
-        "title title title"
-        "petImage petStory petStory"
-        "breedFacts petFacts location"
-        "breedFacts adoptMe adoptMe";
+        "title title"
+        "petImage petStory"
+        "petFacts location"
+        "breedFacts adoptMe";
+
+        .adoptMe{
+            width: 100%;
+            align-self: center;
+        }
+
     }
     .factmeter1, .factmeter2, .factmeter3, .factmeter4, .factmeter5 { /*TO FIX*/
         width: 7%;
@@ -54,6 +67,29 @@
     }
 }
 
+@media(max-width: 885px){
+
+    .adoptablePets{
+        padding: 10px;
+        img{
+            width: 200px;
+            height: 200px;
+        }
+    }
+}
+
+@media(max-width: 720px){
+    .adoptablePets{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+
+        img{
+            width: 250px;
+            height: 250px;
+        }
+    }
+}
+
 @media (max-width: 650px) {
     h1{
         padding-top: 25px;
@@ -66,7 +102,7 @@
     }
 
     .loadingScreen{
-        
+
         div{
         box-shadow: 5px 5px $dark-color;
         }
@@ -76,6 +112,13 @@
             font-family: $heading-font;
             text-shadow: 2px 2px $base-color;
             padding: 10px;
+        }
+    }
+
+    .adoptablePets{
+        img{
+            width: 200px;
+            height: 200px;
         }
     }
 }
@@ -131,9 +174,13 @@
             padding-top: 10px;
         }
     }
+
+    .adoptablePets{
+        gap: 5px;
+    }
 }
 
-@media (max-width: 405px) { 
+@media (max-width: 475px) { 
     h1{
         font-size: 1.8rem;
         text-shadow: 2px 2px $base-color;
@@ -144,6 +191,17 @@
             font-size: 1.2rem; /*to fix, maybe stack?*/
         }
     }
+
+    .adoptablePets{
+        grid-template-columns: 1fr;
+        gap: 20px;
+
+        img{
+            width: 250px;
+            height: 250px;
+        }
+    }
+
     footer{
         p{
             font-size: .7rem;

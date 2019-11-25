@@ -566,7 +566,7 @@ ul {
   -ms-grid-rows: (min-content)[3];
       grid-template-rows: repeat(3, -webkit-min-content);
       grid-template-rows: repeat(3, min-content);
-      grid-template-areas: "title title title" "petImage petStory petStory" "petImage petFacts location" "breedFacts breedFacts breedFacts" "adoptMe adoptMe adoptMe";
+      grid-template-areas: "title title title" "petImage petStory petStory" "petImage petFacts location" "breedFacts breedFacts breedFacts" "adoptMe adoptMe adoptMe";
 }
 
 .petInformation h2 {
@@ -968,7 +968,7 @@ footer p {
   }
 }
 
-@media (max-width: 930px) {
+@media (max-width: 990px) {
   h1 {
     font-size: 4rem;
     text-shadow: 4px 4px #3fc1c9;
@@ -977,13 +977,25 @@ footer p {
     padding-top: 15px;
     font-size: .9rem;
   }
+  .adoptablePets {
+    gap: 10px;
+    padding: 20px;
+  }
   .petInformation {
-    -ms-grid-columns: (1fr)[3];
-        grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    padding-bottom: 0px;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
     -ms-grid-rows: (min-content)[4];
         grid-template-rows: repeat(4, -webkit-min-content);
         grid-template-rows: repeat(4, min-content);
-        grid-template-areas: "title title title" "petImage petStory petStory" "breedFacts petFacts location" "breedFacts adoptMe adoptMe";
+        grid-template-areas: "title title" "petImage petStory" "petFacts location" "breedFacts adoptMe";
+  }
+  .petInformation .adoptMe {
+    width: 100%;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
   }
   .factmeter1, .factmeter2, .factmeter3, .factmeter4, .factmeter5 {
     /*TO FIX*/
@@ -996,6 +1008,28 @@ footer p {
   }
   .breedFacts li {
     display: inline-block;
+  }
+}
+
+@media (max-width: 885px) {
+  .adoptablePets {
+    padding: 10px;
+  }
+  .adoptablePets img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 720px) {
+  .adoptablePets {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  .adoptablePets img {
+    width: 250px;
+    height: 250px;
   }
 }
 
@@ -1017,6 +1051,10 @@ footer p {
     font-family: "Pangolin", cursive;
     text-shadow: 2px 2px #3fc1c9;
     padding: 10px;
+  }
+  .adoptablePets img {
+    width: 200px;
+    height: 200px;
   }
 }
 
@@ -1068,9 +1106,12 @@ footer p {
     width: 80%;
     padding-top: 10px;
   }
+  .adoptablePets {
+    gap: 5px;
+  }
 }
 
-@media (max-width: 405px) {
+@media (max-width: 475px) {
   h1 {
     font-size: 1.8rem;
     text-shadow: 2px 2px #3fc1c9;
@@ -1079,6 +1120,15 @@ footer p {
   .userLocation input, .userLocation p {
     font-size: 1.2rem;
     /*to fix, maybe stack?*/
+  }
+  .adoptablePets {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .adoptablePets img {
+    width: 250px;
+    height: 250px;
   }
   footer p {
     font-size: .7rem;
