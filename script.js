@@ -291,26 +291,22 @@ furiendFinder.adoptableButton = function (index, name, breed, url, petType, mixe
 furiendFinder.pictureChange = function () {
     const numberOfPhotos = furiendFinder.numberOfPhotos;
     const value = parseInt($(this).val());
+    furiendFinder.photoPosition += value;
+    console.log(furiendFinder.photoPosition)
+    $(`.petImage img`).css("transform", `translate(${-(100 * (furiendFinder.photoPosition - 1))}%)`);
     
-
-    if (numberOfPhotos > furiendFinder.photoPosition) {
-        furiendFinder.photoPosition += value;
-        $(`.petImage img`).css("transform", `translate(${-value * (100 * (furiendFinder.photoPosition-1))}%)`);
-        if (numberOfPhotos === furiendFinder.photoPosition) {
-            $(".nextPhoto").attr("disabled", "true");
-
-        }
-
-        if (furiendFinder.photoPosition === 1) {
-            $(`.previousPhoto`).attr("disabled", "true");
-        } else {
-            $(`.previousPhoto`).removeAttr("disabled");
-        }
+    if (furiendFinder.photoPosition === 1) {
+        $(`.previousPhoto`).attr("disabled", "true");
     } else {
-        
+        $(`.previousPhoto`).removeAttr("disabled");
+    }
+
+    if (furiendFinder.photoPosition === numberOfPhotos) {
+        $(`.nextPhoto`).attr("disabled", "true");
+    } else {
+        $(`.nextPhoto`).removeAttr("disabled");
     }
     
-
 }
 
 /*method to display results into the html*/
@@ -370,6 +366,7 @@ furiendFinder.appendInformation = function (name, photos, gender, size, breedNam
 
     furiendFinder.numberOfPhotos = photos.length;
     furiendFinder.photoPosition = 1;
+    $(`.previousPhoto`).attr("disabled", "true");
 
     photos.forEach((photo, index) => {
         
