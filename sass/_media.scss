@@ -152,6 +152,14 @@
         font-size: 2.8rem;
     }
 
+    .age li {
+        flex-basis: 40%;
+        max-width: none;
+    }
+
+    .type li {
+        flex-basis: auto;
+    }
     
 
     .loadingScreen{

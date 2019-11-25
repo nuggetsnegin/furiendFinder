@@ -1163,6 +1163,15 @@ footer p {
   h1 {
     font-size: 2.8rem;
   }
+  .age li {
+    -ms-flex-preferred-size: 40%;
+        flex-basis: 40%;
+    max-width: none;
+  }
+  .type li {
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
+  }
   .loadingScreen div {
     -webkit-box-shadow: 5px 5px #023055;
             box-shadow: 5px 5px #023055;
