@@ -159,15 +159,12 @@ furiendFinder.init = function () {
     $(`.typeButton`).attr("disabled","true");
 }
 
-
-
 /**
  * ----------------------------------------
  * SELECT PET TYPE CLICK EVENT
  * Click event for buttons to select the pet type (cat or dog)!
  * ----------------------------------------
  */
-
 furiendFinder.selectPetTypeClickEvent = function () {
     $(`.loadingScreen`).fadeIn();
     furiendFinder.city = $(`#location`).val();
@@ -176,20 +173,28 @@ furiendFinder.selectPetTypeClickEvent = function () {
     furiendFinder.getPetsNumberByAge(furiendFinder.petType, furiendFinder.city);
 }
 
-/*Method to make cat and dog appear randomly appear*/
+/**
+ * ----------------------------------------
+ * PET SUPRISE
+ * Method to make cat/dog illustration pop in from the 
+ * side of the screen at random intervals!
+ * ----------------------------------------
+ */
 furiendFinder.petSurprise = function () {
     
     const randomNumberCatOrDog = Math.ceil(Math.random() * 2);
     const randomPosition = (Math.ceil(Math.random() * 70)) + 10;
 
     $("main").append(`<img class="popUp${randomNumberCatOrDog===2 ? "Right":"Left"}" src="./assets/${randomNumberCatOrDog===2?"dog":"cat"}PopIn.png" alt="Illustration of a cat waving" aria-hidden="true" >`);
-    $(`.popUp${randomNumberCatOrDog===2 ? "Right" : "Left"}`).css("top", `${randomPosition}%`)
+
+    $(`.popUp${randomNumberCatOrDog===2 ? "Right" : "Left"}`).css("top", `${randomPosition}%`);
+
     setTimeout(() => {
-        
-        console.log(randomNumberCatOrDog)
         $(`.popUp${randomNumberCatOrDog===2 ? "Right" : "Left"}`).css("transform", `translate(${randomNumberCatOrDog===1 ?"":"-"}19vw)`);
+
         setTimeout(() => {
             $(`.popUp${randomNumberCatOrDog === 2 ? "Right" : "Left"}`).css("transition", "all 2s").css("transform", `translate(${randomNumberCatOrDog === 2 ? "" : "-"}19vw)`);
+
             setTimeout(() => {
                 $(`.popUp${randomNumberCatOrDog === 2 ? "Right" : "Left"}`).remove();
                 furiendFinder.petSurprise();
@@ -198,7 +203,13 @@ furiendFinder.petSurprise = function () {
     }, 1000);
 }
 
-/* Method to get all the available pets by every age*/
+/**
+ * ----------------------------------------
+ * GET PETS NUMBER BY AGE
+ * Method that gets all the available adoptable pet number total
+ *  by 4 age groups using petFinder API
+ * ----------------------------------------
+ */
 furiendFinder.getPetsNumberByAge = function (petType,city) {
     const petAgeArray = ["baby", "young", "adult", "senior"];
     /*run a for loop 4 times (0-3) and using the getPetsAvailable method to grab the pet's age and using the petFinder api query to get those words into the function*/
@@ -207,7 +218,13 @@ furiendFinder.getPetsNumberByAge = function (petType,city) {
     }
 }
 
-/*Find all the available pets for adoption*/
+/**
+ * ----------------------------------------
+ * GET PETS AVAILABLE
+ * All available pets by age group and user's
+ * location in a 50km radius
+ * ----------------------------------------
+ */
 furiendFinder.getPetsAvailable = function (petAge, petType,city, functionCall, disappearingDivClass, appearingDivClass) {
     $.ajax({
         url: "https://api.petfinder.com/v2/oauth2/token",
@@ -277,6 +294,15 @@ furiendFinder.getBreedFacts = function (petType) {
     });
 }
 
+/**
+ * ----------------------------------------
+ * CLICK EVENTS
+ * ageClickEvent, getMoreInfoClickEvent loads loadingScreen
+ * changing backButton to get user to the correct previous
+ * div/page, calling unescape to deal with petFinder API's lack of
+ * character escaping on story.
+ * ----------------------------------------
+ */
 furiendFinder.ageClickEvent = function () {
     $(`.adoptablePets`).empty();
     $(`.loadingScreen`).fadeIn();
@@ -301,7 +327,14 @@ furiendFinder.getMoreInfoCLickEvent = function () {
     $('.petInformation').fadeIn();
 }
 
-/*Called after API call - create the buttons for each available adoptable pet by user age selection*/
+/**
+ * ----------------------------------------
+ * GET ADOPTABLE PETS
+ * Creating the buttons for each available
+ * adoptable pet by user's age selection. Called
+ * after API call.
+ * ----------------------------------------
+ */
 furiendFinder.getAdoptablePets = function (data, petAge, petType, petBreed, city) {
     const animalsArray = data.animals;
     for (let i = 0; i < animalsArray.length; i++) {
@@ -313,7 +346,14 @@ furiendFinder.getAdoptablePets = function (data, petAge, petType, petBreed, city
     furiendFinder[petType].animalsArray = animalsArray;
 }
 
-/*appending the adoptable pets to a button*/
+/**
+ * ----------------------------------------
+ * ADOPTABLE BUTTON
+ * Method that appends the adoptable pets button,
+ * dynamically adding alt text, pet name and
+ * pet breed (with conditionally to check if mixed)!
+ * ----------------------------------------
+ */
 furiendFinder.adoptableButton = function (index, name, breed, url, petType, mixed) {
 
     $(`.adoptablePets`).append(
@@ -329,12 +369,21 @@ furiendFinder.adoptableButton = function (index, name, breed, url, petType, mixe
     );
 }
 
-/* method to make pictures change */
+
+/**
+ * ----------------------------------------
+ * PICTURE CHANGE
+ * Method to make the pet pictures change on the adoptable 
+ * page.
+ * If there are more than 1 picture available of the pet. 
+ * On the first image only show the forward button.
+ * If there is only 1 image do not show the buttons.
+ * ----------------------------------------
+ */
 furiendFinder.pictureChange = function () {
     const numberOfPhotos = furiendFinder.numberOfPhotos;
     const value = parseInt($(this).val());
     furiendFinder.photoPosition += value;
-    console.log(furiendFinder.photoPosition)
     $(`.petImage img`).css("transform", `translate(${-(100 * (furiendFinder.photoPosition - 1))}%)`);
     
     if (furiendFinder.photoPosition === 1) {
@@ -350,7 +399,14 @@ furiendFinder.pictureChange = function () {
     }
 }
 
-/*method to display results into the html*/
+/**
+ * ----------------------------------------
+ * APPEND TO UL
+ * Method to append pet type illustration dynamically using to upperCase
+ * to maintain the camelCase naming convention. Dynamically adding alt text
+ * and revealing how many pets are available for adoptiong by pet type.
+ * ----------------------------------------
+ */
 furiendFinder.appendToUl = function (totalPets, petAge, petType) {
     const capitalizedType = petType.charAt(0).toUpperCase() + petType.substring(1);
 
@@ -361,6 +417,15 @@ furiendFinder.appendToUl = function (totalPets, petAge, petType) {
     );
 }
 
+/**
+ * ----------------------------------------
+ * APPEND INFORMATION
+ * Method to append breed facts (if available - comparing
+ * petFinderAPI with catAPI and dogAPI), petFacts, name,
+ * photos, organization information/location, and adoption button
+ * taking user to a new page (adoption form) by selecting the div of petFinder's form.
+ * ----------------------------------------
+ */
 furiendFinder.appendInformation = function (name, photos, gender, size, breedName, attributes, description, contact, url, mixed) {
 
     /*ERROR HANDLING: breed names are different between two petFinder and catAPI*/
@@ -382,7 +447,7 @@ furiendFinder.appendInformation = function (name, photos, gender, size, breedNam
             `<div class="breedFacts">
                 <h3>Breed Facts:</h3>
                 <ul>
-                    ${temperament ? `<li><span class="reColor">Temperament: </span> ${temperament}</li>` : ""}
+                    ${temperament ? `<li><p><span class="reColor">Temperament: </span>${temperament}</p></li>` : ""}
                     ${life_span?`<li><span class="reColor">Average Lifespan: </span> ${life_span}</li>`:""}
                     ${weight.metric?`<li><span class="reColor">Average Weight: </span> ${weight.metric} kg</li>`:""}
                     ${origin?`<li><span class="reColor">Origin: </span> ${origin}</li>`: ""}
@@ -462,7 +527,6 @@ furiendFinder.appendInformation = function (name, photos, gender, size, breedNam
  * Kebab naming convention but it's from the class library!
  * ----------------------------------------
  */
-
 AOS.init({
     // Global settings:
     disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
@@ -484,7 +548,6 @@ AOS.init({
     anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
 
 });
-
 
 /**
  * ----------------------------------------
