@@ -3,11 +3,17 @@ function unescape(string){
     return new DOMParser().parseFromString(string, 'text/html').querySelector('html').textContent;
 }
 
-/*create empty object of app*/
+/**
+ * ----------------------------------------
+ * FURIEND FINDER OBJECT
+ * Creating empty object of app
+ * ----------------------------------------
+ */
 const furiendFinder = {
     cat: {},
     dog: {}
 };
+
 /*storing petFinder api key*/
 furiendFinder.petFinderApiKey = "bMlZfEidmf7kNocIPx9z0lC62XwFTmFu94bYQFRRzc8sxD9x6I";
 
@@ -29,7 +35,15 @@ furiendFinder.city = "";
 /* Storing picture position */
 furiendFinder.picturePosition = 0;
 
-/* Geolocation function to get the city and province of the user. If the geolocation is not allowed then Toronto will be the default. */
+
+/**
+ * ----------------------------------------
+ * GEOLOCATION METHOD
+ * Get the city and province (or state) of the user.
+ * If user does not allow Geolocation (or not available on device) 
+ * then Toronto will be default
+ * ----------------------------------------
+ */
 furiendFinder.getGeoLocation = () => {
 
     const success = (position) => {
@@ -57,8 +71,6 @@ furiendFinder.getGeoLocation = () => {
     }
 
     const error = (error) => {
-        /*to fix: HOW SHOULD WE DISPLAY THIS?*/
-        console.log(`Unable to retrieve your location due to ${error.code}: ${error.message}`);
         furiendFinder.city = "Toronto, ON";
         $(`#location`).val(furiendFinder.city);
         $(`.typeButton`).removeAttr("disabled");
@@ -73,8 +85,6 @@ furiendFinder.getGeoLocation = () => {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(success, error, geoOptions);
     } else {
-    /*to fix: HOW SHOULD WE DISPLAY THIS?*/
-        console.log("Geolocation services are not supported by your web browser.");
         furiendFinder.city = "Toronto, ON";
         $(`#location`).val(furiendFinder.city);
         $(`.typeButton`).removeAttr("disabled");
@@ -83,8 +93,13 @@ furiendFinder.getGeoLocation = () => {
  
 }
 
-
-/*init method, on page load*/
+/**
+ * ----------------------------------------
+ * INIT METHOD
+ * On page load toggles buttons and other DOM
+ * elements. Gets called when document is ready.
+ * ----------------------------------------
+ */
 furiendFinder.init = function () {
     /*only call click events atached to buttons when document ready*/
     $('.ageButton').on('click', furiendFinder.ageClickEvent); 
@@ -142,10 +157,17 @@ furiendFinder.init = function () {
 
     /*We disabled the type buttons until the user has entered the location*/
     $(`.typeButton`).attr("disabled","true");
-    
 }
 
-/*Click event for the buttons to select the pet type(cat or dog)*/
+
+
+/**
+ * ----------------------------------------
+ * SELECT PET TYPE CLICK EVENT
+ * Click event for buttons to select the pet type (cat or dog)!
+ * ----------------------------------------
+ */
+
 furiendFinder.selectPetTypeClickEvent = function () {
     $(`.loadingScreen`).fadeIn();
     furiendFinder.city = $(`#location`).val();
@@ -427,14 +449,20 @@ furiendFinder.appendInformation = function (name, photos, gender, size, breedNam
                 `<li><span class="reColor">${contacts}:</span> ${contact.address[contacts]}<li>`
             )
         }
-
     }
     $(`.adoptMe`).html(
         `<a href=${url + "#animal_adoption_inquiry_guest_profile_firstName"}>Adopt Me!</a>`
     )
 }
 
-/*Default settings for the Animation On Scroll Library*/
+/**
+ * ----------------------------------------
+ * ANIMATION ON SCROLL
+ * Initializing AOS
+ * Kebab naming convention but it's from the class library!
+ * ----------------------------------------
+ */
+
 AOS.init({
     // Global settings:
     disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
@@ -457,9 +485,16 @@ AOS.init({
 
 });
 
+
+/**
+ * ----------------------------------------
+ * DOCUMENT READY FUNCTION
+ * Initializing AOS
+ * running init and petSuprise method
+ * ----------------------------------------
+ */
 $(document).ready(function () {
     furiendFinder.init();
-    /*Initializing AOS*/
     AOS.init();
     furiendFinder.petSurprise();
     
