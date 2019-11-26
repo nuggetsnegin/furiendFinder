@@ -1134,7 +1134,7 @@ footer p {
   }
 }
 
-@media (max-width: 775px) {
+@media (max-width: 830px) {
   .container {
     width: 90%;
   }
@@ -1356,8 +1356,8 @@ footer p {
     font-size: 2rem;
   }
   .petInformation .petImage {
-    height: 40vh;
-    width: 40vh;
+    height: 90vw;
+    width: 90vw;
   }
   .breedFacts .reColor {
     width: 65%;
