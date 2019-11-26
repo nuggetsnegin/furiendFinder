@@ -181,6 +181,10 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 
 /*MAIN*/
 /*VARIABLES*/
+html {
+  overflow-x: hidden;
+}
+
 body {
   font-size: 62.5%;
   font-family: "Open Sans", sans-serif;
