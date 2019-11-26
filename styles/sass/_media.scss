@@ -7,7 +7,7 @@
     }
 
     .adoptionOptions h2{
-        font-size: 2.5rem;
+        font-size: 3.8rem;
         
         span{
             box-shadow: inset 0 -3px 0 $dark-color;
@@ -16,31 +16,28 @@
 
     .ageButton{
         p{
-            font-size: 1.4rem;
+            font-size: 2.5rem;
             text-shadow: $accent-color 1px 1px;
         }
+    }
+
+    .petImage{
+        height: 40vh;
+        width: 40vh;
     }
 }
 
 @media (max-width: 990px) {
 
     h1{
-        font-size: 3.5rem;
+        font-size: 6rem;
         text-shadow: 4px 4px $base-color;
     }
 
     .speechBubble{
        p{
          padding-top: 15px;
-         font-size: .9rem;
        }
-    }
-
-    .petAge h2{
-        font-size: 2.5rem;
-        span {
-            box-shadow: inset 0 -3px 0 $dark-color;
-        }
     }
 
     .adoptablePets{
@@ -63,10 +60,6 @@
             width: 100%;
             align-self: center;
             margin-bottom: 1%;
-
-            a{
-                font-size: 3rem;
-            }
         }
     }
 
@@ -80,7 +73,7 @@
 
     .petAge h2{
         padding: 8px 5px;
-        font-size: 2.2rem;
+        font-size: 4rem;
     }
 
     .adoptablePets{
@@ -95,13 +88,16 @@
         padding-top: 20px;
 
         h2{
-            font-size: 1.7rem; 
+            font-size: 2.5rem; 
 
             span{
                 box-shadow: inset 0 -3px 0 $dark-color;
             }
         }
+    }
 
+    .backButton{
+        font-size: 3rem;
     }
 }
 
@@ -160,7 +156,7 @@
 @media (max-width: 695px) {
 
     h1{
-        font-size: 2.8rem;
+        font-size: 5rem;
     }
 
     .age li {
@@ -199,7 +195,7 @@
         padding-top: 15px;
 
         h2{
-            font-size: 1.6rem; 
+            font-size: 2rem; 
             text-align: center;
             padding: 7px;
 
@@ -210,7 +206,7 @@
     }
 
     .petAge h2{
-        font-size: 2rem;
+        font-size: 3rem;
     }
 
     .adoptablePets{
@@ -266,7 +262,7 @@
     }
     
     h1{ 
-        font-size: 2.5rem;
+        font-size: 4rem;
         text-shadow: 2px 2px $base-color;
     }
 
@@ -274,22 +270,19 @@
         margin-top: 20%;
         width: 100%;
         p{
-            font-size: .88rem;
+            font-size: 1.75rem;
             padding: 7px 5px;
         }
     }
 
     .userLocation{
         p, input{
-            font-size: 1.5rem;
+            font-size: 3rem;
         }
     }
 
     .type{
         padding-top: 30px;
-        p{
-            font-size: 2rem;
-        }
     }
 
     .alert{ /*resizing alert box*/
@@ -329,19 +322,23 @@
 @media (max-width: 475px) { 
 
     h1{
-        font-size: 2rem;
+        font-size: 3rem;
         text-shadow: 2px 2px $base-color;
     }
 
     .userLocation{
         input,p{
-            font-size: 1.2rem; /*to fix, maybe stack?*/
+            font-size: 2.5rem; /*to fix, maybe stack?*/
         }
+    }
+
+    .ageButton p{
+        font-size: 2rem;
     }
 
     .adoptionOptions{
         h2{
-            font-size: 1.3rem;
+            font-size: 1.7rem;
 
             span{
                 box-shadow: inset 0 -2px 0 $dark-color;
@@ -361,7 +358,7 @@
 
     footer{
         p{
-            font-size: .7rem;
+            font-size: 1.5rem;
             padding: 10px 0px;
         }
     }
@@ -369,20 +366,28 @@
 
 @media(max-width: 410px){
     h1{
-        font-size: 1.5rem;
+        font-size: 2.4rem;
         text-shadow: 2px 2px $base-color;
+    }
+
+    .petAge h2{
+        font-size: 2.5rem;
+
+        span{
+            box-shadow: inset 0 -3px 0 $dark-color;
+        }
     }
 
     .petInformation{
 
         h2{
-            font-size: 2rem;
+            font-size: 3rem;
             padding-top: 20px;
 
         }
 
         h3{
-            font-size: 2rem;
+            font-size: 3rem;
         }
 
         .petImage{
