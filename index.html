@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all">
     <link rel="stylesheet" href="./styles/style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="./assets/youngDog.png">
 </head>
 
 <body>
@@ -57,7 +58,7 @@
                 </div>
                 <ul class="type">
                     <li>
-                        <button class="typeButton" value="dog">
+                        <button class="typeButton" value="dog" aria-label="Dog selection">
                             <img src="./assets/dogMain.png" alt="illustration of a dog">
                             <p>Dog</p>
                         </button>
@@ -65,7 +66,7 @@
                     </li>
 
                     <li>
-                        <button class="typeButton" value="cat">
+                        <button class="typeButton" value="cat" aria-label="Cat selection">
                             <img src="./assets/catMain.png" alt="illustration of a cat">
                             <p>Cat</p>
                         </button>
@@ -81,19 +82,19 @@
                 <h2 class="locationResults">Select the age of your future <span>furiend!</span></h2>
                 <ul class="age">
                     <li>
-                        <button class="baby ageButton" value="baby"></button>
+                        <button class="baby ageButton" value="baby" aria-label="Baby pet selection"></button>
                     </li>
 
                     <li>
-                        <button class="young ageButton" value="young"></button>
+                        <button class="young ageButton" value="young" aria-label="Young pet selection"></button>
                     </li>
 
                     <li>
-                        <button class="adult ageButton" value="adult"></button>
+                        <button class="adult ageButton" value="adult" aria-label="Adult pet selection"></button>
                     </li>
 
                     <li>
-                        <button class="senior ageButton" value="senior"></button>
+                        <button class="senior ageButton" value="senior" aria-label="Senior pet selection"></button>
                     </li>
                 </ul>
             </section>
@@ -114,8 +115,8 @@
 
                 <h2>Hi there, my name is <span class="petName"></span>!</h2>
                 <div class="petImage">
-                    <button class="previousPhoto" value="-1"><i class="fas fa-angle-double-left"></i></button>
-                    <button class="nextPhoto" value="1"><i class="fas fa-angle-double-right"></i></button>
+                    <button class="previousPhoto" value="-1" aria-label="Previous pet image"><i class="fas fa-angle-double-left"></i></button>
+                    <button class="nextPhoto" value="1" aria-label="Next pet image"><i class="fas fa-angle-double-right"></i></button>
                 </div>
                 <div class="petFacts">
                     <h3>Information:</h3>
