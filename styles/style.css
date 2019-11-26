@@ -183,10 +183,10 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 /*VARIABLES*/
 html {
   overflow-x: hidden;
+  font-size: 62.5%;
 }
 
 body {
-  font-size: 62.5%;
   font-family: "Open Sans", sans-serif;
   background-image: url(../assets/bgPattern.png);
   background-color: #e8f6fd;
@@ -222,7 +222,7 @@ main {
 }
 
 p {
-  font-size: 2rem;
+  font-size: 4rem;
   margin: 0;
 }
 
@@ -247,16 +247,16 @@ button {
 h1 {
   font-family: "Pangolin", cursive;
   padding-left: 10px;
-  font-size: 5rem;
+  font-size: 8rem;
   letter-spacing: 5px;
   margin: 0;
   color: #023055;
-  text-shadow: 5px 5px #3fc1c9;
+  text-shadow: 4px 4px #3fc1c9;
   cursor: pointer;
 }
 
 h2 {
-  font-size: 3rem;
+  font-size: 5rem;
   font-family: "Dosis", sans-serif;
   margin: 0;
   color: #023055;
@@ -276,7 +276,7 @@ ul {
   font-family: "Pangolin", cursive;
   padding: 10px 20px;
   border: none;
-  font-size: 2rem;
+  font-size: 4rem;
   text-transform: uppercase;
   border-radius: 50%;
   border: 3px solid #023055;
@@ -382,7 +382,7 @@ ul {
 }
 
 .userLocation input {
-  font-size: 2rem;
+  font-size: 4rem;
   padding: 0px 15px;
   color: #f3286f;
   border: none;
@@ -405,7 +405,7 @@ ul {
 }
 
 .speechBubble p {
-  font-size: 1.1rem;
+  font-size: 2rem;
   padding: 30px;
   font-family: "Pangolin", cursive;
   color: #e8f6fd;
@@ -581,13 +581,13 @@ ul {
   color: #023055;
   text-shadow: 1px 1px 1px #e8f6fd;
   z-index: 1;
-  font-size: 1rem;
+  font-size: 1.5rem;
   padding: 0 5px;
 }
 
 .adoptablePets p:first-child {
   top: 50px;
-  font-size: 1rem;
+  font-size: 1.75rem;
 }
 
 .adoptablePets button {
@@ -643,7 +643,7 @@ ul {
   -ms-grid-rows: (min-content)[3];
       grid-template-rows: repeat(3, -webkit-min-content);
       grid-template-rows: repeat(3, min-content);
-      grid-template-areas: "title title title" "petImage petStory petStory" "petImage petFacts location" "breedFacts breedFacts breedFacts" "adoptMe adoptMe adoptMe";
+      grid-template-areas: "title title title" "petImage petStory petStory" "petImage petFacts location" "breedFacts breedFacts breedFacts" "adoptMe adoptMe adoptMe";
 }
 
 .petInformation h2 {
@@ -657,7 +657,7 @@ ul {
 }
 
 .petInformation h3 {
-  font-size: 2.5rem;
+  font-size: 4rem;
   color: #023055;
   text-shadow: 2px 2px #3fc1c9;
   font-family: "Pangolin", cursive;
@@ -670,7 +670,7 @@ ul {
 }
 
 .petInformation li {
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 
 .petInformation ul {
@@ -781,7 +781,7 @@ ul {
 .petStory p,
 .petLocation p,
 .breedFacts p {
-  font-size: 1rem;
+  font-size: 1.5rem;
   margin: 0;
 }
 
@@ -830,7 +830,7 @@ ul {
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: adoptMe;
-  font-size: 2rem;
+  font-size: 5rem;
   text-transform: uppercase;
   font-family: "Pangolin", cursive;
   padding: 10px 0;
@@ -886,7 +886,7 @@ ul {
   background-color: #3fc1c9;
   color: #E2EAEE;
   border-radius: 30px;
-  font-size: 2rem;
+  font-size: 3rem;
   margin-bottom: 2%;
 }
 
@@ -897,7 +897,7 @@ ul {
 
 .alert h3 {
   font-family: "Pangolin", cursive;
-  font-size: 3rem;
+  font-size: 6rem;
   padding-top: 20px;
   margin: 0;
   text-shadow: #023055 3px 3px;
@@ -905,7 +905,7 @@ ul {
 
 .alert p {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 3rem;
   padding: 10px;
 }
 
@@ -942,7 +942,7 @@ ul {
 }
 
 .loadingScreen p {
-  font-size: 3.5rem;
+  font-size: 5rem;
   font-family: "Pangolin", cursive;
   text-shadow: 3px 3px #3fc1c9;
   padding: 20px;
@@ -1017,7 +1017,7 @@ footer {
 footer p {
   margin: 0;
   padding: 10px;
-  font-size: 1rem;
+  font-size: 2rem;
 }
 
 .popUpRight, .popUpLeft {
@@ -1034,24 +1034,6 @@ footer p {
 
 .popUpLeft {
   left: -20%;
-}
-
-@-webkit-keyframes appear {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes appear {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }
 
 @media (max-width: 1295px) {
@@ -1098,7 +1080,7 @@ footer p {
     -ms-grid-rows: (min-content)[5];
         grid-template-rows: repeat(5, -webkit-min-content);
         grid-template-rows: repeat(5, min-content);
-        grid-template-areas: "title title" "petImage petStory" "petFacts location" "breedFacts breedFacts" "adoptMe adoptMe";
+        grid-template-areas: "title title" "petImage petStory" "petFacts location" "breedFacts breedFacts" "adoptMe adoptMe";
   }
   .petInformation .adoptMe {
     width: 100%;
@@ -1243,7 +1225,7 @@ footer p {
     -ms-grid-rows: (min-content)[7];
         grid-template-rows: repeat(7, -webkit-min-content);
         grid-template-rows: repeat(7, min-content);
-        grid-template-areas: "title" "petImage" "petStory" "petFacts" "location" "breedFacts" "adoptMe";
+        grid-template-areas: "title" "petImage" "petStory" "petFacts" "location" "breedFacts" "adoptMe";
   }
   .petImage {
     margin: 0 auto;
@@ -1378,6 +1360,24 @@ footer p {
   .factmeter4,
   .factmeter5 {
     width: 30%;
+  }
+}
+
+@-webkit-keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 

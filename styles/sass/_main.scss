@@ -17,10 +17,10 @@ cursive;
 html {
     
     overflow-x: hidden;
+    font-size: 62.5%;
 }
 
 body {
-    font-size: 62.5%;
     font-family: $main-font;
     background-image: url(../assets/bgPattern.png);
     background-color: $light-color; /*fallback*/
@@ -51,7 +51,7 @@ main {
 }
 
 p {
-    font-size: 2rem;
+    font-size: 4rem;
     margin: 0;
 }
 
@@ -75,17 +75,17 @@ button {
 h1 {
     font-family: $heading-font;
     padding-left: 10px;
-    font-size: 5rem;
+    font-size: 8rem;
     letter-spacing: 5px;
     margin: 0;
     color: $dark-color;
-    text-shadow: 5px 5px $base-color;
+    text-shadow: 4px 4px $base-color;
     cursor: pointer;
 }
 
 
 h2 {
-    font-size: 3rem;
+    font-size: 5rem;
     font-family: $accent-font;
     margin: 0;
     color: $dark-color;
@@ -105,7 +105,7 @@ ul {
     font-family: $heading-font;
     padding: 10px 20px;
     border: none;
-    font-size: 2rem;
+    font-size: 4rem;
     text-transform: uppercase;
     border-radius: 50%;
     border: 3px solid $dark-color;
@@ -185,7 +185,7 @@ ul {
     }
 
     input {
-        font-size: 2rem;
+        font-size: 4rem;
         padding: 0px 15px;
         color: $accent-color;
         border: none;
@@ -208,7 +208,7 @@ ul {
     border-radius: 20px;
 
     p {
-        font-size: 1.1rem;
+        font-size: 2rem;
         padding: 30px;
         font-family: $heading-font;
         color: $light-color;
@@ -351,13 +351,13 @@ ul {
         color: $dark-color;
         text-shadow: 1px 1px 1px $light-color;
         z-index: 1;
-        font-size: 1rem;
+        font-size: 1.5rem;
         padding: 0 5px;
     }
 
     p:first-child {
         top: 50px;
-        font-size: 1rem;
+        font-size: 1.75rem;
     }
 
     button {
@@ -417,7 +417,7 @@ ul {
     }
 
     h3 {
-        font-size: 2.5rem;
+        font-size: 4rem;
         color: $dark-color;
         text-shadow: 2px 2px $base-color;
         font-family: $heading-font;
@@ -429,7 +429,7 @@ ul {
     }
 
     li {
-        font-size: 1rem;
+        font-size: 1.5rem;
     }
 
     ul {
@@ -523,7 +523,7 @@ ul {
     border: solid 5px $dark-color;
 
     p {
-        font-size: 1rem;
+        font-size: 1.5rem;
         margin: 0;
     }
 
@@ -557,7 +557,7 @@ ul {
 
 .adoptMe {
     grid-area: adoptMe;
-    font-size: 2rem;
+    font-size: 5rem;
     text-transform: uppercase;
     font-family: $heading-font;
     padding: 10px 0;
@@ -608,7 +608,7 @@ ul {
         background-color: $base-color;
         color: $background-color;
         border-radius: 30px;
-        font-size: 2rem;
+        font-size: 3rem;
         margin-bottom: 2%;
     }
 
@@ -618,7 +618,7 @@ ul {
 
     h3 {
         font-family: $heading-font;
-        font-size: 3rem;
+        font-size: 6rem;
         padding-top: 20px;
         margin: 0;
         text-shadow: $dark-color 3px 3px;
@@ -626,7 +626,7 @@ ul {
 
     p {
         margin: 0;
-        font-size: 1.5rem;
+        font-size: 3rem;
         padding: 10px;
     }
 
@@ -654,7 +654,7 @@ ul {
     text-align: center;
 
     p {
-        font-size: 3.5rem;
+        font-size: 5rem;
         font-family: $heading-font;
         text-shadow: 3px 3px $base-color;
         padding: 20px;
@@ -723,7 +723,7 @@ footer {
     p {
         margin: 0;
         padding: 10px;
-        font-size: 1rem;
+        font-size: 2rem;
     }
 }
 
@@ -741,17 +741,4 @@ footer {
 
 .popUpLeft {
     left: -20%;
-}
-
-
-// KEYFRAMES
-
-@keyframes appear {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
 }
