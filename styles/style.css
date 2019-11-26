@@ -1177,7 +1177,7 @@ footer p {
         flex-basis: 50%;
   }
   .loadingScreen p {
-    font-size: 2rem;
+    font-size: 4rem;
     font-family: "Pangolin", cursive;
     text-shadow: 2px 2px #3fc1c9;
     padding: 10px;
