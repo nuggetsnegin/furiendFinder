@@ -188,10 +188,10 @@ furiendFinder.petSurprise = function () {
 
     $("main").append(`<img class="popUp${randomNumberCatOrDog===2 ? "Right":"Left"}" src="./assets/${randomNumberCatOrDog===2?"dog":"cat"}PopIn.png" alt="Illustration of a cat waving" aria-hidden="true" >`);
 
-    $(`.popUp${randomNumberCatOrDog===2 ? "Right" : "Left"}`).css("top", `${randomPosition}%`);
+    $(`.popUp${randomNumberCatOrDog === 2 ? "Right" : "Left"}`).css("top", `${randomPosition}%`);
 
     setTimeout(() => {
-        $(`.popUp${randomNumberCatOrDog===2 ? "Right" : "Left"}`).css("transform", `translate(${randomNumberCatOrDog===1 ?"":"-"}19vw)`);
+        $(`.popUp${randomNumberCatOrDog === 2 ? "Right" : "Left"}`).css("transform", `translate(${randomNumberCatOrDog===1 ?"":"-"}19vw)`);
 
         setTimeout(() => {
             $(`.popUp${randomNumberCatOrDog === 2 ? "Right" : "Left"}`).css("transition", "all 2s").css("transform", `translate(${randomNumberCatOrDog === 2 ? "" : "-"}19vw)`);
