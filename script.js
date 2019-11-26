@@ -178,7 +178,7 @@ furiendFinder.selectPetTypeClickEvent = function () {
  * ----------------------------------------
  * PET SUPRISE
  * Method to make cat/dog illustration pop in from the 
- * side of the screen at random intervals!
+ * side of the screen at random positions!
  * ----------------------------------------
  */
 furiendFinder.petSurprise = function () {
