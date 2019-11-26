@@ -1,5 +1,5 @@
 /*Escape any special characters from petFinder API story responses, such as %20 or &#39;s*/
-function unescape(string){
+function unescape(string) {
     return new DOMParser().parseFromString(string, 'text/html').querySelector('html').textContent;
 }
 
@@ -49,7 +49,7 @@ furiendFinder.getGeoLocation = () => {
     const success = (position) => {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
-        
+
         $.ajax({
             url: `http://open.mapquestapi.com/geocoding/v1/reverse/`,
             data: {
@@ -60,20 +60,20 @@ furiendFinder.getGeoLocation = () => {
             const city = data.results[0].locations[0]["adminArea5"];
             const province = data.results[0].locations[0]["adminArea3"];
             furiendFinder.city = `${city}, ${province}`;
-            $(`#location`).val(furiendFinder.city);
-            $(`.typeButton`).removeAttr("disabled");
+            $("#location").val(furiendFinder.city);
+            $(".typeButton").removeAttr("disabled");
         }).fail(() => {
             furiendFinder.city = "Toronto, ON";
-            $(`#location`).val(furiendFinder.city);
-            $(`.typeButton`).removeAttr("disabled");
+            $("#location").val(furiendFinder.city);
+            $(".typeButton").removeAttr("disabled");
         })
 
     }
 
     const error = (error) => {
         furiendFinder.city = "Toronto, ON";
-        $(`#location`).val(furiendFinder.city);
-        $(`.typeButton`).removeAttr("disabled");
+        $("#location").val(furiendFinder.city);
+        $(".typeButton").removeAttr("disabled");
     }
 
     const geoOptions = {
@@ -86,11 +86,11 @@ furiendFinder.getGeoLocation = () => {
         navigator.geolocation.getCurrentPosition(success, error, geoOptions);
     } else {
         furiendFinder.city = "Toronto, ON";
-        $(`#location`).val(furiendFinder.city);
-        $(`.typeButton`).removeAttr("disabled");
-        
+        $("#location").val(furiendFinder.city);
+        $(".typeButton").removeAttr("disabled");
+
     };
- 
+
 }
 
 /**
@@ -102,62 +102,62 @@ furiendFinder.getGeoLocation = () => {
  */
 furiendFinder.init = function () {
     /*only call click events atached to buttons when document ready*/
-    $('.ageButton').on('click', furiendFinder.ageClickEvent); 
-    $('.adoptablePets').on('click', '.adoptionButton', furiendFinder.getMoreInfoCLickEvent);
+    $(".ageButton").on("click", furiendFinder.ageClickEvent);
+    $(".adoptablePets").on("click", ".adoptionButton", furiendFinder.getMoreInfoCLickEvent);
 
     /*Getting breeds facts on initialization*/
     furiendFinder.getBreedFacts("cat");
     furiendFinder.getBreedFacts("dog");
 
-    $(`.typeButton`).on(`click`, furiendFinder.selectPetTypeClickEvent);
+    $(".typeButton").on("click", furiendFinder.selectPetTypeClickEvent);
 
-    $(`.acceptAlert`).on("click", function () {
-        $(`.alert`).fadeOut();
+    $(".acceptAlert").on("click", function () {
+        $(".alert").fadeOut();
     })
 
-    $(`header`).on("click", ".backButtonToType",function () {
-        $(`.petAge`).fadeOut();
-        $(`.petType`).fadeIn();
+    $("header").on("click", ".backButtonToType", function () {
+        $(".petAge").fadeOut();
+        $(".petType").fadeIn();
         $(".backButton").fadeOut();
     });
 
-    $(`.backButtonToAge`).on("click", function () {
-        $(`.adoptionOptions`).hide();
-        $(`.petAge`).fadeIn();
+    $(".backButtonToAge").on("click", function () {
+        $(".adoptionOptions").hide();
+        $(".petAge").fadeIn();
         $(".backButtonToType").show();
         $(".backButtonToAge").hide();
     });
 
-    $(`header`).on("click", `.backButtonToOptions`, function () {
-        $(`.petInformation`).fadeOut();
-        $(`.adoptionOptions`).fadeIn();
+    $("header").on("click", ".backButtonToOptions", function () {
+        $(".petInformation").fadeOut();
+        $(".adoptionOptions").fadeIn();
         $(".backButtonToAge").show();
         $(".backButtonToOptions").hide();
     });
 
-    $(`.petImage button`).on("click", furiendFinder.pictureChange);
+    $(".petImage button").on("click", furiendFinder.pictureChange);
 
     /*Calling the function to ask the user for the location*/
     furiendFinder.getGeoLocation();
-    
+
     /*We make sure the other divs of the App are not displayed*/
-    $(`.petInformation`).hide();
-    $(`.petAge`).hide();
-    $(`.adoptionOptions`).hide();
-    $(`.alert`).hide();
-    $(`.loadingScreen`).hide();
-    $(`.backButton`).hide();
+    $(".petInformation").hide();
+    $(".petAge").hide();
+    $(".adoptionOptions").hide();
+    $(".alert").hide();
+    $(".loadingScreen").hide();
+    $(".backButton").hide();
 
     $("h1").on("click", () => {
-        $(`.petAge`).hide();
-        $(`.petInformation`).hide();
-        $(`.adoptionOptions`).hide();
-        $(`.petType`).fadeIn();
-        $(`.backButton`).hide();
+        $(".petAge").hide();
+        $(".petInformation").hide();
+        $(".adoptionOptions").hide();
+        $(".petType").fadeIn();
+        $(".backButton").hide();
     })
 
     /*We disabled the type buttons until the user has entered the location*/
-    $(`.typeButton`).attr("disabled","true");
+    $(".typeButton").attr("disabled", "true");
 }
 
 /**
@@ -167,9 +167,9 @@ furiendFinder.init = function () {
  * ----------------------------------------
  */
 furiendFinder.selectPetTypeClickEvent = function () {
-    $(`.loadingScreen`).fadeIn();
+    $(".loadingScreen").fadeIn();
     furiendFinder.city = $(`#location`).val();
-    $(`.adoptablePets`).empty();
+    $(".adoptablePets").empty();
     furiendFinder.petType = $(this).val();
     furiendFinder.getPetsNumberByAge(furiendFinder.petType, furiendFinder.city);
 }
@@ -182,7 +182,7 @@ furiendFinder.selectPetTypeClickEvent = function () {
  * ----------------------------------------
  */
 furiendFinder.petSurprise = function () {
-    
+
     const randomNumberCatOrDog = Math.ceil(Math.random() * 2);
     const randomPosition = (Math.ceil(Math.random() * 70)) + 10;
 
@@ -211,11 +211,11 @@ furiendFinder.petSurprise = function () {
  *  by 4 age groups using petFinder API
  * ----------------------------------------
  */
-furiendFinder.getPetsNumberByAge = function (petType,city) {
+furiendFinder.getPetsNumberByAge = function (petType, city) {
     const petAgeArray = ["baby", "young", "adult", "senior"];
     /*run a for loop 4 times (0-3) and using the getPetsAvailable method to grab the pet's age and using the petFinder api query to get those words into the function*/
     for (let i = 0; i < 4; i++) {
-        furiendFinder.getPetsAvailable(petAgeArray[i], petType, city, furiendFinder.getNumPets,"petType","petAge");
+        furiendFinder.getPetsAvailable(petAgeArray[i], petType, city, furiendFinder.getNumPets, "petType", "petAge");
     }
 }
 
@@ -226,7 +226,7 @@ furiendFinder.getPetsNumberByAge = function (petType,city) {
  * location in a 50km radius
  * ----------------------------------------
  */
-furiendFinder.getPetsAvailable = function (petAge, petType,city, functionCall, disappearingDivClass, appearingDivClass) {
+furiendFinder.getPetsAvailable = function (petAge, petType, city, functionCall, disappearingDivClass, appearingDivClass) {
     $.ajax({
         url: "https://api.petfinder.com/v2/oauth2/token",
         method: "POST",
@@ -248,15 +248,16 @@ furiendFinder.getPetsAvailable = function (petAge, petType,city, functionCall, d
                 age: petAge,
                 type: petType,
                 status: "adoptable",
-                distance: 31, /*50miles in km*/
+                distance: 31,
+                /*50miles in km*/
                 location: city,
                 limit: 50,
                 sort: "random"
             },
         }).then((data) => {
             furiendFinder.city = city;
-            $(`.loadingScreen`).fadeOut();
-            
+            $(".loadingScreen").fadeOut();
+
             functionCall(data, petAge, petType, city);
             $(`.${disappearingDivClass}`).hide();
             $(`.${appearingDivClass}`).show();
@@ -267,8 +268,8 @@ furiendFinder.getPetsAvailable = function (petAge, petType,city, functionCall, d
                 $(".backButtonToType").hide();
             }
         }).fail((error) => {
-            $(`.loadingScreen`).fadeOut();
-            $(`.alert`).fadeIn(); 
+            $(".loadingScreen").fadeOut();
+            $(".alert").fadeIn();
         });
     });
 }
@@ -305,28 +306,38 @@ furiendFinder.getBreedFacts = function (petType) {
  * ----------------------------------------
  */
 furiendFinder.ageClickEvent = function () {
-    $(`.adoptablePets`).empty();
-    $(`.loadingScreen`).fadeIn();
+    $(".adoptablePets").empty();
+    $(".loadingScreen").fadeIn();
     const petAge = $(this).val();
-    furiendFinder.getPetsAvailable(petAge, furiendFinder.petType, furiendFinder.city, furiendFinder.getAdoptablePets,"petAge","adoptionOptions");
+    furiendFinder.getPetsAvailable(petAge, furiendFinder.petType, furiendFinder.city, furiendFinder.getAdoptablePets, "petAge", "adoptionOptions");
 }
 
 furiendFinder.getMoreInfoCLickEvent = function () {
-    $(`.adoptionOptions`).hide();
+    $(".adoptionOptions").hide();
     $(".backButtonToAge").hide();
     $(".backButtonToOptions").show();
-    window.location ="#header";
+    window.location = "#header";
     const petIndex = $(this).val();
     const petType = furiendFinder.petType;
     const animalArray = furiendFinder[petType].animalsArray[petIndex];
 
-    const { name, photos, gender, breeds, size, attributes, contact, url, mixed } = animalArray;
+    const {
+        name,
+        photos,
+        gender,
+        breeds,
+        size,
+        attributes,
+        contact,
+        url,
+        mixed
+    } = animalArray;
 
     const description = unescape(animalArray.description); /*fixing escaping characters on description api call*/
 
     furiendFinder.appendInformation(name, photos, gender, size, breeds.primary, attributes, description, contact, url, mixed);
 
-    $('.petInformation').fadeIn();
+    $(".petInformation").fadeIn();
 }
 
 /**
@@ -358,7 +369,7 @@ furiendFinder.getAdoptablePets = function (data, petAge, petType, petBreed, city
  */
 furiendFinder.adoptableButton = function (index, name, breed, url, petType, mixed) {
 
-    $(`.adoptablePets`).append(
+    $(".adoptablePets").append(
         `<li data-aos="fade-up">
             <button value = ${index} class="adoptionButton">
                 <img src="${url}" alt="photo of ${name} which is a ${mixed ? "mixed" : ""} ${breed} ${petType}">
@@ -386,18 +397,18 @@ furiendFinder.pictureChange = function () {
     const numberOfPhotos = furiendFinder.numberOfPhotos;
     const value = parseInt($(this).val());
     furiendFinder.photoPosition += value;
-    $(`.petImage img`).css("transform", `translate(${-(100 * (furiendFinder.photoPosition - 1))}%)`);
-    
+    $(".petImage img").css("transform", `translate(${-(100 * (furiendFinder.photoPosition - 1))}%)`);
+
     if (furiendFinder.photoPosition === 1) {
-        $(`.previousPhoto`).attr("disabled", "true");
+        $(".previousPhoto").attr("disabled", "true");
     } else {
-        $(`.previousPhoto`).removeAttr("disabled");
+        $(".previousPhoto").removeAttr("disabled");
     }
 
     if (furiendFinder.photoPosition === numberOfPhotos) {
-        $(`.nextPhoto`).attr("disabled", "true");
+        $(".nextPhoto").attr("disabled", "true");
     } else {
-        $(`.nextPhoto`).removeAttr("disabled");
+        $(".nextPhoto").removeAttr("disabled");
     }
 }
 
@@ -415,8 +426,7 @@ furiendFinder.appendToUl = function (totalPets, petAge, petType) {
     $(`.${petAge}`).empty().append(`
         <p>${petAge}</p>
         <img src="assets/${petAge}${capitalizedType}.png" alt="Illustration of a ${petAge} ${petType}">
-        <p>${totalPets} available</p>`
-    );
+        <p>${totalPets} available</p>`);
 }
 
 /**
@@ -427,7 +437,7 @@ furiendFinder.appendToUl = function (totalPets, petAge, petType) {
  * and consistency.
  * ----------------------------------------
  */
-furiendFinder.upperCase = function(word){
+furiendFinder.upperCase = function (word) {
     const capitalizedWord = word.charAt(0).toUpperCase() + word.substring(1);
     return capitalizedWord;
 }
@@ -444,7 +454,7 @@ furiendFinder.upperCase = function(word){
 furiendFinder.appendInformation = function (name, photos, gender, size, breedName, attributes, description, contact, url, mixed) {
 
     /*ERROR HANDLING: breed names are different between two petFinder and catAPI*/
-    if(breedName.includes('Domestic')){ 
+    if (breedName.includes('Domestic')) {
         breedName = 'American Shorthair';
     }
 
@@ -456,9 +466,18 @@ furiendFinder.appendInformation = function (name, photos, gender, size, breedNam
 
     if (breedFactsInfo !== undefined) {
 
-        const { life_span,temperament,origin,weight,affection_level,adaptability,child_friendly,energy_level} = breedFactsInfo; 
+        const {
+            life_span,
+            temperament,
+            origin,
+            weight,
+            affection_level,
+            adaptability,
+            child_friendly,
+            energy_level
+        } = breedFactsInfo;
 
-        $(`.petFacts`).after(
+        $(".petFacts").after(
             `<div class="breedFacts">
                 <h3>Breed Facts:</h3>
                 <ul>
@@ -482,62 +501,62 @@ furiendFinder.appendInformation = function (name, photos, gender, size, breedNam
         );
     };
 
-    $(`.petName`).html(
+    $(".petName").html(
         `${name}`
     )
 
-    $(`.petImage img`).remove();
+    $(".petImage img").remove();
 
     if (photos.length <= 1) {
-        $(`.petImage button`).hide();
+        $(".petImage button").hide();
     } else {
-        $(`.petImage button`).show();
+        $(".petImage button").show();
     }
 
     furiendFinder.numberOfPhotos = photos.length;
     furiendFinder.photoPosition = 1;
-    $(`.previousPhoto`).attr("disabled", "true");
-    $(`.nextPhoto`).removeAttr("disabled");
+    $(".previousPhoto").attr("disabled", "true");
+    $(".nextPhoto").removeAttr("disabled");
 
     photos.forEach((photo, index) => {
-        $(`.petImage`).append(
+        $(".petImage").append(
             `<img src="${photo.medium}" alt="Adoptable ${breedName} ${petType}">`)
-              
+
     })
-    
-    $(`.petFactsUl`).html(
+
+    $(".petFactsUl").html(
         `<li><span class="reColor">Breed:</span> ${mixed?"Mixed":""} ${breedName}</li>
         <li><span class="reColor">Gender:</span> ${gender}</li>
         <li><span class="reColor">Size:</span> ${size}</li>`
     )
 
     for (attribute in attributes) {
-        $(`.petFactsUl`).append(
+        $(".petFactsUl").append(
             `<li><span class="reColor">${furiendFinder.upperCase(attribute.replace('_',' '))}:</span> ${attributes[attribute]?"✔":"✖"}</li>`
         )
     }
 
-    $(`.petStory`).html(
+    $(".petStory").html(
         `<h3>My Story: </h3><p>${description !== "null" ? `${description} <a href = "${url}" > read more</a >`:"I'm a little shy, contact me to learn more about me!"} </p>`
     )
 
-    $(`.petLocation`).html(
+    $(".petLocation").html(
         /*using conditionals for error handling API information*/
         `<h3>Organization: </h3>
         <p><span class="reColor">E-mail:</span> ${contact.email?contact.email:"No email available"}</p>
         <p><span class="reColor">Phone #:</span> ${contact.phone ? contact.phone : "No phone number available"}</p>
         <ul></ul>`
     )
-    
+
     for (contacts in contact.address) {
-    /*not showing null if no address available*/   
+        /*not showing null if no address available*/
         if (contact.address[contacts] !== null && contact.address[contacts] !== "") {
-            $(`.petLocation ul`).append(
+            $(".petLocation ul").append(
                 `<li><span class="reColor">${furiendFinder.upperCase(contacts)}:</span> ${contact.address[contacts]}<li>`
             )
         }
     }
-    $(`.adoptMe`).html(
+    $(".adoptMe").html(
         `<a href=${url + "#animal_adoption_inquiry_guest_profile_firstName"}>Adopt Me!</a>`
     )
 }
@@ -582,5 +601,5 @@ $(document).ready(function () {
     furiendFinder.init();
     AOS.init();
     furiendFinder.petSurprise();
-    
+
 })
