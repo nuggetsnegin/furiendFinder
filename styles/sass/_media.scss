@@ -71,8 +71,8 @@
     }
 
     .petImage{
-        height: 51vh;
-        width: 51vh;
+        height: 40vw;
+        width: 40vw;
     }
 }
 
@@ -137,6 +137,8 @@
 
     .petImage{
         box-shadow: 4px 4px $accent-color;
+        width: 45vw;
+        height: 45vw;
     }
 
     .adoptablePets{
@@ -234,6 +236,8 @@
 
     .petImage{
         margin: 0 auto;
+        width: 70vw;
+        height: 70vw;
     }
     .nextPhoto, 
     .previousPhoto{

@@ -615,11 +615,11 @@ ul {
 .adoptablePets img {
   width: 250px;
   height: 250px;
+  -o-object-position: top;
+     object-position: top;
   -o-object-fit: cover;
      object-fit: cover;
   /*stop image stretching*/
-  -o-object-position: top;
-     object-position: top;
   border-radius: 50%;
   position: relative;
   border: solid 5px #3fc1c9;
@@ -718,6 +718,8 @@ ul {
   -o-object-fit: cover;
      object-fit: cover;
   /*to not stretch image*/
+  -o-object-position: top;
+     object-position: top;
   overflow: hidden;
   height: 100%;
   width: 100%;
@@ -1105,8 +1107,8 @@ footer p {
     font-size: 3rem;
   }
   .petImage {
-    height: 51vh;
-    width: 51vh;
+    height: 40vw;
+    width: 40vw;
   }
 }
 
@@ -1161,6 +1163,8 @@ footer p {
   .petImage {
     -webkit-box-shadow: 4px 4px #f3286f;
             box-shadow: 4px 4px #f3286f;
+    width: 45vw;
+    height: 45vw;
   }
   .adoptablePets {
     -ms-grid-columns: (1fr)[2];
@@ -1239,6 +1243,8 @@ footer p {
   }
   .petImage {
     margin: 0 auto;
+    width: 70vw;
+    height: 70vw;
   }
   .nextPhoto,
   .previousPhoto {

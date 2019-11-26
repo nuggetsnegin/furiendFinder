@@ -255,18 +255,24 @@ furiendFinder.getPetsAvailable = function (petAge, petType, city, functionCall, 
                 sort: "random"
             },
         }).then((data) => {
-            furiendFinder.city = city;
-            $(".loadingScreen").fadeOut();
+            if (data.animals.length > 0) {
+                furiendFinder.city = city;
+                $(".loadingScreen").fadeOut();
 
-            functionCall(data, petAge, petType, city);
-            $(`.${disappearingDivClass}`).hide();
-            $(`.${appearingDivClass}`).show();
-            if (appearingDivClass === "petAge") {
-                $(`.backButtonToType`).show();
+                functionCall(data, petAge, petType, city);
+                $(`.${disappearingDivClass}`).hide();
+                $(`.${appearingDivClass}`).show();
+                if (appearingDivClass === "petAge") {
+                    $(`.backButtonToType`).show();
+                } else {
+                    $(".backButtonToAge").show();
+                    $(".backButtonToType").hide();
+                } 
             } else {
-                $(".backButtonToAge").show();
-                $(".backButtonToType").hide();
+                $(".loadingScreen").fadeOut();
+                $(".alert").fadeIn();
             }
+            
         }).fail((error) => {
             $(".loadingScreen").fadeOut();
             $(".alert").fadeIn();

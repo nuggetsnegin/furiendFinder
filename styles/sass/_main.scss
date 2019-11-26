@@ -374,17 +374,19 @@ ul {
         }
         
     }
-
+    
     img {
         width: 250px;
         height: 250px;
-        object-fit: cover; /*stop image stretching*/
         object-position: top;
+        object-fit: cover; /*stop image stretching*/
         border-radius: 50%;
         position: relative;
         border: solid 5px $base-color;
         transition: all 0.5s;
     }
+    
+    
 }
 
 /*PET ADOPTION PAGE*/
@@ -463,6 +465,7 @@ ul {
 
     img {
         object-fit: cover; /*to not stretch image*/
+        object-position: top;
         overflow: hidden;
         height: 100%;
         width: 100%;
