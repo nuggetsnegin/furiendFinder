@@ -85,7 +85,7 @@ h1 {
 
 
 h2 {
-    font-size: 5rem;
+    font-size: 4rem;
     font-family: $accent-font;
     margin: 0;
     color: $dark-color;
@@ -203,7 +203,7 @@ ul {
 .speechBubble {
     position: relative;
     background: $dark-color;
-    width: 50%;
+    width: 70%;
     margin: 0 auto;
     border-radius: 20px;
 
@@ -241,7 +241,7 @@ ul {
     li {
         flex-basis: 15%;
         flex-grow: 1;
-        max-width: 230px;
+        max-width: 150px;
     }
 
     button {
@@ -278,7 +278,7 @@ ul {
 
 .petAge {
     text-align: center;
-    padding-top: 30px;
+    padding-top: 20px;
 
     h2 {
         background-color: white;
