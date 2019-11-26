@@ -346,7 +346,7 @@ ul {
   background: transparent;
 }
 
-.type .typeButton:enabled:hover {
+.type .typeButton:enabled:hover img {
   /*using this so that when button is disabled it doesnt activate*/
   -webkit-animation: bounce 0.9s both;
           animation: bounce 0.9s both;

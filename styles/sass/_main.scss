@@ -158,7 +158,7 @@ ul {
         max-width: 350px;
         background: transparent;
 
-        &:enabled:hover{ /*using this so that when button is disabled it doesnt activate*/
+        &:enabled:hover img{ /*using this so that when button is disabled it doesnt activate*/
             animation: bounce 0.9s both;
         }
         

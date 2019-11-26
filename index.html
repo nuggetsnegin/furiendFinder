@@ -30,41 +30,52 @@
 
     <main>
 
+        <!-- Loading screen starts here -->
+
         <div class="loadingScreen">
             <div>
                 <img src="assets/walkingAnimation.png" alt="Animation of cat and dog walking for loading screen">
                 <p>Loading Results<span>.</span><span>.</span><span>.</span></p>
             </div>
-
         </div>
+        <!-- Loading screen ends here -->
 
         <div class="container">
-            <div class="petType">
+
+            <!-- Main section, selection of pet type starts here -->
+
+            <section class="petType">
                 <div class="userLocation">
-                    <label for="location" class="visuallyHidden"></label>
-                    <p>Find furiends in: </p> <input type="text" id="location" placeholder="Toronto, ON">
+                    <p>Find furiends in: </p>
+                    <label for="location" class="visuallyHidden">Enter your city and province. Example: Toronto, ON</label>
+                    <input type="text" id="location" placeholder="Toronto, ON">
                 </div>
                 <div class="speechBubble">
-                    <p>We're here to help you find the purfect friend to adopt in a 50 km radius! Simply input your city and
-                        province (or state) above and then pick one of us!</p>
+                    <p>We're here to help you find the purfect friend to adopt in a 50 km radius! Simply input your city and province (or state) above and then pick one of us!</p>
                 </div>
                 <ul class="type">
                     <li>
                         <button class="typeButton" value="dog">
                             <img src="./assets/dogMain.png" alt="illustration of a dog">
+                            <p>Dog</p>
                         </button>
-                        <p>Dog</p>
+                        
                     </li>
 
                     <li>
                         <button class="typeButton" value="cat">
                             <img src="./assets/catMain.png" alt="illustration of a cat">
+                            <p>Cat</p>
                         </button>
-                        <p>Cat</p>
+                        
                     </li>
                 </ul>
-            </div>
-            <div class="petAge">
+            </section>
+            <!-- Main section, selection of pet type ends here -->
+
+            <!-- Second section, selection of pet age starts here -->
+
+            <section class="petAge">
                 <h2 class="locationResults">Select the age of your future <span>furiend!</span></h2>
                 <ul class="age">
                     <li>
@@ -83,18 +94,21 @@
                         <button class="senior ageButton" value="senior"></button>
                     </li>
                 </ul>
+            </section>
+            <!-- Second section, selection of pet age ends here -->
 
+            <!-- Third section, selection of specific pet starts here -->
 
-
-            </div>
-
-            <div class="adoptionOptions">
+            <section class="adoptionOptions">
                 <h2>These are all your possible future <span>furiends</span>:</h2>
                 <ul class="adoptablePets"></ul>
-                <button class="backButtonToAge backButton"><i class="fas fa-angle-double-left"></i></button>
-            </div>
+                <button class="backButtonToAge backButton"><i class="fas fa-angle-double-left" aria-label="Go back to the pet age selection page"></i></button>
+            </section>
+            <!-- Third section, selection of specific pet ends here -->
 
-            <div class="petInformation">
+            <!-- Last section, selected pet information starts here -->
+
+            <section class="petInformation">
 
                 <h2>Hi there, my name is <span class="petName"></span>!</h2>
                 <div class="petImage">
@@ -111,15 +125,18 @@
 
                 <div class="adoptMe"></div>
 
-            </div>
+            </section>
+            <!-- Last section, selected pet information ends here -->
         </div>
 
+        <!-- Alert starts here -->
         <div class="alert">
             <h3>OOPS!</h3>
             <p>Please enter a valid city and province/state!</p>
             <button class="acceptAlert">Okay!</button>
             <img src="./assets/sadCatDog.png" alt="Illustration of a sad dog and cat">
         </div>
+        <!-- Alert ends here -->
 
     </main>
 
