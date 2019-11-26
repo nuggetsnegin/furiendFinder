@@ -164,6 +164,16 @@ furiendFinder.init = function () {
 
     /*We disabled the type buttons until the user has entered the location*/
     $(".typeButton").attr("disabled", "true");
+
+    // *Added blur event to check if the user entered something and enable the type buttons */
+
+    $("#location").on("blur", function () {
+        if ($(this).val() !== "") {
+            $(".typeButton").removeAttr("disabled");
+        } else {
+            $(".typeButton").attr("disabled", "true");
+        }
+    });
 }
 
 /**
