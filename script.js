@@ -154,7 +154,13 @@ furiendFinder.init = function () {
         $(".adoptionOptions").hide();
         $(".petType").fadeIn();
         $(".backButton").hide();
-    })
+    });
+
+    /* Initializing AOS*/
+    AOS.init();
+
+    /* Initializing the petSurprise animation */
+    furiendFinder.petSurprise();
 
     /*We disabled the type buttons until the user has entered the location*/
     $(".typeButton").attr("disabled", "true");
@@ -605,7 +611,4 @@ AOS.init({
  */
 $(document).ready(function () {
     furiendFinder.init();
-    AOS.init();
-    furiendFinder.petSurprise();
-
 })
